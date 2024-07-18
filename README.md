@@ -1,0 +1,2 @@
+# FedAvgAndLocalTraining
+这是一个联邦学习的项目-数据集在夸克和本地电脑上
