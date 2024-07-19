@@ -142,7 +142,7 @@ if __name__ == "__main__":
 
             dpathICCAD = os.path.abspath(model_saved_dir)+"/ICCAD_Model"
             model_names = os.listdir(dpathICCAD)
-            print("按照顺序读取和训练模型，一定要对准model_names",model_names)#一定要对准model_names ['CNN_16_16_32_32_1SorAid_250_2_iccad1.h5', 'CNN_16_16_32_32_250_250_2_asml1.h5']
+            print("按照顺序读取和训练模型，一定要对准model_names",model_names)#一定要对准model_names ['CNN_16_16_32_32_1SorAid_250_2_iccad1.h5', 'CNN_16_16_32_32_1SorAid_250_2_iccad1.h5']
             for name in model_names:
                 tmp = None
                 tmp = load_model(os.path.join(dpathICCAD ,name))
@@ -150,11 +150,12 @@ if __name__ == "__main__":
 
             dpathAsml = os.path.abspath(model_saved_dir)+"/Asml_Model"
             model_names = os.listdir(dpathAsml)
-            print("按照顺序读取和训练模型，一定要对准model_names",model_names)#一定要对准model_names ['CNN_16_16_32_32_1SorAid_250_2_iccad1.h5', 'CNN_16_16_32_32_250_250_2_asml1.h5']
+            print("按照顺序读取和训练模型，一定要对准model_names",model_names)#一定要对准model_names ['CNN_16_16_32_32_1SorAid_250_2_iccad1.h5', 'CNN_16_16_32_32_1SorAid_250_2_iccad1.h5']
             for name in model_names:
                 tmp = None
                 tmp = load_model(os.path.join(dpathAsml ,name))
                 parties.append(tmp)
+
 
         start_time2 = time.time()
         fedmd = FedMD(parties,

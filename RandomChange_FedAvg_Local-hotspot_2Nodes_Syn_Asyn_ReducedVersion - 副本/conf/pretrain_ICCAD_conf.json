@@ -1,6 +1,6 @@
 {
     "n_classes": 2,
-    "data_type": "MNIST",
+    "data_type": "ICCAD",
     "models": [
                {"model_type": "cnn_4ConvLayer_2fcLayer_model", "params": {"n1": 16, "n2": 16, "n3": 32,"n4": 32,"nFc1": 250, "dropout_rate": 0.3}},
                {"model_type": "cnn_4ConvLayer_3fcLayer_model", "params": {"n1": 16, "n2": 16, "n3": 32,"n4": 32,"nFc1": 250,"nFc2": 250, "dropout_rate": 0.3}}

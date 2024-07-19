@@ -12,10 +12,10 @@ from Neural_Networks import cnn_4ConvLayer_3fcLayer_model, cnn_4ConvLayer_2fcLay
 
 def parseArg():
     # 解析命令行参数的函数
-    parser = argparse.ArgumentParser(description='Train an array of Neural Networks on either MNIST or CIFAR')  # 创建 ArgumentParser 对象，并添加描述
+    parser = argparse.ArgumentParser(description='Train an array of Neural Networks on either ICCAD or CIFAR')  # 创建 ArgumentParser 对象，并添加描述
     parser.add_argument('-conf', metavar='conf_file', nargs=1,
                         help='the config file for training, \
-                        for training on MNIST, the default conf_file is ./conf/pretrain_MNIST.json, \
+                        for training on ICCAD, the default conf_file is ./conf/pretrain_MNIST.json, \
                         for training on CIFAR, the default conf_file is ./conf/pretrain_CIFAR.json.'
                        )  # 添加 -conf 参数，用于指定训练配置文件
 
@@ -103,7 +103,7 @@ if __name__ == "__main__":
 
     del conf_dict  # 删除配置字典
 
-    if dataset == "MNIST":
+    if dataset == "ICCAD":
         input_shape = (144,32)  # 设置输入形状
         # 存储公共数据集和iccad训练集 是原来的1/10 用来产生初始模型
         X_train_ICCAD = np.load(

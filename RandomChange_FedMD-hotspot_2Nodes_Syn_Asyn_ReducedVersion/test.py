@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     #dpath = os.path.dirname(os.path.abspath(self.db_store_name))
     
-    dpath = os.path.abspath("./MNIST")
+    dpath = os.path.abspath("./ICCAD")
     #make dir
     try:
         os.makedirs(dpath)

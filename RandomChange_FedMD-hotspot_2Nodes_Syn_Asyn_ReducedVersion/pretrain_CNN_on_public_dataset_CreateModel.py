@@ -7,7 +7,7 @@ import numpy as np
 from tensorflow.keras.callbacks import EarlyStopping
 
 from data_utils import load_MNIST_data # 从 data_utils 文件导入函数 load_MNIST_data
-from Neural_Networks import cnn_4ConvLayer_3fcLayer_model, cnn_4ConvLayer_2fcLayer_model # 从 Neural_Networks 文件导入函数 cnn_2layer_fc_model 和 cnn_4ConvLayer_2fcLayer_model
+from Neural_Networks import  cnn_4ConvLayer_2fcLayer_model # 从 Neural_Networks 文件导入函数 cnn_2layer_fc_model 和 cnn_4ConvLayer_2fcLayer_model
 
 
 def parseArg():
@@ -28,7 +28,7 @@ def parseArg():
     return conf_file  # 返回配置文件路径
 
 
-def train_models(models, X_train, y_train, X_test, y_test,
+def train_models(models, X_train, y_train, X_test_iccad, y_test_iccad, X_test_asml, y_test_asml,
                  is_show = False, save_dir = "./", save_names = None,
                  early_stopping = True,
                  min_delta = 0.001, patience = 3, batch_size = 128, epochs = 2, is_shuffle=True, verbose = 1,  # 设置训练参数，默认为提前停止，批次大小为128，训练轮数为2等
@@ -44,24 +44,41 @@ def train_models(models, X_train, y_train, X_test, y_test,
 
     for n, model in enumerate(models):  # 遍历所有模型
         print("Training model ", n)  # 打印正在训练的模型编号
-        if early_stopping:  # 如果启用了提前停止
-            model.fit(X_train, y_train,
-                      validation_data = (X_test, y_test),  # 验证数据集
-                      callbacks=[EarlyStopping(monitor='val_acc', min_delta=min_delta, patience=patience)],  # 设置提前停止的回调函数
-                      batch_size = batch_size, epochs = epochs, shuffle=is_shuffle, verbose = verbose  # 训练参数
-                     )
-        else:  # 如果没有启用提前停止
-            model.fit(X_train, y_train,
-                      validation_data = (X_test, y_test),  # 验证数据集
-                      batch_size = batch_size, epochs = epochs, shuffle=is_shuffle, verbose = verbose  # 训练参数
-                     )
+
+        #不训练模型，产生初始模型
+        # if early_stopping:  # 如果启用了提前停止
+        #     model.fit(X_train, y_train,
+        #               validation_data = (X_test, y_test),  # 验证数据集
+        #               callbacks=[EarlyStopping(monitor='val_acc', min_delta=min_delta, patience=patience)],  # 设置提前停止的回调函数
+        #               batch_size = batch_size, epochs = epochs, shuffle=is_shuffle, verbose = verbose  # 训练参数
+        #              )
+        # else:  # 如果没有启用提前停止
+        #     model.fit(X_train, y_train,
+        #               validation_data = (X_test, y_test),  # 验证数据集
+        #               batch_size = batch_size, epochs = epochs, shuffle=is_shuffle, verbose = verbose  # 训练参数
+        #              )
         # 记录最后一个 epoch 的验证集准确率
-        resulting_val_acc.append(model.history.history["val_accuracy"][-1])
-        # 记录训练和验证的准确率和损失
-        record_result.append({"train_acc": model.history.history["accuracy"],
-                              "val_acc": model.history.history["val_accuracy"],
-                              "train_loss": model.history.history["loss"],
-                              "val_loss": model.history.history["val_loss"]})
+        # resulting_val_acc.append(model.history.history["val_accuracy"][-1])
+        # # 记录训练和验证的准确率和损失
+        # record_result.append({"train_acc": model.history.history["accuracy"],
+        #                       "val_acc": model.history.history["val_accuracy"],
+        #                       "train_loss": model.history.history["loss"],
+        #                       "val_loss": model.history.history["val_loss"]})
+
+        # y_pred_iccad = model["model_classifier"].predict(X_test_iccad["X"], verbose=0).argmax(axis=1)
+        # print("model_{0}".format(n),"在iccad测试集的准确率为：",np.mean(y_test_iccad["y"] == y_pred_iccad))
+        # y_pred_asml = model["model_classifier"].predict(X_test_asml["X"], verbose=0).argmax(axis=1)
+        # print("model_{0}".format(n), "在asml测试集的准确率为：", np.mean(y_test_asml["y"] == y_pred_asml))
+
+        # 评估模型在测试集上的性能
+        loss, accuracy = model.evaluate(X_test_iccad, y_test_iccad, verbose=1)
+        print(f"Test ICCAD Loss: {loss}")
+        print(f"Test ICCAD Accuracy: {accuracy}")
+
+        # 评估模型在asml测试集上的性能
+        loss, accuracy = model.evaluate(X_test_asml, y_test_asml, verbose=1)
+        print(f"Test asml Loss: {loss}")
+        print(f"Test asml Accuracy: {accuracy}")
 
         save_dir_path = os.path.abspath(save_dir)  # 获取保存目录的绝对路径
         # 创建目录
@@ -76,6 +93,8 @@ def train_models(models, X_train, y_train, X_test, y_test,
             file_name = save_dir + "model_{0}".format(n) + ".h5"
         else:
             file_name = save_dir + save_names[n] + ".h5"
+        print("当前模型是：",file_name)
+        print("----------------------------------------------------------")
         model.save(file_name)  # 保存模型
 
     if is_show:  # 如果启用了显示
@@ -86,7 +105,7 @@ def train_models(models, X_train, y_train, X_test, y_test,
 
 
 models = {"cnn_4ConvLayer_2fcLayer_model": cnn_4ConvLayer_2fcLayer_model,    # 定义两种模型
-          "cnn_4ConvLayer_3fcLayer_model": cnn_4ConvLayer_3fcLayer_model}
+          "cnn_4ConvLayer_2fcLayer_model": cnn_4ConvLayer_2fcLayer_model}
 
 
 if __name__ == "__main__":
@@ -105,19 +124,21 @@ if __name__ == "__main__":
 
     if dataset == "ICCAD":
         input_shape = (144,32)  # 设置输入形状
-        # 存储公共数据集和iccad训练集 是原来的1/10 用来产生初始模型
-        X_train_ICCAD = np.load(
-            file="../OriginalHotspotSmallDataset_2Nodes/X_train_ICCAD.npy")
-        y_train_ICCAD = np.load(
-            file="../OriginalHotspotSmallDataset_2Nodes/y_train_ICCAD.npy")
 
-        # X_train_ConvConsistFedMD_iccad = X_train_ICCAD
-        # y_train_ConvConsistFedMD_iccad = y_train_ICCAD
-        # 存储iccad测试集
-        X_test_ConvConsistFedMD_iccad = np.load(
-            file="..\OriginalHotspotDataset\X_test_ConvConsistFedMD_iccad.npy")
-        y_test_ConvConsistFedMD_iccad = np.load(
-            file="..\OriginalHotspotDataset\y_test_ConvConsistFedMD_iccad.npy")
+
+        # 存储公共数据集和iccad训练集 是原来的1/10 用来产生初始模型
+        # X_train_ICCAD = np.load(
+        #     file="../OriginalHotspotSmallDataset_2Nodes/X_train_ICCAD.npy")
+        # y_train_ICCAD = np.load(
+        #     file="../OriginalHotspotSmallDataset_2Nodes/y_train_ICCAD.npy")
+        #
+        # # X_train_ConvConsistFedMD_iccad = X_train_ICCAD
+        # # y_train_ConvConsistFedMD_iccad = y_train_ICCAD
+        # # 存储iccad测试集
+        # X_test_ConvConsistFedMD_iccad = np.load(
+        #     file="..\OriginalHotspotDataset\X_test_ConvConsistFedMD_iccad.npy")
+        # y_test_ConvConsistFedMD_iccad = np.load(
+        #     file="..\OriginalHotspotDataset\y_test_ConvConsistFedMD_iccad.npy")
 
         # # 存储asml1训练集
         # X_train_ConvConsistFedMD_asml1 = np.load(
@@ -130,8 +151,15 @@ if __name__ == "__main__":
         # y_test_ConvConsistFedMD_asml1 = np.load(
         #     file="..\OriginalHotspotDataset\y_test_ConvConsistFedMD_asml1.npy")
 
-
-        X_train, y_train, X_test, y_test = X_train_ICCAD, y_train_ICCAD, X_test_ConvConsistFedMD_iccad, y_test_ConvConsistFedMD_iccad  # 设置训练和测试数据集
+        X_test_iccad=np.load(
+            file="..\OriginalHotspotDataset\X_test_ConvConsistFedMD_iccad.npy")
+        y_test_iccad=np.load(
+            file="..\OriginalHotspotDataset\y_test_ConvConsistFedMD_iccad.npy")
+        X_test_asml=np.load(
+            file="..\OriginalHotspotDataset\X_test_ConvConsistFedMD_asml1.npy")
+        y_test_asml = np.load(
+            file="..\OriginalHotspotDataset\y_test_ConvConsistFedMD_asml1.npy")
+        X_train, y_train= None,None # 设置训练和测试数据集
 
     else:
         print("Unknown dataset. Program stopped.")  # 如果数据集类型未知，打印错误信息并退出程序
@@ -151,7 +179,7 @@ if __name__ == "__main__":
         pretrain_models.append(tmp)  # 将模型添加到预训练模型列表中
 
     # 训练模型
-    record_result = train_models(pretrain_models, X_train, y_train, X_test, y_test,  # 传入预训练模型、训练数据和测试数据
+    record_result = train_models(pretrain_models, X_train, y_train, X_test_iccad, y_test_iccad, X_test_asml, y_test_asml,   # 传入预训练模型、训练数据和测试数据
                                  save_dir = save_dir, save_names = save_names, is_show=True,  # 传入保存目录和文件名
                                  early_stopping = early_stopping,  # 是否提前停止
                                  **train_params  # 传入训练参数

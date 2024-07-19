@@ -5,7 +5,7 @@ from tensorflow.keras.datasets import cifar10, cifar100, mnist
 import scipy.io as sio
 
 
-def load_MNIST_data(standarized = False, verbose = False):#加载 MNIST 数据
+def load_MNIST_data(standarized = False, verbose = False):#加载 ICCAD 数据
     (X_train, y_train), (X_test, y_test) = mnist.load_data()
     
     if standarized:   #标准化X
@@ -16,7 +16,7 @@ def load_MNIST_data(standarized = False, verbose = False):#加载 MNIST 数据
         X_test -= mean_image
     
     if verbose == True: #输出数据信息
-        print("MNIST dataset ... ")
+        print("ICCAD dataset ... ")
         print("X_train shape :", X_train.shape)
         print("X_test shape :", X_test.shape)
         print("y_train shape :", y_train.shape)
