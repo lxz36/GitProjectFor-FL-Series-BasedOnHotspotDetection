@@ -9,7 +9,7 @@
     "N_logits_matching_round": 1,
     "N_private_training_round": 1,
     "private_training_batchsize" : 12,
-    "asynchronousRates": [0.5, 1],
+    "asynchronousRates": [1,0.5],
     "logits_matching_batchsize": 24,
     "model_saved_dir": "./pretrained_from_ICCAD/",
     "result_save_dir": "./ResultOutput/"

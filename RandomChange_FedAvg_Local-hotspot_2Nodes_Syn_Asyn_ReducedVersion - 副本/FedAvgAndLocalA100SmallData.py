@@ -11,7 +11,8 @@ from tensorflow.keras.models import load_model
 
 from data_utils import load_MNIST_data, load_ConvConsistFedMD_data, generate_bal_private_data,\
 generate_partial_data
-from FedMD import FedMD
+
+from FedAvgAndLocal  import  FedAvgAndLocal
 import time
 
 def parseArg():
@@ -142,7 +143,7 @@ if __name__ == "__main__":
 
             dpathICCAD = os.path.abspath(model_saved_dir)+"/ICCAD_Model"
             model_names = os.listdir(dpathICCAD)
-            print("按照顺序读取和训练模型，一定要对准model_names",model_names)#一定要对准model_names ['CNN_16_16_32_32_1SorAid_250_2_iccad1.h5', 'CNN_16_16_32_32_250_250_2_asml1.h5']
+            print("按照顺序读取和训练模型，一定要对准model_names",model_names)#一定要对准model_names ['CNN_16_16_32_32_1SorAid_250_2_iccad1.h5', 'CNN_16_16_32_32_1SorAid_250_2_iccad1.h5']
             for name in model_names:
                 tmp = None
                 tmp = load_model(os.path.join(dpathICCAD ,name))
@@ -150,14 +151,15 @@ if __name__ == "__main__":
 
             dpathAsml = os.path.abspath(model_saved_dir)+"/Asml_Model"
             model_names = os.listdir(dpathAsml)
-            print("按照顺序读取和训练模型，一定要对准model_names",model_names)#一定要对准model_names ['CNN_16_16_32_32_1SorAid_250_2_iccad1.h5', 'CNN_16_16_32_32_250_250_2_asml1.h5']
+            print("按照顺序读取和训练模型，一定要对准model_names",model_names)#一定要对准model_names ['CNN_16_16_32_32_1SorAid_250_2_iccad1.h5', 'CNN_16_16_32_32_1SorAid_250_2_iccad1.h5']
             for name in model_names:
                 tmp = None
                 tmp = load_model(os.path.join(dpathAsml ,name))
                 parties.append(tmp)
 
         start_time2 = time.time()
-        fedmd = FedMD(parties,
+
+        fedmd = FedAvgAndLocal(parties,
                       public_dataset = public_dataset,
                       private_data = private_data,
                       total_private_data = total_private_data,
@@ -186,7 +188,7 @@ if __name__ == "__main__":
         collaboration_performance = fedmd.collaborative_training()
         # 要统计执行时间的代码
         end_time4 = time.time()
-        print(f"fedmd蒸馏执行时间，3轮45s左右: {end_time4 - start_time4:.6f} 秒")
+        print(f"fedAvg执行时间，3轮45s左右: {end_time4 - start_time4:.6f} 秒")
 
 
         if result_save_dir is not None:
