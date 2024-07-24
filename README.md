@@ -1,2 +1,6 @@
 #GitProjectFor-FL-Series-BasedOnHotspotDetection
 这是一个联邦学习的项目-包含fedMDConv-fedAvg-Local，缩小10倍版数据集github这里，源数据在夸克和本地电脑上
+
+2、RandomChange_** 系列用的是缩小10倍版数据集和缩小10倍版batch_size，可在本地运行，其他系列比如TraditionalFedMD-hotspot_10Nodes_Syn_Asyn_newest_2024-12-31 用的是大数据集，与服务器上的代码对齐
+
+
