@@ -32,7 +32,7 @@ def parseArg():
 
 if __name__ == "__main__":
     conf_file =  parseArg()
-    with open(conf_file, "r") as f:
+    with open(conf_file, "r", encoding='utf-8') as f:
         conf_dict = eval(f.read())
 
 
@@ -51,6 +51,7 @@ if __name__ == "__main__":
         
         result_save_dir = conf_dict["result_save_dir"]# {str} './ResultOutput/'
 
+        print("系统配置信息为：",conf_dict["configuration_description"])
     
     del conf_dict, conf_file
 

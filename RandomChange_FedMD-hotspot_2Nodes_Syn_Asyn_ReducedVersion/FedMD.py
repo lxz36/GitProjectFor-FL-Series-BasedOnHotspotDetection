@@ -39,7 +39,7 @@ class FedMD():
         self.private_training_batchsize = private_training_batchsize
 
         self.collaborative_parties = []  # 收集了10个训练好的模型和权重，以及这10个模型去掉顶层的模型
-        self.init_result = []  # 目前不知道是什么
+        self.init_result = []  # 初始化模型得精度
 
         print("start model initialization: ")
         for i in range(self.N_parties):  # 10个模型的初始化
@@ -51,17 +51,18 @@ class FedMD():
                                  loss="sparse_categorical_crossentropy",
                                  metrics=["accuracy"])
 
-            print("start full stack training ... ")
+            print("无预训练start full stack training ... ")
 
-            model_A_twin.fit(private_data[i]["X"], private_data[i]["y"],
-                             batch_size=32, epochs=25, shuffle=True, verbose=0,
-                             validation_data=(private_test_data["X"], private_test_data["y"]),
-                             # 1、源代码validation_data = [private_test_data["X"], private_test_data["y"]],
-                             callbacks=[EarlyStopping(monitor='val_accuracy', min_delta=0.001, patience=5)]
-                             # 6、val_acc更改为val_accuracy
-                             )
+            #取消预训练，加速训练，同时所有模型都有同一个起点精度
+            # model_A_twin.fit(private_data[i]["X"], private_data[i]["y"],
+            #                  batch_size=32, epochs=25, shuffle=True, verbose=0,
+            #                  validation_data=(private_test_data["X"], private_test_data["y"]),
+            #                  # 1、源代码validation_data = [private_test_data["X"], private_test_data["y"]],
+            #                  callbacks=[EarlyStopping(monitor='val_accuracy', min_delta=0.001, patience=5)]
+            #                  # 6、val_acc更改为val_accuracy
+            #                  )
 
-            print("full stack training done")
+            print("无预训练full stack training done")
 
             model_A = remove_last_layer(model_A_twin, loss="mean_absolute_error")  # model_A是model_A_twin去掉softmax 激活的模型
 
@@ -69,11 +70,11 @@ class FedMD():
                                                "model_classifier": model_A_twin,
                                                "model_weights": model_A_twin.get_weights()})
             # 3、修改val_acc和acc相关
-            self.init_result.append({"val_acc": model_A_twin.history.history['val_accuracy'],
-                                     "train_acc": model_A_twin.history.history['accuracy'],
-                                     "val_loss": model_A_twin.history.history['val_loss'],
-                                     "train_loss": model_A_twin.history.history['loss'],
-                                     })
+            # self.init_result.append({"val_acc": model_A_twin.history.history['val_accuracy'],
+            #                          "train_acc": model_A_twin.history.history['accuracy'],
+            #                          "val_loss": model_A_twin.history.history['val_loss'],
+            #                          "train_loss": model_A_twin.history.history['loss'],
+            #                          })
 
             # print()
             del model_A, model_A_twin
@@ -170,9 +171,25 @@ class FedMD():
             # 初始化变量，用于存储累加后的第一层卷积层参数
             conv1_weights_sum = None
             conv1_bias_sum = None
-            # self.asynchronousRate=0.5 #异步率50%
+
+            # self.asynchronousRate=0.6 #异步率60%
             asynchronousNoteNumber = int(self.N_parties * self.asynchronousRate)  # 异步节点数量
-            index_random = random.sample(range(0, self.N_parties), asynchronousNoteNumber) #取值范围为（0，self.N_parties-1）
+            # 确保 self.N_parties 是偶数,两类节点异步选取
+            assert self.N_parties % 2 == 0, "N_parties must be an even number."
+            # 每一半的数量
+            half = self.N_parties // 2
+            half_asynchronousNoteNumber = asynchronousNoteNumber // 2
+            # 前一半随机取值
+            first_half_indexes = random.sample(range(0, half), half_asynchronousNoteNumber)
+            # 后一半随机取值
+            second_half_indexes = random.sample(range(half, self.N_parties), half_asynchronousNoteNumber)
+            # 合并结果
+            index_random = first_half_indexes + second_half_indexes
+            #特殊情况，在总数量中的异步
+            if len(index_random) == 0:
+                index_random = random.sample(range(0, self.N_parties), asynchronousNoteNumber) #取值范围为（0，self.N_parties-1）
+            print("异步率为",self.asynchronousRate,"时，第 ", r,"轮选取的没模型是",index_random)
+
             # 将蒸馏 和 卷积层聚合合在一起
             for index, d in enumerate(self.collaborative_parties):
                 # for d in self.collaborative_parties:
