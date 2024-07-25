@@ -1,360 +1,313 @@
-#fedprox的程序，已经运行成功
-import sys
-import os
-import random
 import time
+
 import numpy as np
-from tqdm import trange
-import configparser as cp
-import copy
-import argparse
+from tensorflow.keras.models import clone_model, load_model
+from tensorflow.keras.callbacks import EarlyStopping
+import tensorflow as tf
+import random
+from data_utils import generate_alignment_data
+from Neural_Networks import remove_last_layer
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.losses import SparseCategoricalCrossentropy
 
 
-if 'PYTHONPATH' in os.environ:
-    # FIXME: unset this to make torchvision work in our server
-    del os.environ['PYTHONPATH']
+class FedProx():
 
-if 'OMP_DISPLAY_ENV' in os.environ:
-    os.environ['OMP_DISPLAY_ENV'] = 'FALSE'
-
-
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import WeightedRandomSampler
-from torchvision import transforms
-
-from model_pytorch import Model
-from data_pytorch import alloc_benchmark
-from tools import *
-
-#2/dict写入json
-import json
+    def l2_fedprox(model, server_model):
+        """计算FedProx的正则项"""
+        fedprox_reg = 0.0
+        for w, w_t in zip(model.trainable_weights, server_model.trainable_weights):
+            fedprox_reg += tf.reduce_sum(tf.square(w - w_t))
+        return fedprox_reg
 
 
+    def Get_Average(self, list):
+        sum = 0
+        for item in list:
+            sum += item
+        return sum / len(list)
 
-arg_parser = argparse.ArgumentParser()
-arg_parser.add_argument("--n_iccad2012", type=int, default=2)  #1、初始default=0  设置为2加快训练
-arg_parser.add_argument("--n_asml1", type=int, default=2)       #2、初始default=0
-arg_parser.add_argument("--sel_ratio", type=float, default=1.)  #客户端选择率
-arg_parser.add_argument("--model_path", type=str,
-                        default="./models/model")
-arg_parser.add_argument("--benchmark_path", type=str,
-                        default="./benchmarks")
+    # parties, 里面存的模型。N_alignment,=5000需要对齐的公共数据集数量。N_rounds, =13总的循环轮数。N_logits_matching_round=1，每一轮后都进行逻辑匹配。N_private_training_round=10，私有数据训练10轮。
+    def __init__(self, parties, public_dataset,
+                 private_data, total_private_data,
+                 private_test_data, private_test_data_asml1, N_alignment,
+                 N_rounds,
+                 N_logits_matching_round, logits_matching_batchsize,
+                 #默认使用同步策略
+                 N_private_training_round, private_training_batchsize, asynchronousRate=1
+                 ,fedprox_mu=0.01,learning_rate_Private=1e-3):
 
-args = arg_parser.parse_args()
+        self.N_parties = len(parties)
+        self.public_dataset = public_dataset
+        self.private_data = private_data
+        self.private_test_data = private_test_data
+        self.private_test_data_asml1 = private_test_data_asml1
+        self.N_alignment = N_alignment
 
-print('#clients of iccad2012:', args.n_iccad2012)
-print('#clients of asml1:', args.n_asml1)
-print('select ratio:', args.sel_ratio)
+        self.N_rounds = N_rounds
+        self.N_logits_matching_round = N_logits_matching_round
+        self.logits_matching_batchsize = logits_matching_batchsize
+        self.N_private_training_round = N_private_training_round
+        self.private_training_batchsize = private_training_batchsize
 
+        self.collaborative_parties = []  # 收集了10个训练好的模型和权重，以及这10个模型去掉顶层的模型
+        self.init_result = []  # 目前不知道是什么
 
-np.random.seed(42)
+        self.asynchronousRate = asynchronousRate
+        self.fedprox_mu=fedprox_mu  #fedProx的关键参数
+        self.learning_rate_Private=learning_rate_Private
 
+        self.server_model=None #聚合的中心模型
 
-'''
-Initialize Path and Global Params
-'''
-clients_num_per_ds = {
-    'iccad2012': args.n_iccad2012,
-    'asml1':     args.n_asml1,
-    'asml2':     0,
-    'asml3':     0,
-    'asml4':     0,
-}
-clients_num = sum(clients_num_per_ds.values()) # iccad-2012 & industry1
-print('Total num clients:', clients_num)
-ds_keys = sorted(list(clients_num_per_ds.keys()))
+        print("start model initialization: ")
+        for i in range(self.N_parties):  # 10个模型的初始化
+            print("model ", i)
+            model_A_twin = None
+            model_A_twin = clone_model(parties[i])
+            model_A_twin.set_weights(parties[i].get_weights())
+            model_A_twin.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3),
+                                 loss="sparse_categorical_crossentropy",
+                                 metrics=["accuracy"])
 
-infile = cp.ConfigParser()
-infile.read('iccad_config.ini')
-# read .ini file
-client_train_benchmark_path = args.benchmark_path  # benchmark dir for training
-model_path = args.model_path
-server_model_path = os.path.join(model_path, 'server')
+            print("start full stack training ... ")
 
-# prepare server model path
-os.makedirs(server_model_path, exist_ok=True)
+            model_A_twin.fit(private_data[i]["X"], private_data[i]["y"],
+                             batch_size=32, epochs=25, shuffle=True, verbose=0,
+                             validation_data=(private_test_data["X"], private_test_data["y"]),
+                             # 1、源代码validation_data = [private_test_data["X"], private_test_data["y"]],
+                             callbacks=[EarlyStopping(monitor='val_accuracy', min_delta=0.001, patience=5)]
+                             # 6、val_acc更改为val_accuracy
+                             )
 
-# prepare client paths
-client_model_paths = [
-    os.path.join(model_path, '_'.join(['client', ds_key, str(i)]))
-    for ds_key in ds_keys
-    for i in range(clients_num_per_ds[ds_key])]
-for _path in client_model_paths:
-    os.makedirs(_path, exist_ok=True)
-print('client model path: {}'.format(client_model_paths))
+            print("full stack training done")
 
-# prepare client benchmark paths
-client_train_paths = {}
-for ds_key in ds_keys:
-    client_train_paths[ds_key] = os.path.join(
-        client_train_benchmark_path, ds_key + '_train')
-print('client benchmark path:', client_train_paths)
+            model_A = remove_last_layer(model_A_twin, loss="mean_absolute_error")  # model_A是model_A_twin去掉softmax 激活的模型
 
-# prepare testing set paths
-test_data_ini_items = {
-    'iccad2012': 'test_path_2012',
-    'asml1':     'test_path_asml1',
-    'asml2':     'test_path_asml2',
-    'asml3':     'test_path_asml3',
-    'asml4':     'test_path_asml4'}
-test_data_keys = sorted([
-    ds_key for ds_key in ds_keys if clients_num_per_ds[ds_key] > 0])
-test_data_paths = {
-    ds_key: infile.get('dir', test_data_ini_items[ds_key])
-    for ds_key in test_data_keys}
+            self.collaborative_parties.append({"model_logits": model_A,
+                                               "model_classifier": model_A_twin,
+                                               "model_weights": model_A_twin.get_weights()})
+            # 3、修改val_acc和acc相关
+            self.init_result.append({"val_acc": model_A_twin.history.history['val_accuracy'],
+                                     "train_acc": model_A_twin.history.history['accuracy'],
+                                     "val_loss": model_A_twin.history.history['val_loss'],
+                                     "train_loss": model_A_twin.history.history['loss'],
+                                     })
 
+            # print()
+            del model_A, model_A_twin
+        # END FOR LOOP
 
-'''
-Hyperparameter settings
-'''
-max_itr_ds = {
-    'iccad2012': 800,
-    'asml1': 800}
-weight_decay_ds = {
-    'iccad2012': 1e-5,
-    'asml1': 1e-5}
-fedprox_mu_ds = {
-    'iccad2012': 1e-3,
-    'asml1': 1e-3}
-
-max_round = 50  # max training round in server, used to be 50  总的训练轮次t
-max_itr = sum([[max_itr_ds[_ds]] * clients_num_per_ds[_ds]
-               for _ds in ds_keys if _ds in max_itr_ds], [])
-train_batchsize = 64  # training batch size in clients
-test_batchsize = 256  # testing batch size
-lr_init = 1e-3
-bias_step = 6400  # step interval to adjust bias
-select_ratio = args.sel_ratio  # ratio of selected clients in each round
-# weight_decay = 5e-4 # L2 regularization strength
-weight_decay = sum([[weight_decay_ds[_ds]] * clients_num_per_ds[_ds]
-                    for _ds in ds_keys if _ds in weight_decay_ds], [])
-fedprox_mu = sum([[fedprox_mu_ds[_ds]] * clients_num_per_ds[_ds]
-                  for _ds in ds_keys if _ds in fedprox_mu_ds], [])
-
-# other settings
-display_step = 50  # display step
-n_features = 32
+        # print("calculate the theoretical upper bounds for participants: ")
+        #
+        self.upper_bounds = []
+        self.pooled_train_result = []
 
 
-'''
-Define dataset preprocessing pipeline
-'''
-# load mean & std for normalization
-normalization_dataset = {
-    'iccad2012': (np.load('npy/iccad2012-mean.npy'),
-                  np.load('npy/iccad2012-std.npy')),
-    'asml1': (np.load('npy/asml1-mean.npy'),
-              np.load('npy/asml1-std.npy')),
-    'asml2': (np.load('npy/asml2-mean.npy'),
-              np.load('npy/asml2-std.npy')),
-    'asml3': (np.load('npy/asml3-mean.npy'),
-              np.load('npy/asml3-std.npy')),
-    'asml4': (np.load('npy/asml4-mean.npy'),
-              np.load('npy/asml4-std.npy'))}
+    def collaborative_training(self):  # 开始联邦学习，异步从这里改造
+        acc_iccad_allRounds = []  # 收集iccad所有轮次的平均精度
+        acc_industry_allRounds = []  # 收集industry所有轮次的平均精度
 
-# train data pipeline
-train_data = list()
-for ds_key in ds_keys:
-    train_data += alloc_benchmark(
-        benchmark_dir=client_train_paths[ds_key],
-        clients_num=clients_num_per_ds[ds_key],
-        transform='train',
-        normalize=normalization_dataset[ds_key])
-train_loader = [
-    torch.utils.data.DataLoader(
-        train_data[i],
-        batch_size=train_batchsize,
-        shuffle=True,
-        # sampler=train_sampler[i],
-        num_workers=0)#3、源代码num_workers=16
-    for i in range(clients_num)]
+        # start collaborating training
+        collaboration_performance = {i: [] for i in range(self.N_parties)}
+        r = 0
+        while True:
+            # At beginning of each round, generate new alignment dataset
+            alignment_data = generate_alignment_data(self.public_dataset["X"],
+                                                     self.public_dataset["y"],
+                                                     self.N_alignment)
 
-# test data pipeline
-test_data = []
-for _key in test_data_keys:
-    _path = test_data_paths[_key]
-    test_data += alloc_benchmark(
-        benchmark_dir=_path,
-        clients_num=1,
-        transform='test',
-        normalize=normalization_dataset[_key])
-test_loader = [
-    torch.utils.data.DataLoader(
-        _data,
-        batch_size=test_batchsize,
-        shuffle=False,
-        num_workers=0)#4、源代码num_workers=16
-    for _data in test_data]
+            print("这是第",r,"轮,round： ", r)
+            start_timeRound = time.time()
+
+            r += 1
+            if r > self.N_rounds:
+                break
 
 
-#从这里开始噪声的选择：
-noiseVariances=[0.1];  #几个噪声的方差值
+            # lxztodo start
+            print("update logits ... ")
+            # update logits
 
-#包含所有的实验指标结果
-ResultOfICCAD=dict() #ICCAD最终的实验结果，最外层是不同的噪声方差，最里层的这5个数据分别是Avg test loss， acc,tpr,fpr, FA，有50轮的数据
-ResultOfAsml=dict() #Asml最终的实验结果，最外层是不同的噪声方差，最里层的这5个数据分别是Avg test loss， acc,tpr,fpr, FA，有50轮的数据
+            # self.asynchronousRate=0.5 #异步率默认50%
+            asynchronousNoteNumber = int(self.N_parties * self.asynchronousRate)  # 异步节点数量
+            index_random = random.sample(range(0, self.N_parties), asynchronousNoteNumber) #取值范围为（0，self.N_parties-1）
+            # 将模型聚合合在一起
+            weights_sum = None
+            for index, d in enumerate(self.collaborative_parties):
+                # for d in self.collaborative_parties:
+                if index in index_random:
 
-accResultOfICCAD=dict() #ICCAD最终的实验结果，把精度单独提取出来
-accResultOfAsml=dict() #Asml最终的实验结果，把精度单独提取出来
+                    # 提取模型的权重
+                    weights = d["model_weights"]
 
-
-for noiseVariance in noiseVariances:
-    print("此时选择的噪声方差为：",noiseVariance,"-----------------------")
-
-    '''
-    Get clinets & server models ready
-    '''
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    print('Using device:', device)
-
-    server_model = Model(n_features=n_features).to(device)
-
-    client_models = [copy.deepcopy(server_model).to(device) for i in range(clients_num)]
-    client_states = [
-        {'model': client_models[i].state_dict(),
-         'n_steps': 0,
-        #  'n_samples': len(train_data[i])}
-         'n_samples': 1}
-        for i in range(clients_num)]
-    latest_ckpt = [os.path.join(_path, 'client_state-step{}.h5') for _path in client_model_paths]
-    client_step = np.zeros(clients_num, dtype=np.int32)
+                    # 累加所有层的权重 和偏置参数
+                    if weights_sum is None:
+                        weights_sum = [w.copy() for w in weights]
+                    else:
+                        for i in range(len(weights)):
+                            weights_sum[i] += weights[i]
 
 
-    '''
-    #Start the training
-    '''
 
-    criterion = soft_cross_entropy
-
-
-    client_optimizers = [
-        optim.Adam(client_models[i].parameters(),
-                   lr=lr_init,
-                   betas=(.9, .999))
-        for i in range(clients_num)
-    ]
-    client_lr_schedulers = [
-        optim.lr_scheduler.MultiStepLR(opt,
-                                       milestones=[10, 20, 30, 40],
-                                       gamma=0.5,
-                                       verbose=False)
-        for opt in client_optimizers]
+            # 将累加后的卷积层权重除以模型的数量，进行平均
+            weights_average = [w / asynchronousNoteNumber for w in weights_sum]
+            self.server_model = weights_average #记录中心聚合模型
 
 
-    server_conv1_norms = []
-    for server_round in range(max_round):
-        print('\nserver round {}/{}'.format(server_round, max_round))
-
-        selected_client_num = max(int(clients_num * select_ratio), 1)
-        client_selected = random.sample(range(clients_num), selected_client_num)
-        client_selected = np.sort(client_selected)
-
-        print('\nclients selected: {}'.format(client_selected))
-        for client_idx in client_selected:  # 对每一个client开启一个对话
-            client_model_name = client_model_paths[client_idx].split('/')[-1]
-            print('\nTrain client {}: {}'.format(client_idx, client_model_name))
-            client_path = latest_ckpt[client_idx]
-
-            client_train_loader = train_loader[client_idx]
-
-            client_model = client_models[client_idx]
-            client_model.train()
-            client_opt = client_optimizers[client_idx]
-            print('Restoring client from server.')
-            restore_from_server(client_model, server_model)
-
-            '''
-            Train client for one round (when reaches max iteration steps)
-            '''
-            train_fedprox(model=client_model,
-                server_model=server_model,
-                data_loader=client_train_loader,
-                optimizer=client_opt,
-                criterion=criterion,
-                batch_size=train_batchsize,
-                l2_reg_factor=weight_decay[client_idx],
-                fedprox_mu=fedprox_mu[client_idx],
-                max_itr=max_itr[client_idx],
-                prev_steps=client_step[client_idx],
-                data_size=len(train_data[client_idx]),
-                display_step=display_step,
-                device=device,
-                untrained_modules=[])
-            # this client's training is over
-            client_step[client_idx] += max_itr[client_idx]
-            # save client
-            client_states[client_idx] = {
-                'model': client_model.state_dict(),
-                'n_steps': client_step[client_idx],
-                'n_samples': len(train_data[client_idx])
-            }
-            torch.save(client_states[client_idx], client_path.format(client_step[client_idx]))
-            print('Client model saved at', client_path.format(client_step[client_idx]))
-        # all clients in this round over
-        for _lr_sch in client_lr_schedulers:
-            _lr_sch.step()
-        print('\nStart Fed Avg...')
-        fed_avgWithNoise(client_states, server_model,[],True,0,noiseVariance*(0.1)*pow(0.1,server_round//10)) #关键语句
-        torch.save(server_model.state_dict(),
-                   os.path.join(server_model_path, 'server-round{0:02d}.pt'.format(server_round)))
-        # show derived feature importance
-        server_conv1_norms.append(get_group_norm(server_model.conv1_1[0]))
-        np.save('group_norm.npy', np.stack(server_conv1_norms))
-        '''
-        Test server
-        '''
-        for i, test_data_key in enumerate(test_data_keys):
-            print("\nTesting server on", test_data_key)
-            outSum=test(model=server_model,
-                 data_loader=test_loader[i],
-                 criterion=criterion,
-                 batch_size=test_batchsize,
-                 display_step=display_step,
-                 device=device)
-
-            if(test_data_key=="iccad2012"):
-                if("噪声方差为%f时:"%(noiseVariance) in ResultOfICCAD):
-                    ResultOfICCAD["噪声方差为%f时:"%(noiseVariance)].append(outSum)
-                    accResultOfICCAD["噪声方差为%f时的精度acc变化:" % (noiseVariance)].append(outSum[1])
-                else:
-                    ResultOfICCAD["噪声方差为%f时:" % (noiseVariance)]=[]
-                    ResultOfICCAD["噪声方差为%f时:" % (noiseVariance)].append(outSum)
-
-                    accResultOfICCAD["噪声方差为%f时的精度acc变化:" % (noiseVariance)] = []
-                    accResultOfICCAD["噪声方差为%f时的精度acc变化:" % (noiseVariance)].append(outSum[1])
+            # 将聚合后的参数赋值给每一个模型, prox不追求模型强一致性
+            # for d in self.collaborative_parties:
+            #     d["model_weights"] = weights_average
+            #     d["model_logits"].set_weights(d["model_weights"])
+            #     d["model_classifier"].set_weights(d["model_weights"])
 
 
-            if(test_data_key=="asml1"):
-                if("噪声方差为%f时:"%(noiseVariance) in ResultOfAsml):
-                    ResultOfAsml["噪声方差为%f时:"%(noiseVariance)].append(outSum)
-                    accResultOfAsml["噪声方差为%f时的精度acc变化:" % (noiseVariance)].append(outSum[1])
-                else:
-                    ResultOfAsml["噪声方差为%f时:" % (noiseVariance)]=[]
-                    ResultOfAsml["噪声方差为%f时:" % (noiseVariance)].append(outSum)
+            # test performance 测试联邦学习模型性能，在两个测试集上面测试
+            print("test performance ... ")
+            TPR_sum, FPR_sum, acc_sum = [], [], []
+            for index, d in enumerate(self.collaborative_parties):
+                # 两个数据集一半一半测试，这里直接测的所有模型精度
+                if index < self.N_parties // 2:
+                    y_pred = d["model_classifier"].predict(self.private_test_data["X"], verbose=0).argmax(axis=1)
+                    collaboration_performance[index].append(np.mean(self.private_test_data["y"] == y_pred))
+                    TPR = sum(self.private_test_data["y"] + y_pred == 2) / sum(self.private_test_data["y"])
+                    FPR = sum(self.private_test_data["y"] - y_pred == -1) / (
+                                len(self.private_test_data["y"]) - sum(self.private_test_data["y"]))
+                    print("模型", index, "的acc性能：", collaboration_performance[index][-1])
+                    acc_sum.append(collaboration_performance[index][-1])
+                    print("模型", index, "的TPR性能：", TPR)
+                    TPR_sum.append(TPR)
+                    print("模型", index, "的FPR性能：", FPR)
+                    FPR_sum.append(FPR)
+                    del y_pred
+                if index >= self.N_parties // 2:
+                    y_pred = d["model_classifier"].predict(self.private_test_data_asml1["X"], verbose=0).argmax(axis=1)
+                    collaboration_performance[index].append(np.mean(self.private_test_data_asml1["y"] == y_pred))
+                    TPR = sum(self.private_test_data_asml1["y"] + y_pred == 2) / sum(self.private_test_data_asml1["y"])
+                    FPR = sum(self.private_test_data_asml1["y"] - y_pred == -1) / (
+                                len(self.private_test_data_asml1["y"]) - sum(self.private_test_data_asml1["y"]))
+                    print("模型", index, "的acc性能：", collaboration_performance[index][-1])
+                    acc_sum.append(collaboration_performance[index][-1])
+                    print("模型", index, "的TPR性能：", TPR)
+                    TPR_sum.append(TPR)
+                    print("模型", index, "的FPR性能：", FPR)
+                    FPR_sum.append(FPR)
+                    del y_pred
+            print("模型总的acc性能：", acc_sum)
+            print("模型总的TPR性能：", TPR_sum)
+            print("模型总的FPR性能：", FPR_sum)
+            # print("acc_sum[0:self.N_parties//2]：", acc_sum[0:self.N_parties//2])
+            acc_iccad_allRounds.append(self.Get_Average(acc_sum[0:self.N_parties // 2]))
+            acc_industry_allRounds.append(self.Get_Average(acc_sum[self.N_parties // 2:]))
+            print("异步率为：",self.asynchronousRate,"时","第", r, '轮的测试结果：')
+            # print(acc_sum[0:self.N_parties//2])
+            # print(acc_sum[self.N_parties//2:])
+            print('acc_iccad_allRounds:', acc_iccad_allRounds)
+            print('acc_industry_allRounds', acc_industry_allRounds)
 
-                    accResultOfAsml["噪声方差为%f时的精度acc变化:" % (noiseVariance)] = []
-                    accResultOfAsml["噪声方差为%f时的精度acc变化:" % (noiseVariance)].append(outSum[1])
+            # lxztodo end
 
-print("最终的噪声50轮实验结果：-------------------------")
-print("ICCAD的实验结果：-------------------------")
-print(ResultOfICCAD)
-print("单独提取ICCAD的精度acc结果：-------------------------")
-print(accResultOfICCAD)
+            print("updates models ...")
+            for index, d in enumerate(self.collaborative_parties):
+                if index in index_random:
+                    #这里每个节点用自己的私有数据去做训练
+                    print("model {0} starting training with private data... ".format(index))
+                    weights_to_use = None #定义
+                    weights_to_use = d["model_weights"]    #d["model_weights"]是模型训练后的具体数值，模型在推理时使用这些权重进行计算，具体权重值
+                    d["model_classifier"].set_weights(weights_to_use)  #模型结构 (model_classifier) 定义了模型的架构，即模型的网络拓扑和层次结构。包含结构和权重
+                    # 添加FedProx正则项
+                    # 初始化优化器Adam和损失函数CategoricalCrossentropy
+                    optimizer = Adam(learning_rate=self.learning_rate_Private) #learning_rate默认为 e-3
+                    # criterion = tf.keras.losses.CategoricalCrossentropy()
+                    criterion = SparseCategoricalCrossentropy(from_logits=False)
+                    # 开始本地模型的训练，进行指定轮数的私有训练
+                    for epoch in range(self.N_private_training_round):
+                        # 对于每个批次的数据，进行训练
+                        for batch in range(0, len(self.private_data[index]["X"]), self.private_training_batchsize):
+                            # 获取当前批次的输入数据X_batch和标签y_batch
+                            X_batch = self.private_data[index]["X"][batch:batch + self.private_training_batchsize]
+                            y_batch = self.private_data[index]["y"][batch:batch + self.private_training_batchsize]
 
-print("Asml的实验结果：-------------------------")
-print(ResultOfAsml)
-print("单独提取Asml的精度acc结果：-------------------------")
-print(accResultOfAsml)
+                            # 使用tf.GradientTape来跟踪计算梯度
+                            with tf.GradientTape() as tape:
+                                # 前向传播，通过模型d["model_classifier"]获取输出
+                                outputs = d["model_classifier"](X_batch, training=True)
 
-dictObj_iccadAndIndustry = {
-'ICCAD的实验结果':ResultOfICCAD,
-'单独提取ICCAD的精度acc结果':accResultOfICCAD,
-'Asml的实验结果':ResultOfAsml,
-'单独提取Asml的精度acc结果':accResultOfAsml,
+                                # 计算分类损失，即实际标签与预测值之间的交叉熵损失
+                                loss = criterion(y_batch, outputs)
 
-}
-fileObject = open('第三个内容trainval_global_fedprox_VariableNoise.json', 'w', encoding="utf8")
-json.dump(dictObj_iccadAndIndustry, fileObject, ensure_ascii=False)
-fileObject.close()
+                                # 计算FedProx正则项，该正则项是当前模型与服务器模型之间的L2距离
+                                fedprox_reg = self.l2_fedprox(d["model_classifier"], self.server_model)
+
+                                # 总损失为分类损失加上FedProx正则项乘以正则化系数self.fedprox_mu
+                                total_loss = loss + self.fedprox_mu * fedprox_reg
+
+                            # 计算损失函数对模型可训练参数的梯度
+                            grads = tape.gradient(total_loss, d["model_classifier"].trainable_weights)
+
+                            # 使用优化器更新模型的可训练参数
+                            optimizer.apply_gradients(zip(grads, d["model_classifier"].trainable_weights))
+
+                        # 保存训练后的模型权重
+                        d["model_weights"] = d["model_classifier"].get_weights()
+                        print("model {0} done private training. \n".format(index))
+
+
+                # END FOR LOOP
+                end_timeRound = time.time()
+                # 统计每一轮训练时间
+                train_timeRound = end_timeRound-start_timeRound
+                print( f"第{r}轮的训练时间是: {end_timeRound-start_timeRound:.6f} 秒")
+
+            if r==1 and self.asynchronousRate==1:
+                print("在同步训练的情况下，第一轮每个节点的私有训练结果即为LocalTraining的训练结果：")
+                print("test performance ... ")
+                TPRLocal_sum, FPRLocal_sum, accLocal_sum = [], [], []
+                accLocal_iccad_first_round = []  # 收集iccad第一轮次本地训练的平均精度
+                accLocal_industry_first_round = []  # 收集industry第一轮次本地训练的平均精度
+                for index, d in enumerate(self.collaborative_parties):
+                    # 两个数据集一半一半测试，这里直接测的所有模型精度
+                    if index < self.N_parties // 2:
+                        y_pred = d["model_classifier"].predict(self.private_test_data["X"], verbose=0).argmax(axis=1)
+                        collaboration_performance[index].append(np.mean(self.private_test_data["y"] == y_pred))
+                        TPRLocal = sum(self.private_test_data["y"] + y_pred == 2) / sum(self.private_test_data["y"])
+                        FPRLocal = sum(self.private_test_data["y"] - y_pred == -1) / (
+                                len(self.private_test_data["y"]) - sum(self.private_test_data["y"]))
+                        print("模型", index, "的accLocal性能：", collaboration_performance[index][-1])
+                        accLocal_sum.append(collaboration_performance[index][-1])
+                        print("模型", index, "的TPRLocal性能：", TPRLocal)
+                        TPRLocal_sum.append(TPRLocal)
+                        print("模型", index, "的FPRLocal性能：", FPRLocal)
+                        FPRLocal_sum.append(FPRLocal)
+                        del y_pred
+                    if index >= self.N_parties // 2:
+                        y_pred = d["model_classifier"].predict(self.private_test_data_asml1["X"], verbose=0).argmax(
+                            axis=1)
+                        collaboration_performance[index].append(np.mean(self.private_test_data_asml1["y"] == y_pred))
+                        TPRLocal = sum(self.private_test_data_asml1["y"] + y_pred == 2) / sum(
+                            self.private_test_data_asml1["y"])
+                        FPRLocal = sum(self.private_test_data_asml1["y"] - y_pred == -1) / (
+                                len(self.private_test_data_asml1["y"]) - sum(self.private_test_data_asml1["y"]))
+                        print("模型", index, "的accLocal性能：", collaboration_performance[index][-1])
+                        accLocal_sum.append(collaboration_performance[index][-1])
+                        print("模型", index, "的TPRLocal性能：", TPRLocal)
+                        TPRLocal_sum.append(TPRLocal)
+                        print("模型", index, "的FPRLocal性能：", FPRLocal)
+                        FPRLocal_sum.append(FPRLocal)
+                        del y_pred
+                print("所有本地节点本地训练模型总的accLocal性能：", accLocal_sum)
+                print("所有本地节点本地训练模型总的TPRLocal性能：", TPRLocal_sum)
+                print("所有本地节点本地训练模型总的FPRLocal性能：", FPRLocal_sum)
+                # print("accLocal_sum[0:self.N_parties//2]：", accLocal_sum[0:self.N_parties//2])
+                accLocal_iccad_first_round.append(self.Get_Average(accLocal_sum[0:self.N_parties // 2]))
+                accLocal_industry_first_round.append(self.Get_Average(accLocal_sum[self.N_parties // 2:]))
+                print("异步率为：", self.asynchronousRate, "时", "第", r, '轮时每个节点本地训练LocalTraining的测试结果：')
+                # print(accLocal_sum[0:self.N_parties//2])
+                # print(accLocal_sum[self.N_parties//2:])
+                print('accLocal_iccad_first_round:', accLocal_iccad_first_round)
+                print('accLocal_industry_first_round', accLocal_industry_first_round)
+
+
+        # END WHILE LOOP
+        return collaboration_performance
+
+

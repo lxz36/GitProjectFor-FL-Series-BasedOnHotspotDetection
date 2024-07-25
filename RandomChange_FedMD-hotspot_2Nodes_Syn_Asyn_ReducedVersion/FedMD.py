@@ -194,7 +194,7 @@ class FedMD():
             for index, d in enumerate(self.collaborative_parties):
                 # for d in self.collaborative_parties:
                 if index in index_random:
-                    d["model_logits"].set_weights(d["model_weights"])
+                    d["model_logits"].set_weights(d["model_weights"])  #d["model_logits"]通常代表模型的输出在应用激活函数（如softmax或sigmoid）之前的值。这些值被称为“logits”。
                     logits += d["model_logits"].predict(alignment_data["X"], verbose=0)
 
                     # 提取模型的权重
