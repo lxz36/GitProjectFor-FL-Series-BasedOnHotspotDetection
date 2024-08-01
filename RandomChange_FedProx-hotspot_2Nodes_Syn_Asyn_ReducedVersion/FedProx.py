@@ -13,7 +13,7 @@ from tensorflow.keras.losses import SparseCategoricalCrossentropy
 
 class FedProx():
 
-    def l2_fedprox(model, server_model):
+    def l2_fedprox(self,model, server_model):
         """计算FedProx的正则项"""
         fedprox_reg = 0.0
         for w, w_t in zip(model.trainable_weights, server_model.trainable_weights):
@@ -35,7 +35,7 @@ class FedProx():
                  N_logits_matching_round, logits_matching_batchsize,
                  #默认使用同步策略
                  N_private_training_round, private_training_batchsize, asynchronousRate=1
-                 ,fedprox_mu=0.01,learning_rate_Private=1e-3):
+                 ,fedprox_mu=0.01,N_private_learning_rate=1e-3):
 
         self.N_parties = len(parties)
         self.public_dataset = public_dataset
@@ -55,7 +55,7 @@ class FedProx():
 
         self.asynchronousRate = asynchronousRate
         self.fedprox_mu=fedprox_mu  #fedProx的关键参数
-        self.learning_rate_Private=learning_rate_Private
+        self.N_private_learning_rate=N_private_learning_rate
 
         self.server_model=None #聚合的中心模型
 
@@ -69,17 +69,17 @@ class FedProx():
                                  loss="sparse_categorical_crossentropy",
                                  metrics=["accuracy"])
 
-            print("start full stack training ... ")
+            print("无预训练start full stack training ... ")
 
-            model_A_twin.fit(private_data[i]["X"], private_data[i]["y"],
-                             batch_size=32, epochs=25, shuffle=True, verbose=0,
-                             validation_data=(private_test_data["X"], private_test_data["y"]),
-                             # 1、源代码validation_data = [private_test_data["X"], private_test_data["y"]],
-                             callbacks=[EarlyStopping(monitor='val_accuracy', min_delta=0.001, patience=5)]
-                             # 6、val_acc更改为val_accuracy
-                             )
+            # model_A_twin.fit(private_data[i]["X"], private_data[i]["y"],
+            #                  batch_size=32, epochs=25, shuffle=True, verbose=0,
+            #                  validation_data=(private_test_data["X"], private_test_data["y"]),
+            #                  # 1、源代码validation_data = [private_test_data["X"], private_test_data["y"]],
+            #                  callbacks=[EarlyStopping(monitor='val_accuracy', min_delta=0.001, patience=5)]
+            #                  # 6、val_acc更改为val_accuracy
+            #                  )
 
-            print("full stack training done")
+            print("无预训练full stack training done")
 
             model_A = remove_last_layer(model_A_twin, loss="mean_absolute_error")  # model_A是model_A_twin去掉softmax 激活的模型
 
@@ -87,11 +87,11 @@ class FedProx():
                                                "model_classifier": model_A_twin,
                                                "model_weights": model_A_twin.get_weights()})
             # 3、修改val_acc和acc相关
-            self.init_result.append({"val_acc": model_A_twin.history.history['val_accuracy'],
-                                     "train_acc": model_A_twin.history.history['accuracy'],
-                                     "val_loss": model_A_twin.history.history['val_loss'],
-                                     "train_loss": model_A_twin.history.history['loss'],
-                                     })
+            # self.init_result.append({"val_acc": model_A_twin.history.history['val_accuracy'],
+            #                          "train_acc": model_A_twin.history.history['accuracy'],
+            #                          "val_loss": model_A_twin.history.history['val_loss'],
+            #                          "train_loss": model_A_twin.history.history['loss'],
+            #                          })
 
             # print()
             del model_A, model_A_twin
@@ -151,8 +151,17 @@ class FedProx():
 
             # 将累加后的卷积层权重除以模型的数量，进行平均
             weights_average = [w / asynchronousNoteNumber for w in weights_sum]
-            self.server_model = weights_average #记录中心聚合模型
+            # self.server_model = weights_average #记录中心聚合模型
 
+            if self.server_model is None:
+                # 使用第一个参与方模型进行初始化
+                example_model = self.collaborative_parties[0]["model_classifier"]
+                self.server_model = clone_model(example_model)
+                # 为新克隆的模型构建网络结构
+                self.server_model.build(example_model.input_shape)
+                self.server_model.set_weights(weights_average)
+            else:
+                self.server_model.set_weights(weights_average)
 
             # 将聚合后的参数赋值给每一个模型, prox不追求模型强一致性
             # for d in self.collaborative_parties:
@@ -216,7 +225,7 @@ class FedProx():
                     d["model_classifier"].set_weights(weights_to_use)  #模型结构 (model_classifier) 定义了模型的架构，即模型的网络拓扑和层次结构。包含结构和权重
                     # 添加FedProx正则项
                     # 初始化优化器Adam和损失函数CategoricalCrossentropy
-                    optimizer = Adam(learning_rate=self.learning_rate_Private) #learning_rate默认为 e-3
+                    optimizer = Adam(learning_rate=self.N_private_learning_rate) #learning_rate默认为 e-3
                     # criterion = tf.keras.losses.CategoricalCrossentropy()
                     criterion = SparseCategoricalCrossentropy(from_logits=False)
                     # 开始本地模型的训练，进行指定轮数的私有训练

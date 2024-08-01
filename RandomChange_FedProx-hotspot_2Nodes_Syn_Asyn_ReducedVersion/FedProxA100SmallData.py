@@ -51,6 +51,8 @@ if __name__ == "__main__":
         model_saved_dir = conf_dict["model_saved_dir"]# {str} './pretrained_from_ICCAD/' 储存10个模型
         
         result_save_dir = conf_dict["result_save_dir"]# {str} './ResultOutput/'
+        fedprox_mu = conf_dict["fedprox_mu"]#
+        N_private_learning_rate = conf_dict["N_private_learning_rate"]#
 
     
     del conf_dict, conf_file
@@ -171,7 +173,10 @@ if __name__ == "__main__":
                       logits_matching_batchsize = logits_matching_batchsize,
                       N_private_training_round = N_private_training_round,
                       private_training_batchsize = private_training_batchsize,
-                      asynchronousRate=asynchronousRate)
+                      asynchronousRate=asynchronousRate,
+                      fedprox_mu=fedprox_mu,
+                      N_private_learning_rate=N_private_learning_rate
+                      )
         # 要统计执行时间的代码
         end_time2 = time.time()
         print(f"初始化fedmd时间，83s左右: {end_time2 - start_time2:.6f} 秒")

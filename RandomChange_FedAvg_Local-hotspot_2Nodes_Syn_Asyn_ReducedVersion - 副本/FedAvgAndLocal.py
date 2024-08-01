@@ -51,17 +51,17 @@ class FedAvgAndLocal():
                                  loss="sparse_categorical_crossentropy",
                                  metrics=["accuracy"])
 
-            print("start full stack training ... ")
+            print("无预训练start full stack training ... ")
 
-            model_A_twin.fit(private_data[i]["X"], private_data[i]["y"],
-                             batch_size=32, epochs=25, shuffle=True, verbose=0,
-                             validation_data=(private_test_data["X"], private_test_data["y"]),
-                             # 1、源代码validation_data = [private_test_data["X"], private_test_data["y"]],
-                             callbacks=[EarlyStopping(monitor='val_accuracy', min_delta=0.001, patience=5)]
-                             # 6、val_acc更改为val_accuracy
-                             )
+            # model_A_twin.fit(private_data[i]["X"], private_data[i]["y"],
+            #                  batch_size=32, epochs=25, shuffle=True, verbose=0,
+            #                  validation_data=(private_test_data["X"], private_test_data["y"]),
+            #                  # 1、源代码validation_data = [private_test_data["X"], private_test_data["y"]],
+            #                  callbacks=[EarlyStopping(monitor='val_accuracy', min_delta=0.001, patience=5)]
+            #                  # 6、val_acc更改为val_accuracy
+            #                  )
 
-            print("full stack training done")
+            print("无预训练full stack training done")
 
             model_A = remove_last_layer(model_A_twin, loss="mean_absolute_error")  # model_A是model_A_twin去掉softmax 激活的模型
 
@@ -69,11 +69,11 @@ class FedAvgAndLocal():
                                                "model_classifier": model_A_twin,
                                                "model_weights": model_A_twin.get_weights()})
             # 3、修改val_acc和acc相关
-            self.init_result.append({"val_acc": model_A_twin.history.history['val_accuracy'],
-                                     "train_acc": model_A_twin.history.history['accuracy'],
-                                     "val_loss": model_A_twin.history.history['val_loss'],
-                                     "train_loss": model_A_twin.history.history['loss'],
-                                     })
+            # self.init_result.append({"val_acc": model_A_twin.history.history['val_accuracy'],
+            #                          "train_acc": model_A_twin.history.history['accuracy'],
+            #                          "val_loss": model_A_twin.history.history['val_loss'],
+            #                          "train_loss": model_A_twin.history.history['loss'],
+            #                          })
 
             # print()
             del model_A, model_A_twin

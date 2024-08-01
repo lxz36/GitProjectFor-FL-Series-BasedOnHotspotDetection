@@ -55,7 +55,7 @@ plt.figure(figsize=(14, 6))
 
 # Plotting ICCAD results
 plt.subplot(1, 2, 1)
-plt.plot(rounds, acc_iccad_FedMD_async1[:len], label='FedMD ICCAD', marker='o')
+plt.plot(rounds, acc_iccad_FedMD_async1[:len], label='FedMD-Conv ICCAD', marker='o')
 plt.plot(rounds, acc_iccad_FedAvg_async1[:len], label='FedAvg ICCAD', marker='o')
 
 
@@ -67,7 +67,7 @@ plt.grid(True)
 
 # Plotting Industry results
 plt.subplot(1, 2, 2)
-plt.plot(rounds, acc_industry_FedMD_async1[:len], label='FedMD Industry', marker='o')
+plt.plot(rounds, acc_industry_FedMD_async1[:len], label='FedMD-Conv Industry', marker='o')
 plt.plot(rounds, acc_industry_FedAvg_async1[:len], label='FedAvg Industry', marker='o')
 
 plt.xlabel('Round')

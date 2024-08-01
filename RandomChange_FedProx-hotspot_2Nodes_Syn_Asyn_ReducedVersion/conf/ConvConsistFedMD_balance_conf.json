@@ -12,7 +12,9 @@
     "asynchronousRates": [1,0.5],
     "logits_matching_batchsize": 24,
     "model_saved_dir": "./pretrained_from_ICCAD/",
-    "result_save_dir": "./ResultOutput/"
+    "result_save_dir": "./ResultOutput/",
+    "fedprox_mu": 0.01,
+    "N_private_learning_rate": 0.001
 }
 
 
