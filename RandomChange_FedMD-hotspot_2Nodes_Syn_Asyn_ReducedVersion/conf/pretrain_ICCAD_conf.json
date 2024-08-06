@@ -2,14 +2,14 @@
     "n_classes": 2,
     "data_type": "ICCAD",
     "models": [
-               {"model_type": "cnn_4ConvLayer_2fcLayer_model", "params": {"n1": 16, "n2": 16, "n3": 32,"n4": 32,"nFc1": 250, "dropout_rate": 0.3}},
-               {"model_type": "cnn_4ConvLayer_2fcLayer_model", "params": {"n1": 16, "n2": 16, "n3": 32,"n4": 32,"nFc1": 250, "dropout_rate": 0.3}}
+               {"model_type": "cnn_5ConvLayer_1fcLayer_model", "params": {"n1": 16, "n2": 16, "n3": 16,"n4": 32,"n5": 32,"nFc1": 240,"dropout_rate": 0.5}},
+               {"model_type": "cnn_5ConvLayer_2fcLayer_model", "params": {"n1": 16, "n2": 16, "n3": 16,"n4": 32,"n5": 32,"nFc1": 320,"nFc2": 240, "dropout_rate": 0.5}}
     ],
     "train_params": {"min_delta": 0.001, "patience": 3,
                      "batch_size": 64, "epochs": 1, "is_shuffle": True,
                      "verbose": 1},
     "save_directory": "./pretrained_from_ICCAD/",
-    "save_names" : [ "CNN_16_16_32_32_1SorAid_250_2_iccad1","CNN_16_16_32_32_250_2_asml1"],
+    "save_names" : [ "CNN_16_16_16_32_32_FC240_2_iccad1","CNN_16_16_16_32_32_FC320_240_2_asml1"],
     "early_stopping" : True
 }
 

@@ -101,6 +101,7 @@ def cnn_4ConvLayer_3fcLayer_model(n_classes, n1=16, n2=16, n3=32, n4=32, nFc1=25
                     metrics=["accuracy"])
     return model_A  # 最后返回一个模型
 
+
 def cnn_2layer_fc_model(n_classes,n1 = 128, n2=256, dropout_rate = 0.2,input_shape = (28,28)):#神经网络函数定义；n_classes是分类的类数,没有用到这个神经网络
     model_A, x = None, None
     
@@ -152,3 +153,118 @@ def remove_last_layer(model, loss = "mean_absolute_error"):
                       loss = loss)
     
     return new_model
+
+
+#在最下面构造新的神经网络
+
+def cnn_5ConvLayer_1fcLayer_model(n_classes, n1=16, n2=16, n3=32, n4=32, n5=32, nFc1=240, dropout_rate=0.2,
+                                  input_shape=(144, 32)):  # 神经网络函数定义；n_classes是分类的类数，iccad节点用了这个模型
+    model_A, x = None, None
+
+    x = Input(input_shape)  # 输入图片的形状(28,28)
+    if len(input_shape) == 2:
+        y = Reshape((12, 12, 32))(x)  # 输入图片的形状(144,32)——>(12,12,32)
+
+    y = Conv2D(filters=n1, kernel_size=(3, 3), strides=1, padding="same",  # 第一次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+
+    y = Conv2D(filters=n2, kernel_size=(3, 3), strides=1, padding="same",  # 第2次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+    y = AveragePooling2D(pool_size=(2, 2), strides=1, padding="same")(y)  # 池化
+
+    y = Conv2D(filters=n3, kernel_size=(3, 3), strides=1, padding="same",  # 第3次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+
+    y = Conv2D(filters=n4, kernel_size=(2, 2), strides=1, padding="valid",  # 第4次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+    y = AveragePooling2D(pool_size=(2, 2), strides=1, padding="valid")(y)  # 池化
+
+    y = Conv2D(filters=n5, kernel_size=(2, 2), strides=1, padding="valid",  # 第5次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+    y = AveragePooling2D(pool_size=(2, 2), strides=1, padding="valid")(y)  # 池化
+
+    y = Flatten()(y)
+    y = Dense(units=nFc1, activation=tf.nn.relu)(y)
+    y = Dense(units=n_classes, activation=None, use_bias=False,
+              kernel_regularizer=tf.keras.regularizers.l2(1e-3))(y)
+    y = Activation("softmax")(y)
+
+    model_A = Model(inputs=x, outputs=y)
+
+    model_A.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3),
+                    loss="sparse_categorical_crossentropy",
+                    metrics=["accuracy"])
+    return model_A  # 最后返回一个模型
+
+
+def cnn_5ConvLayer_2fcLayer_model(n_classes, n1=16, n2=16, n3=16, n4=32, n5=32, nFc1=320,nFc2=240,dropout_rate=0.2,
+                                  input_shape=(144, 32)):  # 神经网络函数定义；n_classes是分类的类数，industry节点用了这个模型
+    model_A, x = None, None
+
+    x = Input(input_shape)  # 输入图片的形状(28,28)
+    if len(input_shape) == 2:
+        y = Reshape((12, 12, 32))(x)  # 输入图片的形状(144,32)——>(12,12,32)
+
+    y = Conv2D(filters=n1, kernel_size=(3, 3), strides=1, padding="same",  # 第一次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+
+    y = Conv2D(filters=n2, kernel_size=(3, 3), strides=1, padding="same",  # 第2次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+    y = AveragePooling2D(pool_size=(2, 2), strides=1, padding="same")(y)  # 池化
+
+    y = Conv2D(filters=n3, kernel_size=(3, 3), strides=1, padding="same",  # 第3次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+
+    y = Conv2D(filters=n4, kernel_size=(2, 2), strides=1, padding="valid",  # 第4次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+    y = AveragePooling2D(pool_size=(2, 2), strides=1, padding="valid")(y)  # 池化
+
+    y = Conv2D(filters=n5, kernel_size=(2, 2), strides=1, padding="valid",  # 第5次卷积操作
+               activation=None)(y)
+    y = BatchNormalization()(y)  # 防止过拟合
+    y = Activation("relu")(y)  # 激活操作
+    y = Dropout(dropout_rate)(y)  # 防止过拟合
+    y = AveragePooling2D(pool_size=(2, 2), strides=1, padding="valid")(y)  # 池化
+
+
+    y = Flatten()(y)
+    y = Dense(units=nFc1, activation=tf.nn.relu)(y)
+    y = Dense(units=nFc2, activation=tf.nn.relu)(y)
+    y = Dense(units=n_classes, activation=None, use_bias=False,
+              kernel_regularizer=tf.keras.regularizers.l2(1e-3))(y)
+    y = Activation("softmax")(y)
+
+    model_A = Model(inputs=x, outputs=y)
+
+    model_A.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3),
+                    loss="sparse_categorical_crossentropy",
+                    metrics=["accuracy"])
+    return model_A  # 最后返回一个模型
+

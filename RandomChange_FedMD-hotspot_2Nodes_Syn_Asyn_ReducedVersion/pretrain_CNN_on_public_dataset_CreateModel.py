@@ -7,7 +7,8 @@ import numpy as np
 from tensorflow.keras.callbacks import EarlyStopping
 
 from data_utils import load_MNIST_data # 从 data_utils 文件导入函数 load_MNIST_data
-from Neural_Networks import  cnn_4ConvLayer_2fcLayer_model # 从 Neural_Networks 文件导入函数 cnn_2layer_fc_model 和 cnn_4ConvLayer_2fcLayer_model
+from Neural_Networks import  cnn_5ConvLayer_1fcLayer_model # 从 Neural_Networks 文件导入函数 cnn_2layer_fc_model 和 cnn_5ConvLayer_1fcLayer_model
+from Neural_Networks import  cnn_5ConvLayer_2fcLayer_model #
 
 
 def parseArg():
@@ -70,12 +71,12 @@ def train_models(models, X_train, y_train, X_test_iccad, y_test_iccad, X_test_as
         # y_pred_asml = model["model_classifier"].predict(X_test_asml["X"], verbose=0).argmax(axis=1)
         # print("model_{0}".format(n), "在asml测试集的准确率为：", np.mean(y_test_asml["y"] == y_pred_asml))
 
-        # 评估模型在测试集上的性能
+        # 评估初始模型在测试集上的性能
         loss, accuracy = model.evaluate(X_test_iccad, y_test_iccad, verbose=1)
         print(f"Test ICCAD Loss: {loss}")
         print(f"Test ICCAD Accuracy: {accuracy}")
 
-        # 评估模型在asml测试集上的性能
+        # 评估初始模型在asml测试集上的性能
         loss, accuracy = model.evaluate(X_test_asml, y_test_asml, verbose=1)
         print(f"Test asml Loss: {loss}")
         print(f"Test asml Accuracy: {accuracy}")
@@ -104,8 +105,8 @@ def train_models(models, X_train, y_train, X_test_iccad, y_test_iccad, X_test_as
     return record_result  # 返回记录的结果
 
 
-models = {"cnn_4ConvLayer_2fcLayer_model": cnn_4ConvLayer_2fcLayer_model,    # 定义两种模型
-          "cnn_4ConvLayer_2fcLayer_model": cnn_4ConvLayer_2fcLayer_model}
+models = {"cnn_5ConvLayer_1fcLayer_model": cnn_5ConvLayer_1fcLayer_model,    # 定义两种模型
+          "cnn_5ConvLayer_2fcLayer_model": cnn_5ConvLayer_2fcLayer_model}
 
 
 if __name__ == "__main__":
