@@ -1,0 +1,77 @@
+{
+    "Annotation": "这个文件只做注释用，同时存储原始的 数据值",
+    "N_parties": 10, 用途: 表示有多少个独立的实体在进行联邦学习。
+    "N_samples_per_class": 1600,  用途: 控制每个参与方私有的用于训练的每个类别的样本量，从而影响模型的多样性和训练效果。
+    "N_alignment": 30000, 用途: 用于在参与方之间对齐共享的数据集大小，用于对齐步骤或公共数据的训练。
+    "private_classes": [0,1],
+    "public_classes": [0, 1],
+    "is_show": False,
+    "N_rounds": 50, 用途: 控制整个联邦学习过程进行多少轮次的全局更新。
+    "N_logits_matching_round": 2,  用途: 指定在每轮联邦学习中，进行logits匹配的次数，logits匹配是指对齐不同参与方模型输出的一种方法。
+    "N_private_training_round": 10, 用途: 指定每轮联邦学习中，每个参与方对其私有数据进行模型训练的次数。
+    "private_training_batchsize" : 64,
+    "asynchronousRate": 0.5,
+    "logits_matching_batchsize": 128, 用途: 控制在进行logits匹配时，每次处理的数据量。
+    "EMNIST_dir": "./dataset/emnist-letters.mat",  用途: 指定用于联邦学习的数据集文件路径，目前没用这个参数。
+    "model_saved_dir": "./pretrained_from_MNIST/", 用途: 指定用于存储预训练模型的目录路径。
+    "result_save_dir": "./FEMNIST_balanced/", 用途: 指定联邦学习过程中生成的结果和模型的保存目录路径。
+}
+N_parties:
+含义: 参与联邦学习的参与方（或客户端）的数量。
+用途: 表示有多少个独立的实体在进行联邦学习。
+N_samples_per_class:
+
+含义: 每个参与方每个类别的样本数量。
+用途: 控制每个参与方用于训练的每个类别的样本量，从而影响模型的多样性和训练效果。
+N_alignment:
+
+含义: 对齐数据集的大小。
+用途: 用于在参与方之间对齐共享的数据集大小，用于对齐步骤或公共数据的训练。
+private_classes:
+
+含义: 每个参与方的私有类别。
+用途: 指定哪些类别的样本是各个参与方专有的，仅用于该参与方的私有模型训练。
+public_classes:
+
+含义: 公共类别。
+用途: 指定哪些类别的样本是公开的，可以用于所有参与方的训练和对齐。
+is_show:
+
+含义: 是否显示训练过程中的一些信息（如图表或日志）。
+用途: 控制训练过程中是否展示详细信息或图形界面。
+
+N_rounds:
+含义: 联邦学习的总轮数。
+用途: 控制整个联邦学习过程进行多少轮次的全局更新。
+N_logits_matching_round:
+
+含义: 每轮联邦学习中匹配logits的轮数。
+用途: 指定在每轮联邦学习中，进行logits匹配的次数，logits匹配是指对齐不同参与方模型输出的一种方法。
+N_private_training_round:
+
+含义: 每轮联邦学习中私有模型训练的轮数。
+用途: 指定每轮联邦学习中，每个参与方对其私有数据进行模型训练的次数。
+private_training_batchsize:
+
+含义: 私有训练数据的批次大小。
+用途: 控制每个参与方在其私有数据上进行训练时的批次大小。
+asynchronousRate:
+
+含义: 异步更新的速率。
+用途: 控制联邦学习过程中异步更新的频率，值越高表示更频繁地进行异步更新。
+logits_matching_batchsize:
+
+含义: logits匹配时使用的数据批次大小。
+用途: 控制在进行logits匹配时，每次处理的数据量。
+ConvConsistFedMD_dir:
+
+含义: 联邦学习数据集的路径。
+用途: 指定用于联邦学习的数据集文件路径。
+model_saved_dir:
+
+含义: 预训练模型保存路径。
+用途: 指定用于存储预训练模型的目录路径。
+result_save_dir:
+
+含义: 结果保存路径。
+用途: 指定联邦学习过程中生成的结果和模型的保存目录路径。
