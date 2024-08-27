@@ -1,0 +1,26 @@
+loading test data from: /research/byu2/rchen/proj/wwy/benchmarks/asml1/test/label.csv
+loading data into the main memory...
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-5-.ckpt
+using prediction of original version only
+AUC: 0.763388
+Average Precision (.5:.95) : nan
+Average Recall (.5:.95): nan
+Test Runtime is 79.891216 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-10-.ckpt
+using prediction of original version only
+AUC: 0.821392
+Average Precision (.5:.95) : nan
+Average Recall (.5:.95): nan
+Test Runtime is 77.046443 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-15-.ckpt
+using prediction of original version only
+AUC: 0.877104
+Average Precision (.5:.95) : nan
+Average Recall (.5:.95): nan
+Test Runtime is 76.325296 seconds

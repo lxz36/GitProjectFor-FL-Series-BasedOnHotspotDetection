@@ -1,0 +1,494 @@
+loading test data from: /research/byu2/rchen/proj/wwy/benchmarks/asml1/test/label.csv
+loading data into the main memory...
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-5-.ckpt
+using prediction of original version only
+Checked label stats of asml1:
+#all labels: 24000
+#negative  7801, 32.504%
+#positive 16199, 67.496%
+Predictions of 20 negative samples:
+[-3.3666714e+09 -2.3159642e+09 -1.8036892e+09 -2.6614354e+09
+ -2.7777285e+09 -2.5965747e+09 -3.7839334e+09 -3.0063117e+09
+ -2.9352156e+09 -2.7692575e+09 -2.6285138e+09 -1.5519937e+09
+ -2.6555817e+09 -3.0207764e+09 -2.8308774e+09 -2.6929329e+09
+ -2.5473884e+09 -2.0229157e+09 -3.7776840e+09 -3.0134559e+09]
+Predictions of 20 positive samples:
+[-2.6078310e+09 -2.7660472e+09 -2.2132073e+09 -2.6046510e+09
+ -2.0455345e+09 -1.5857306e+09 -1.4914383e+09 -1.3007401e+09
+ -2.4426097e+09 -1.9394383e+09 -1.7592634e+09 -2.8040241e+09
+ -2.6470676e+09 -2.2420941e+09 -2.3412639e+09 -2.3643663e+09
+ -3.0055514e+09 -3.0981852e+09 -1.8924580e+09 -1.7242422e+09]
+Threshold percentile: 0.050
+Precision: 0.7023 @ -3476497280.0000, Recall:   0.9885 @ -3476497280.0000
+True PR:   0.9885 @ -3476497280.0000, False PR: 0.8701 @ -3476497280.0000
+Threshold percentile: 0.100
+Precision: 0.7267 @ -3206347980.8000, Recall:   0.9690 @ -3206347980.8000
+True PR:   0.9690 @ -3206347980.8000, False PR: 0.7567 @ -3206347980.8000
+Threshold percentile: 0.150
+Precision: 0.7437 @ -3051698496.0000, Recall:   0.9365 @ -3051698496.0000
+True PR:   0.9365 @ -3051698496.0000, False PR: 0.6703 @ -3051698496.0000
+Threshold percentile: 0.200
+Precision: 0.7606 @ -2931407001.6000, Recall:   0.9015 @ -2931407001.6000
+True PR:   0.9015 @ -2931407001.6000, False PR: 0.5892 @ -2931407001.6000
+Threshold percentile: 0.250
+Precision: 0.7773 @ -2829868288.0000, Recall:   0.8637 @ -2829868288.0000
+True PR:   0.8637 @ -2829868288.0000, False PR: 0.5139 @ -2829868288.0000
+Threshold percentile: 0.300
+Precision: 0.7968 @ -2735166899.2000, Recall:   0.8264 @ -2735166899.2000
+True PR:   0.8264 @ -2735166899.2000, False PR: 0.4375 @ -2735166899.2000
+Threshold percentile: 0.350
+Precision: 0.8149 @ -2640193356.8000, Recall:   0.7847 @ -2640193356.8000
+True PR:   0.7847 @ -2640193356.8000, False PR: 0.3702 @ -2640193356.8000
+Threshold percentile: 0.400
+Precision: 0.8310 @ -2544788480.0000, Recall:   0.7387 @ -2544788480.0000
+True PR:   0.7387 @ -2544788480.0000, False PR: 0.3119 @ -2544788480.0000
+Threshold percentile: 0.450
+Precision: 0.8442 @ -2442739481.6000, Recall:   0.6879 @ -2442739481.6000
+True PR:   0.6879 @ -2442739481.6000, False PR: 0.2636 @ -2442739481.6000
+Threshold percentile: 0.500
+Precision: 0.8589 @ -2338665344.0000, Recall:   0.6363 @ -2338665344.0000
+True PR:   0.6363 @ -2338665344.0000, False PR: 0.2170 @ -2338665344.0000
+Threshold percentile: 0.550
+Precision: 0.8703 @ -2225848652.8000, Recall:   0.5802 @ -2225848652.8000
+True PR:   0.5802 @ -2225848652.8000, False PR: 0.1796 @ -2225848652.8000
+Threshold percentile: 0.600
+Precision: 0.8810 @ -2131456563.2000, Recall:   0.5221 @ -2131456563.2000
+True PR:   0.5221 @ -2131456563.2000, False PR: 0.1464 @ -2131456563.2000
+Threshold percentile: 0.650
+Precision: 0.8818 @ -2042976768.0000, Recall:   0.4573 @ -2042976768.0000
+True PR:   0.4573 @ -2042976768.0000, False PR: 0.1273 @ -2042976768.0000
+Threshold percentile: 0.700
+Precision: 0.8871 @ -1955630502.4000, Recall:   0.3943 @ -1955630502.4000
+True PR:   0.3943 @ -1955630502.4000, False PR: 0.1042 @ -1955630502.4000
+Threshold percentile: 0.750
+Precision: 0.8940 @ -1875559200.0000, Recall:   0.3311 @ -1875559200.0000
+True PR:   0.3311 @ -1875559200.0000, False PR: 0.0815 @ -1875559200.0000
+Threshold percentile: 0.800
+Precision: 0.9004 @ -1793093376.0000, Recall:   0.2668 @ -1793093376.0000
+True PR:   0.2668 @ -1793093376.0000, False PR: 0.0613 @ -1793093376.0000
+Threshold percentile: 0.850
+Precision: 0.9167 @ -1684738240.0000, Recall:   0.2037 @ -1684738240.0000
+True PR:   0.2037 @ -1684738240.0000, False PR: 0.0385 @ -1684738240.0000
+Threshold percentile: 0.900
+Precision: 0.9583 @ -1561042112.0000, Recall:   0.1420 @ -1561042112.0000
+True PR:   0.1420 @ -1561042112.0000, False PR: 0.0128 @ -1561042112.0000
+AUC: 0.778344
+
+With zero bias: -428616128.0
+Threshold 0 at prediction percentile: 1.0000
+Precision: 1.0000 @ 0.0, Recall:   0.0001 @ 0.0
+True PR:   0.0001 @ 0.0, False PR: 0.0000 @ 0.0
+ACC: 0.3251
+Test Runtime is 194.594146 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-15-.ckpt
+using prediction of original version only
+Checked label stats of asml1:
+#all labels: 24000
+#negative  7801, 32.504%
+#positive 16199, 67.496%
+Predictions of 20 negative samples:
+[-2.1710658e+10 -1.7863385e+10 -1.5728129e+10 -1.7994686e+10
+ -1.7908855e+10 -2.1484491e+10 -3.1034036e+10 -2.1533966e+10
+ -1.8723967e+10 -1.5938906e+10 -1.4893146e+10 -1.1580848e+10
+ -1.6238383e+10 -2.1133959e+10 -1.8068087e+10 -1.9323470e+10
+ -1.6889210e+10 -1.3487167e+10 -2.3343690e+10 -2.0840983e+10]
+Predictions of 20 positive samples:
+[-1.9933061e+10 -1.8876559e+10 -1.9087524e+10 -1.3694732e+10
+ -1.6177706e+10 -1.5122426e+10 -1.9490261e+10 -1.2946210e+10
+ -9.2820623e+09 -1.3811472e+10 -1.3603570e+10 -1.4490929e+10
+ -1.2032876e+10 -1.0166670e+10 -1.1952820e+10 -1.4143336e+10
+ -8.6855721e+09 -1.3795275e+10 -1.4491009e+10 -1.4884676e+10]
+Threshold percentile: 0.050
+Precision: 0.7090 @ -25164573900.8000, Recall:   0.9979 @ -25164573900.8000
+True PR:   0.9979 @ -25164573900.8000, False PR: 0.8505 @ -25164573900.8000
+Threshold percentile: 0.100
+Precision: 0.7389 @ -22671056281.6000, Recall:   0.9852 @ -22671056281.6000
+True PR:   0.9852 @ -22671056281.6000, False PR: 0.7230 @ -22671056281.6000
+Threshold percentile: 0.150
+Precision: 0.7655 @ -21332688179.2000, Recall:   0.9640 @ -21332688179.2000
+True PR:   0.9640 @ -21332688179.2000, False PR: 0.6133 @ -21332688179.2000
+Threshold percentile: 0.200
+Precision: 0.7885 @ -20182714777.6000, Recall:   0.9346 @ -20182714777.6000
+True PR:   0.9346 @ -20182714777.6000, False PR: 0.5206 @ -20182714777.6000
+Threshold percentile: 0.250
+Precision: 0.8099 @ -19194171392.0000, Recall:   0.8999 @ -19194171392.0000
+True PR:   0.8999 @ -19194171392.0000, False PR: 0.4387 @ -19194171392.0000
+Threshold percentile: 0.300
+Precision: 0.8287 @ -18296473600.0000, Recall:   0.8595 @ -18296473600.0000
+True PR:   0.8595 @ -18296473600.0000, False PR: 0.3688 @ -18296473600.0000
+Threshold percentile: 0.350
+Precision: 0.8441 @ -17459576422.4000, Recall:   0.8129 @ -17459576422.4000
+True PR:   0.8129 @ -17459576422.4000, False PR: 0.3118 @ -17459576422.4000
+Threshold percentile: 0.400
+Precision: 0.8558 @ -16648931532.8000, Recall:   0.7608 @ -16648931532.8000
+True PR:   0.7608 @ -16648931532.8000, False PR: 0.2661 @ -16648931532.8000
+Threshold percentile: 0.450
+Precision: 0.8663 @ -15870146457.6000, Recall:   0.7059 @ -15870146457.6000
+True PR:   0.7059 @ -15870146457.6000, False PR: 0.2263 @ -15870146457.6000
+Threshold percentile: 0.500
+Precision: 0.8731 @ -15177507840.0000, Recall:   0.6468 @ -15177507840.0000
+True PR:   0.6468 @ -15177507840.0000, False PR: 0.1952 @ -15177507840.0000
+Threshold percentile: 0.550
+Precision: 0.8811 @ -14633835622.4000, Recall:   0.5874 @ -14633835622.4000
+True PR:   0.5874 @ -14633835622.4000, False PR: 0.1646 @ -14633835622.4000
+Threshold percentile: 0.600
+Precision: 0.8923 @ -14090357350.4000, Recall:   0.5288 @ -14090357350.4000
+True PR:   0.5288 @ -14090357350.4000, False PR: 0.1325 @ -14090357350.4000
+Threshold percentile: 0.650
+Precision: 0.8975 @ -13569278310.4000, Recall:   0.4654 @ -13569278310.4000
+True PR:   0.4654 @ -13569278310.4000, False PR: 0.1104 @ -13569278310.4000
+Threshold percentile: 0.700
+Precision: 0.9018 @ -12954490982.4000, Recall:   0.4008 @ -12954490982.4000
+True PR:   0.4008 @ -12954490982.4000, False PR: 0.0906 @ -12954490982.4000
+Threshold percentile: 0.750
+Precision: 0.9083 @ -12394391552.0000, Recall:   0.3364 @ -12394391552.0000
+True PR:   0.3364 @ -12394391552.0000, False PR: 0.0705 @ -12394391552.0000
+Threshold percentile: 0.800
+Precision: 0.9240 @ -11785974374.4000, Recall:   0.2738 @ -11785974374.4000
+True PR:   0.2738 @ -11785974374.4000, False PR: 0.0468 @ -11785974374.4000
+Threshold percentile: 0.850
+Precision: 0.9419 @ -11109743769.6000, Recall:   0.2093 @ -11109743769.6000
+True PR:   0.2093 @ -11109743769.6000, False PR: 0.0268 @ -11109743769.6000
+Threshold percentile: 0.900
+Precision: 0.9617 @ -10397736652.8000, Recall:   0.1425 @ -10397736652.8000
+True PR:   0.1425 @ -10397736652.8000, False PR: 0.0118 @ -10397736652.8000
+AUC: 0.821235
+
+With zero bias: -2833494784.0
+Threshold 0 at prediction percentile: 1.0000
+Precision: 1.0000 @ 0.0, Recall:   0.0001 @ 0.0
+True PR:   0.0001 @ 0.0, False PR: 0.0000 @ 0.0
+ACC: 0.3251
+Test Runtime is 191.283734 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-25-.ckpt
+using prediction of original version only
+Checked label stats of asml1:
+#all labels: 24000
+#negative  7801, 32.504%
+#positive 16199, 67.496%
+Predictions of 20 negative samples:
+[-2.4742380e+10 -1.7193128e+10 -1.6425744e+10 -1.9176133e+10
+ -1.8013327e+10 -1.9279262e+10 -3.3906078e+10 -2.3647810e+10
+ -1.6873409e+10 -1.5610275e+10 -1.3817907e+10 -1.3209902e+10
+ -1.4549991e+10 -2.0462711e+10 -2.0481147e+10 -1.8706262e+10
+ -1.6788257e+10 -1.3026418e+10 -2.7737117e+10 -2.3442430e+10]
+Predictions of 20 positive samples:
+[-1.4489936e+10 -1.2698227e+10 -1.1710814e+10 -1.0584533e+10
+ -1.1582902e+10 -1.4021605e+10 -1.9539528e+10 -1.5302388e+10
+ -1.5193485e+10 -1.3040321e+10 -1.5447615e+10 -1.9779023e+10
+ -9.3858304e+09 -9.3455299e+09 -9.5744758e+09 -7.9814349e+09
+ -1.1265503e+10 -1.0777735e+10 -1.0132663e+10 -9.2157972e+09]
+Threshold percentile: 0.050
+Precision: 0.7077 @ -27046268108.8000, Recall:   0.9961 @ -27046268108.8000
+True PR:   0.9961 @ -27046268108.8000, False PR: 0.8542 @ -27046268108.8000
+Threshold percentile: 0.100
+Precision: 0.7368 @ -23716642406.4000, Recall:   0.9824 @ -23716642406.4000
+True PR:   0.9824 @ -23716642406.4000, False PR: 0.7289 @ -23716642406.4000
+Threshold percentile: 0.150
+Precision: 0.7601 @ -21826829414.4000, Recall:   0.9573 @ -21826829414.4000
+True PR:   0.9573 @ -21826829414.4000, False PR: 0.6272 @ -21826829414.4000
+Threshold percentile: 0.200
+Precision: 0.7820 @ -20497626726.4000, Recall:   0.9269 @ -20497626726.4000
+True PR:   0.9269 @ -20497626726.4000, False PR: 0.5365 @ -20497626726.4000
+Threshold percentile: 0.250
+Precision: 0.8016 @ -19293835776.0000, Recall:   0.8907 @ -19293835776.0000
+True PR:   0.8907 @ -19293835776.0000, False PR: 0.4578 @ -19293835776.0000
+Threshold percentile: 0.300
+Precision: 0.8194 @ -18264313856.0000, Recall:   0.8498 @ -18264313856.0000
+True PR:   0.8498 @ -18264313856.0000, False PR: 0.3889 @ -18264313856.0000
+Threshold percentile: 0.350
+Precision: 0.8321 @ -17253981286.4000, Recall:   0.8013 @ -17253981286.4000
+True PR:   0.8013 @ -17253981286.4000, False PR: 0.3357 @ -17253981286.4000
+Threshold percentile: 0.400
+Precision: 0.8451 @ -16356015104.0000, Recall:   0.7513 @ -16356015104.0000
+True PR:   0.7513 @ -16356015104.0000, False PR: 0.2860 @ -16356015104.0000
+Threshold percentile: 0.450
+Precision: 0.8570 @ -15590571315.2000, Recall:   0.6983 @ -15590571315.2000
+True PR:   0.6983 @ -15590571315.2000, False PR: 0.2420 @ -15590571315.2000
+Threshold percentile: 0.500
+Precision: 0.8661 @ -14920222720.0000, Recall:   0.6416 @ -14920222720.0000
+True PR:   0.6416 @ -14920222720.0000, False PR: 0.2060 @ -14920222720.0000
+Threshold percentile: 0.550
+Precision: 0.8745 @ -14295881728.0000, Recall:   0.5831 @ -14295881728.0000
+True PR:   0.5831 @ -14295881728.0000, False PR: 0.1738 @ -14295881728.0000
+Threshold percentile: 0.600
+Precision: 0.8825 @ -13730783436.8000, Recall:   0.5230 @ -13730783436.8000
+True PR:   0.5230 @ -13730783436.8000, False PR: 0.1446 @ -13730783436.8000
+Threshold percentile: 0.650
+Precision: 0.8914 @ -13104198604.8000, Recall:   0.4623 @ -13104198604.8000
+True PR:   0.4623 @ -13104198604.8000, False PR: 0.1169 @ -13104198604.8000
+Threshold percentile: 0.700
+Precision: 0.8979 @ -12494508032.0000, Recall:   0.3991 @ -12494508032.0000
+True PR:   0.3991 @ -12494508032.0000, False PR: 0.0942 @ -12494508032.0000
+Threshold percentile: 0.750
+Precision: 0.9088 @ -11805210880.0000, Recall:   0.3366 @ -11805210880.0000
+True PR:   0.3366 @ -11805210880.0000, False PR: 0.0701 @ -11805210880.0000
+Threshold percentile: 0.800
+Precision: 0.9115 @ -11144316928.0000, Recall:   0.2701 @ -11144316928.0000
+True PR:   0.2701 @ -11144316928.0000, False PR: 0.0545 @ -11144316928.0000
+Threshold percentile: 0.850
+Precision: 0.9272 @ -10376961382.4000, Recall:   0.2061 @ -10376961382.4000
+True PR:   0.2061 @ -10376961382.4000, False PR: 0.0336 @ -10376961382.4000
+Threshold percentile: 0.900
+Precision: 0.9404 @ -9498772992.0000, Recall:   0.1393 @ -9498772992.0000
+True PR:   0.1393 @ -9498772992.0000, False PR: 0.0183 @ -9498772992.0000
+AUC: 0.806290
+
+With zero bias: -690067840.0
+Threshold 0 at prediction percentile: 1.0000
+Precision: 1.0000 @ 0.0, Recall:   0.0001 @ 0.0
+True PR:   0.0001 @ 0.0, False PR: 0.0000 @ 0.0
+ACC: 0.3251
+Test Runtime is 201.824392 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-35-.ckpt
+using prediction of original version only
+Checked label stats of asml1:
+#all labels: 24000
+#negative  7801, 32.504%
+#positive 16199, 67.496%
+Predictions of 20 negative samples:
+[-3.0550700e+10 -2.3051084e+10 -1.7102182e+10 -2.1555968e+10
+ -1.8233143e+10 -1.7631185e+10 -4.1417695e+10 -2.4209908e+10
+ -1.8632651e+10 -1.6437154e+10 -1.3040372e+10 -1.6971991e+10
+ -1.5527630e+10 -2.0606810e+10 -2.2813641e+10 -2.2912502e+10
+ -1.8869744e+10 -1.5327556e+10 -3.1829924e+10 -2.8222513e+10]
+Predictions of 20 positive samples:
+[-1.5201498e+10 -1.6912417e+10 -1.5985162e+10 -1.4544326e+10
+ -1.7211355e+10 -1.1734186e+10 -1.4680664e+10 -1.5219530e+10
+ -1.5126206e+10 -1.1710507e+10 -1.1710507e+10 -1.4962778e+10
+ -1.1331141e+10 -1.3432965e+10 -1.4072664e+10 -1.2294469e+10
+ -1.2809436e+10 -1.8654118e+10 -1.5340708e+10 -1.3421368e+10]
+Threshold percentile: 0.050
+Precision: 0.7086 @ -32062365184.0000, Recall:   0.9973 @ -32062365184.0000
+True PR:   0.9973 @ -32062365184.0000, False PR: 0.8517 @ -32062365184.0000
+Threshold percentile: 0.100
+Precision: 0.7381 @ -27586162892.8000, Recall:   0.9841 @ -27586162892.8000
+True PR:   0.9841 @ -27586162892.8000, False PR: 0.7253 @ -27586162892.8000
+Threshold percentile: 0.150
+Precision: 0.7635 @ -24863084236.8000, Recall:   0.9615 @ -24863084236.8000
+True PR:   0.9615 @ -24863084236.8000, False PR: 0.6184 @ -24863084236.8000
+Threshold percentile: 0.200
+Precision: 0.7830 @ -23017011609.6000, Recall:   0.9281 @ -23017011609.6000
+True PR:   0.9281 @ -23017011609.6000, False PR: 0.5340 @ -23017011609.6000
+Threshold percentile: 0.250
+Precision: 0.8019 @ -21648829952.0000, Recall:   0.8910 @ -21648829952.0000
+True PR:   0.8910 @ -21648829952.0000, False PR: 0.4571 @ -21648829952.0000
+Threshold percentile: 0.300
+Precision: 0.8180 @ -20367656140.8000, Recall:   0.8484 @ -20367656140.8000
+True PR:   0.8484 @ -20367656140.8000, False PR: 0.3919 @ -20367656140.8000
+Threshold percentile: 0.350
+Precision: 0.8333 @ -19275515494.4000, Recall:   0.8025 @ -19275515494.4000
+True PR:   0.8025 @ -19275515494.4000, False PR: 0.3334 @ -19275515494.4000
+Threshold percentile: 0.400
+Precision: 0.8458 @ -18271730892.8000, Recall:   0.7518 @ -18271730892.8000
+True PR:   0.7518 @ -18271730892.8000, False PR: 0.2847 @ -18271730892.8000
+Threshold percentile: 0.450
+Precision: 0.8602 @ -17379987456.0000, Recall:   0.7010 @ -17379987456.0000
+True PR:   0.7010 @ -17379987456.0000, False PR: 0.2366 @ -17379987456.0000
+Threshold percentile: 0.500
+Precision: 0.8673 @ -16617530368.0000, Recall:   0.6426 @ -16617530368.0000
+True PR:   0.6426 @ -16617530368.0000, False PR: 0.2041 @ -16617530368.0000
+Threshold percentile: 0.550
+Precision: 0.8740 @ -15899601408.0000, Recall:   0.5827 @ -15899601408.0000
+True PR:   0.5827 @ -15899601408.0000, False PR: 0.1745 @ -15899601408.0000
+Threshold percentile: 0.600
+Precision: 0.8789 @ -15217762918.4000, Recall:   0.5208 @ -15217762918.4000
+True PR:   0.5208 @ -15217762918.4000, False PR: 0.1491 @ -15217762918.4000
+Threshold percentile: 0.650
+Precision: 0.8827 @ -14556462182.4000, Recall:   0.4577 @ -14556462182.4000
+True PR:   0.4577 @ -14556462182.4000, False PR: 0.1263 @ -14556462182.4000
+Threshold percentile: 0.700
+Precision: 0.8886 @ -13909258035.2000, Recall:   0.3950 @ -13909258035.2000
+True PR:   0.3950 @ -13909258035.2000, False PR: 0.1028 @ -13909258035.2000
+Threshold percentile: 0.750
+Precision: 0.8968 @ -13249061632.0000, Recall:   0.3322 @ -13249061632.0000
+True PR:   0.3322 @ -13249061632.0000, False PR: 0.0793 @ -13249061632.0000
+Threshold percentile: 0.800
+Precision: 0.9087 @ -12500464025.6000, Recall:   0.2693 @ -12500464025.6000
+True PR:   0.2693 @ -12500464025.6000, False PR: 0.0561 @ -12500464025.6000
+Threshold percentile: 0.850
+Precision: 0.9222 @ -11677621145.6000, Recall:   0.2050 @ -11677621145.6000
+True PR:   0.2050 @ -11677621145.6000, False PR: 0.0359 @ -11677621145.6000
+Threshold percentile: 0.900
+Precision: 0.9354 @ -10627333529.6000, Recall:   0.1386 @ -10627333529.6000
+True PR:   0.1386 @ -10627333529.6000, False PR: 0.0199 @ -10627333529.6000
+AUC: 0.805224
+
+With zero bias: 2250160384.0
+Threshold 0 at prediction percentile: 1.0000
+Precision: 0.0000 @ 0.0, Recall:   0.0000 @ 0.0
+True PR:   0.0000 @ 0.0, False PR: 0.0001 @ 0.0
+ACC: 0.3250
+Test Runtime is 196.096526 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-45-.ckpt
+using prediction of original version only
+Checked label stats of asml1:
+#all labels: 24000
+#negative  7801, 32.504%
+#positive 16199, 67.496%
+Predictions of 20 negative samples:
+[-3.0743658e+10 -2.0860787e+10 -1.4390566e+10 -2.1892870e+10
+ -1.8217863e+10 -1.7465217e+10 -4.5369709e+10 -2.2204387e+10
+ -1.5762682e+10 -1.4522058e+10 -1.3420599e+10 -1.7662577e+10
+ -1.6845825e+10 -2.1552624e+10 -2.0010967e+10 -2.3778456e+10
+ -1.8469515e+10 -1.7452294e+10 -3.8866862e+10 -3.0244671e+10]
+Predictions of 20 positive samples:
+[-1.2616214e+10 -1.3335675e+10 -1.2609697e+10 -5.8127908e+09
+ -5.3077729e+09 -1.3738045e+10 -1.7494997e+10 -1.3486615e+10
+ -1.2978600e+10 -1.8488111e+10 -1.8042462e+10 -2.1952137e+10
+ -1.2627170e+10 -1.5783880e+10 -6.9379953e+09 -2.4125944e+10
+ -2.2343651e+10 -1.3076425e+10 -1.7296204e+10 -1.3852605e+10]
+Threshold percentile: 0.050
+Precision: 0.7083 @ -33294050304.0000, Recall:   0.9969 @ -33294050304.0000
+True PR:   0.9969 @ -33294050304.0000, False PR: 0.8526 @ -33294050304.0000
+Threshold percentile: 0.100
+Precision: 0.7378 @ -28523710873.6000, Recall:   0.9838 @ -28523710873.6000
+True PR:   0.9838 @ -28523710873.6000, False PR: 0.7261 @ -28523710873.6000
+Threshold percentile: 0.150
+Precision: 0.7635 @ -25199868211.2000, Recall:   0.9615 @ -25199868211.2000
+True PR:   0.9615 @ -25199868211.2000, False PR: 0.6184 @ -25199868211.2000
+Threshold percentile: 0.200
+Precision: 0.7835 @ -23113357721.6000, Recall:   0.9287 @ -23113357721.6000
+True PR:   0.9287 @ -23113357721.6000, False PR: 0.5328 @ -23113357721.6000
+Threshold percentile: 0.250
+Precision: 0.8006 @ -21456380928.0000, Recall:   0.8896 @ -21456380928.0000
+True PR:   0.8896 @ -21456380928.0000, False PR: 0.4602 @ -21456380928.0000
+Threshold percentile: 0.300
+Precision: 0.8147 @ -20162963251.2000, Recall:   0.8449 @ -20162963251.2000
+True PR:   0.8449 @ -20162963251.2000, False PR: 0.3991 @ -20162963251.2000
+Threshold percentile: 0.350
+Precision: 0.8278 @ -18875321856.0000, Recall:   0.7971 @ -18875321856.0000
+True PR:   0.7971 @ -18875321856.0000, False PR: 0.3444 @ -18875321856.0000
+Threshold percentile: 0.400
+Precision: 0.8390 @ -17822475468.8000, Recall:   0.7458 @ -17822475468.8000
+True PR:   0.7458 @ -17822475468.8000, False PR: 0.2971 @ -17822475468.8000
+Threshold percentile: 0.450
+Precision: 0.8491 @ -16892841574.4000, Recall:   0.6919 @ -16892841574.4000
+True PR:   0.6919 @ -16892841574.4000, False PR: 0.2554 @ -16892841574.4000
+Threshold percentile: 0.500
+Precision: 0.8593 @ -16082350080.0000, Recall:   0.6366 @ -16082350080.0000
+True PR:   0.6366 @ -16082350080.0000, False PR: 0.2164 @ -16082350080.0000
+Threshold percentile: 0.550
+Precision: 0.8664 @ -15351497984.0000, Recall:   0.5776 @ -15351497984.0000
+True PR:   0.5776 @ -15351497984.0000, False PR: 0.1850 @ -15351497984.0000
+Threshold percentile: 0.600
+Precision: 0.8755 @ -14666674995.2000, Recall:   0.5189 @ -14666674995.2000
+True PR:   0.5189 @ -14666674995.2000, False PR: 0.1532 @ -14666674995.2000
+Threshold percentile: 0.650
+Precision: 0.8838 @ -13923357900.8000, Recall:   0.4583 @ -13923357900.8000
+True PR:   0.4583 @ -13923357900.8000, False PR: 0.1251 @ -13923357900.8000
+Threshold percentile: 0.700
+Precision: 0.8961 @ -13214875136.0000, Recall:   0.3983 @ -13214875136.0000
+True PR:   0.3983 @ -13214875136.0000, False PR: 0.0959 @ -13214875136.0000
+Threshold percentile: 0.750
+Precision: 0.9052 @ -12466198528.0000, Recall:   0.3353 @ -12466198528.0000
+True PR:   0.3353 @ -12466198528.0000, False PR: 0.0729 @ -12466198528.0000
+Threshold percentile: 0.800
+Precision: 0.9125 @ -11670283059.2000, Recall:   0.2704 @ -11670283059.2000
+True PR:   0.2704 @ -11670283059.2000, False PR: 0.0538 @ -11670283059.2000
+Threshold percentile: 0.850
+Precision: 0.9178 @ -10755342080.0000, Recall:   0.2040 @ -10755342080.0000
+True PR:   0.2040 @ -10755342080.0000, False PR: 0.0379 @ -10755342080.0000
+Threshold percentile: 0.900
+Precision: 0.9225 @ -9495886950.4000, Recall:   0.1367 @ -9495886950.4000
+True PR:   0.1367 @ -9495886950.4000, False PR: 0.0238 @ -9495886950.4000
+AUC: 0.800133
+
+With zero bias: -1299992199.9359238
+Threshold 0 at prediction percentile: 0.9990
+Precision: 0.7500 @ 0.0, Recall:   0.0011 @ 0.0
+True PR:   0.0011 @ 0.0, False PR: 0.0008 @ 0.0
+ACC: 0.3251
+Test Runtime is 190.481071 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-49-.ckpt
+using prediction of original version only
+Checked label stats of asml1:
+#all labels: 24000
+#negative  7801, 32.504%
+#positive 16199, 67.496%
+Predictions of 20 negative samples:
+[-3.0096116e+10 -2.0201953e+10 -1.3656313e+10 -2.1115625e+10
+ -1.7509868e+10 -1.7795252e+10 -4.4938559e+10 -2.1456519e+10
+ -1.4780899e+10 -1.3121524e+10 -1.3837212e+10 -1.8635018e+10
+ -1.6473561e+10 -2.0320193e+10 -1.8038311e+10 -2.3790445e+10
+ -1.9094456e+10 -1.8320409e+10 -3.7094928e+10 -2.8970373e+10]
+Predictions of 20 positive samples:
+[-9.3469676e+09 -1.1138989e+10 -7.7477719e+09 -1.2405403e+10
+ -1.3704634e+10 -3.5178369e+10 -2.5641255e+10 -2.1982417e+10
+ -1.5645900e+10 -8.5994312e+09 -9.6003686e+09 -8.8886876e+09
+ -1.0059964e+10 -1.0231452e+10 -1.4214766e+10 -1.3352503e+10
+ -1.5301670e+10 -8.3300460e+09 -1.1529130e+10 -6.7818721e+09]
+Threshold percentile: 0.050
+Precision: 0.7082 @ -32328303104.0000, Recall:   0.9968 @ -32328303104.0000
+True PR:   0.9968 @ -32328303104.0000, False PR: 0.8528 @ -32328303104.0000
+Threshold percentile: 0.100
+Precision: 0.7374 @ -27576212889.6000, Recall:   0.9833 @ -27576212889.6000
+True PR:   0.9833 @ -27576212889.6000, False PR: 0.7271 @ -27576212889.6000
+Threshold percentile: 0.150
+Precision: 0.7619 @ -24404559052.8000, Recall:   0.9594 @ -24404559052.8000
+True PR:   0.9594 @ -24404559052.8000, False PR: 0.6227 @ -24404559052.8000
+Threshold percentile: 0.200
+Precision: 0.7818 @ -22402058649.6000, Recall:   0.9267 @ -22402058649.6000
+True PR:   0.9267 @ -22402058649.6000, False PR: 0.5370 @ -22402058649.6000
+Threshold percentile: 0.250
+Precision: 0.8002 @ -20862376448.0000, Recall:   0.8891 @ -20862376448.0000
+True PR:   0.8891 @ -20862376448.0000, False PR: 0.4611 @ -20862376448.0000
+Threshold percentile: 0.300
+Precision: 0.8157 @ -19606649036.8000, Recall:   0.8459 @ -19606649036.8000
+True PR:   0.8459 @ -19606649036.8000, False PR: 0.3970 @ -19606649036.8000
+Threshold percentile: 0.350
+Precision: 0.8297 @ -18370015232.0000, Recall:   0.7991 @ -18370015232.0000
+True PR:   0.7991 @ -18370015232.0000, False PR: 0.3405 @ -18370015232.0000
+Threshold percentile: 0.400
+Precision: 0.8437 @ -17334815129.6000, Recall:   0.7500 @ -17334815129.6000
+True PR:   0.7500 @ -17334815129.6000, False PR: 0.2886 @ -17334815129.6000
+Threshold percentile: 0.450
+Precision: 0.8525 @ -16432386508.8000, Recall:   0.6947 @ -16432386508.8000
+True PR:   0.6947 @ -16432386508.8000, False PR: 0.2496 @ -16432386508.8000
+Threshold percentile: 0.500
+Precision: 0.8611 @ -15611104256.0000, Recall:   0.6379 @ -15611104256.0000
+True PR:   0.6379 @ -15611104256.0000, False PR: 0.2137 @ -15611104256.0000
+Threshold percentile: 0.550
+Precision: 0.8680 @ -14941000601.6000, Recall:   0.5787 @ -14941000601.6000
+True PR:   0.5787 @ -14941000601.6000, False PR: 0.1828 @ -14941000601.6000
+Threshold percentile: 0.600
+Precision: 0.8788 @ -14251868160.0000, Recall:   0.5208 @ -14251868160.0000
+True PR:   0.5208 @ -14251868160.0000, False PR: 0.1492 @ -14251868160.0000
+Threshold percentile: 0.650
+Precision: 0.8890 @ -13611389952.0000, Recall:   0.4610 @ -13611389952.0000
+True PR:   0.4610 @ -13611389952.0000, False PR: 0.1195 @ -13611389952.0000
+Threshold percentile: 0.700
+Precision: 0.8953 @ -12875136512.0000, Recall:   0.3979 @ -12875136512.0000
+True PR:   0.3979 @ -12875136512.0000, False PR: 0.0967 @ -12875136512.0000
+Threshold percentile: 0.750
+Precision: 0.9033 @ -12149508352.0000, Recall:   0.3346 @ -12149508352.0000
+True PR:   0.3346 @ -12149508352.0000, False PR: 0.0743 @ -12149508352.0000
+Threshold percentile: 0.800
+Precision: 0.9096 @ -11356768665.6000, Recall:   0.2695 @ -11356768665.6000
+True PR:   0.2695 @ -11356768665.6000, False PR: 0.0556 @ -11356768665.6000
+Threshold percentile: 0.850
+Precision: 0.9131 @ -10367544320.0000, Recall:   0.2029 @ -10367544320.0000
+True PR:   0.2029 @ -10367544320.0000, False PR: 0.0401 @ -10367544320.0000
+Threshold percentile: 0.900
+Precision: 0.9171 @ -9193721241.6000, Recall:   0.1359 @ -9193721241.6000
+True PR:   0.1359 @ -9193721241.6000, False PR: 0.0255 @ -9193721241.6000
+AUC: 0.800954
+
+With zero bias: -280829172.9279456
+Threshold 0 at prediction percentile: 0.9990
+Precision: 0.7500 @ 0.0, Recall:   0.0011 @ 0.0
+True PR:   0.0011 @ 0.0, False PR: 0.0008 @ 0.0
+ACC: 0.3251
+Test Runtime is 206.666925 seconds

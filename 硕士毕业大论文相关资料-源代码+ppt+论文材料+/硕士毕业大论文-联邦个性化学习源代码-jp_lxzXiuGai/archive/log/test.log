@@ -1,0 +1,42 @@
+loading test data from: /research/byu2/rchen/proj/wwy/benchmarks/asml1/test/label.csv
+loading data into the main memory...
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-5-.ckpt
+using prediction of original version only
+Actual hs = 17157
+Actual non-hs = 7801
+Hotspot Detection Accuracy is 0.951507
+False Alarm is 229
+FA rate is 2.935521087040123%
+Test Runtime is 57.209608 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-10-.ckpt
+using prediction of original version only
+Actual hs = 17157
+Actual non-hs = 7801
+Hotspot Detection Accuracy is 0.969517
+False Alarm is 336
+FA rate is 4.307140110242277%
+Test Runtime is 55.990366 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-15-.ckpt
+using prediction of original version only
+Actual hs = 17157
+Actual non-hs = 7801
+Hotspot Detection Accuracy is 0.967069
+False Alarm is 240
+FA rate is 3.0765286501730547%
+Test Runtime is 56.046570 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-20-.ckpt
+using prediction of original version only
+Actual hs = 17157
+Actual non-hs = 7801
+Hotspot Detection Accuracy is 0.973247
+False Alarm is 284
+FA rate is 3.6405589027047816%
+Test Runtime is 55.992269 seconds

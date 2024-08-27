@@ -1,0 +1,28 @@
+#方法1  时间单位是ms
+start = torch.cuda.Event(enable_timing=True)    #设置一个开始的事件
+end = torch.cuda.Event(enable_timing=True) #设置一个结束的事件
+start.record(stream=torch.cuda.current_stream()) #开始记录
+
+#神经网络执行的代码
+
+end.record(stream=torch.cuda.current_stream()) #结束记录
+end.synchronize() 	#同步，保证时间准确
+t = start.elapsed_time(end) 	#计算时间差
+
+
+
+#方法2  时间单位是s
+import time
+start = time.time()     #开始记录
+
+#神经网络执行的代码
+
+
+torch.cuda.synchronize()
+end = time.time() 	#结束记录
+t = end - start 	#计算时间差
+
+
+
+
+

@@ -1,0 +1,561 @@
+
+OPENMP DISPLAY ENVIRONMENT BEGIN
+  _OPENMP = '201511'
+  OMP_DYNAMIC = 'FALSE'
+  OMP_NESTED = 'FALSE'
+  OMP_NUM_THREADS = '2'
+  OMP_SCHEDULE = 'DYNAMIC'
+  OMP_PROC_BIND = 'FALSE'
+  OMP_PLACES = ''
+  OMP_STACKSIZE = '0'
+  OMP_WAIT_POLICY = 'PASSIVE'
+  OMP_THREAD_LIMIT = '4294967295'
+  OMP_MAX_ACTIVE_LEVELS = '2147483647'
+  OMP_CANCELLATION = 'FALSE'
+  OMP_DEFAULT_DEVICE = '0'
+  OMP_MAX_TASK_PRIORITY = '0'
+  OMP_DISPLAY_AFFINITY = 'FALSE'
+  OMP_AFFINITY_FORMAT = 'level %L thread %i affinity %A'
+OPENMP DISPLAY ENVIRONMENT END
+client model path: ['/research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0', '/research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1', '/research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2', '/research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3', '/research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4']
+loading data into the main memory...
+/research/byu2/rchen/proj/wwy/jp/model.py:51: FutureWarning: Method .as_matrix will be removed in a future version. Use .values instead.
+  featemp = pd.read_csv(path, header=None).as_matrix()
+/research/byu2/rchen/proj/wwy/jp/model.py:56: FutureWarning: Method .as_matrix will be removed in a future version. Use .values instead.
+  featemp = pd.read_csv(path, header=None).as_matrix()
+loading data into the main memory...
+loading data into the main memory...
+loading data into the main memory...
+loading data into the main memory...
+WARNING:tensorflow:From fed_bl_ADMM.py:54: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+keys of trainable variables:  ['model/conv1_1/weights:0', 'model/conv1_1/biases:0', 'model/conv1_2/weights:0', 'model/conv1_2/biases:0', 'model/conv2_1/weights:0', 'model/conv2_1/biases:0', 'model/conv2_2/weights:0', 'model/conv2_2/biases:0', 'model/fc1/weights:0', 'model/fc1/biases:0', 'model/fc2/weights:0', 'model/fc2/biases:0']
+[<tf.Variable 'model/conv1_1/weights:0' shape=(3, 3, 32, 16) dtype=float32_ref>, <tf.Variable 'model/conv1_1/biases:0' shape=(16,) dtype=float32_ref>, <tf.Variable 'model/conv1_2/weights:0' shape=(3, 3, 16, 16) dtype=float32_ref>, <tf.Variable 'model/conv1_2/biases:0' shape=(16,) dtype=float32_ref>, <tf.Variable 'model/conv2_1/weights:0' shape=(3, 3, 16, 32) dtype=float32_ref>, <tf.Variable 'model/conv2_1/biases:0' shape=(32,) dtype=float32_ref>, <tf.Variable 'model/conv2_2/weights:0' shape=(3, 3, 32, 32) dtype=float32_ref>, <tf.Variable 'model/conv2_2/biases:0' shape=(32,) dtype=float32_ref>, <tf.Variable 'model/fc1/weights:0' shape=(288, 250) dtype=float32_ref>, <tf.Variable 'model/fc1/biases:0' shape=(250,) dtype=float32_ref>, <tf.Variable 'model/fc2/weights:0' shape=(250, 2) dtype=float32_ref>, <tf.Variable 'model/fc2/biases:0' shape=(2,) dtype=float32_ref>]
+initialize clients
+Initialize z and y
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-init.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-init.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-init.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-init.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:   0%|          | 0/50 [00:00<?, ?it/s]server round 0
+clients selected: [1 4]
+client 1
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-init.ckpt
+client 1, round 0, step 0, loss = 1.830243, learning_rate = 0.000100, training_accu = 0.515625, bias = 0.00
+client 1, round 0, step 200, loss = 0.848301, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client 1, round 0, step 400, loss = 0.695306, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-0-600-0-before.ckpt
+client 4
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-init.ckpt
+client 4, round 0, step 0, loss = 3.021513, learning_rate = 0.000100, training_accu = 0.578125, bias = 0.00
+client 4, round 0, step 200, loss = 1.092014, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client 4, round 0, step 400, loss = 0.664636, learning_rate = 0.000100, training_accu = 0.625000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-0-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-init.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-0-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-init.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-0-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round0.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-init.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-0-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-init.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-0-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:   2%|▏         | 1/50 [00:22<18:40, 22.87s/it]server round 1
+clients selected: [0 4]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-init.ckpt
+client 0, round 1, step 0, loss = 5.944918, learning_rate = 0.000100, training_accu = 0.484375, bias = 0.00
+client 0, round 1, step 200, loss = 0.907951, learning_rate = 0.000100, training_accu = 0.468750, bias = 0.00
+client 0, round 1, step 400, loss = 0.756395, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-1-600-0-before.ckpt
+client 4
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-0-600-0-before.ckpt
+client 4, round 1, step 0, loss = 0.676734, learning_rate = 0.000100, training_accu = 0.453125, bias = 0.00
+client 4, round 1, step 200, loss = 0.694100, learning_rate = 0.000100, training_accu = 0.562500, bias = 0.00
+client 4, round 1, step 400, loss = 0.656698, learning_rate = 0.000100, training_accu = 0.609375, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-1-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-0-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-init.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round1.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-0-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-init.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:   4%|▍         | 2/50 [00:43<17:47, 22.24s/it]server round 2
+clients selected: [0 3]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-1-600-0-before.ckpt
+client 0, round 2, step 0, loss = 0.708570, learning_rate = 0.000100, training_accu = 0.562500, bias = 0.00
+client 0, round 2, step 200, loss = 0.731849, learning_rate = 0.000100, training_accu = 0.640625, bias = 0.00
+client 0, round 2, step 400, loss = 0.716482, learning_rate = 0.000100, training_accu = 0.609375, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-2-600-0-before.ckpt
+client 3
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-init.ckpt
+client 3, round 2, step 0, loss = 1.973491, learning_rate = 0.000100, training_accu = 0.359375, bias = 0.00
+client 3, round 2, step 200, loss = 0.804151, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client 3, round 2, step 400, loss = 0.712867, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-2-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-0-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round2.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-2-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-0-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:   6%|▌         | 3/50 [01:04<17:07, 21.86s/it]server round 3
+clients selected: [0 1]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-2-600-0-before.ckpt
+client 0, round 3, step 0, loss = 0.740772, learning_rate = 0.000100, training_accu = 0.640625, bias = 0.00
+client 0, round 3, step 200, loss = 0.660565, learning_rate = 0.000100, training_accu = 0.359375, bias = 0.00
+client 0, round 3, step 400, loss = 0.793579, learning_rate = 0.000100, training_accu = 0.453125, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-3-600-0-before.ckpt
+client 1
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-0-600-0-before.ckpt
+client 1, round 3, step 0, loss = 0.683754, learning_rate = 0.000100, training_accu = 0.500000, bias = 0.00
+client 1, round 3, step 200, loss = 0.695505, learning_rate = 0.000100, training_accu = 0.484375, bias = 0.00
+client 1, round 3, step 400, loss = 0.717987, learning_rate = 0.000100, training_accu = 0.500000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-3-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-3-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-3-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round3.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-3-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-3-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:   8%|▊         | 4/50 [01:25<16:32, 21.59s/it]server round 4
+clients selected: [1 2]
+client 1
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-3-600-0-before.ckpt
+client 1, round 4, step 0, loss = 0.781967, learning_rate = 0.000100, training_accu = 0.515625, bias = 0.00
+client 1, round 4, step 200, loss = 0.725753, learning_rate = 0.000100, training_accu = 0.593750, bias = 0.00
+client 1, round 4, step 400, loss = 0.805426, learning_rate = 0.000100, training_accu = 0.640625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-4-600-0-before.ckpt
+client 2
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-init.ckpt
+client 2, round 4, step 0, loss = 1.287123, learning_rate = 0.000100, training_accu = 0.484375, bias = 0.00
+client 2, round 4, step 200, loss = 0.848519, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client 2, round 4, step 400, loss = 0.800558, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-4-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-3-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-4-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-4-600-0-before.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round4.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-3-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-4-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-4-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:  10%|█         | 5/50 [01:46<16:05, 21.45s/it]server round 5
+clients selected: [0 2]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-3-600-0-before.ckpt
+client 0, round 5, step 0, loss = 0.769928, learning_rate = 0.000100, training_accu = 0.578125, bias = 0.00
+client 0, round 5, step 200, loss = 0.805900, learning_rate = 0.000100, training_accu = 0.609375, bias = 0.00
+client 0, round 5, step 400, loss = 0.815327, learning_rate = 0.000100, training_accu = 0.515625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-5-600-0-before.ckpt
+client 2
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-4-600-0-before.ckpt
+client 2, round 5, step 0, loss = 0.726998, learning_rate = 0.000100, training_accu = 0.500000, bias = 0.00
+client 2, round 5, step 200, loss = 0.661711, learning_rate = 0.000100, training_accu = 0.562500, bias = 0.00
+client 2, round 5, step 400, loss = 0.701570, learning_rate = 0.000100, training_accu = 0.515625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-5-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-5-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-4-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-5-600-0-before.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round5.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-5-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-4-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-5-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:  12%|█▏        | 6/50 [02:07<15:39, 21.36s/it]server round 6
+clients selected: [0 1]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-5-600-0-before.ckpt
+client 0, round 6, step 0, loss = 0.875620, learning_rate = 0.000100, training_accu = 0.578125, bias = 0.00
+client 0, round 6, step 200, loss = 0.785046, learning_rate = 0.000100, training_accu = 0.593750, bias = 0.00
+client 0, round 6, step 400, loss = 0.660669, learning_rate = 0.000100, training_accu = 0.562500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-6-600-0-before.ckpt
+client 1
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-4-600-0-before.ckpt
+client 1, round 6, step 0, loss = 0.935229, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client 1, round 6, step 200, loss = 0.942125, learning_rate = 0.000100, training_accu = 0.578125, bias = 0.00
+client 1, round 6, step 400, loss = 0.907251, learning_rate = 0.000100, training_accu = 0.640625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-6-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-6-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-6-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-5-600-0-before.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round6.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-6-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-6-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-5-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:  14%|█▍        | 7/50 [02:30<15:31, 21.67s/it]server round 7
+clients selected: [0 3]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-6-600-0-before.ckpt
+client 0, round 7, step 0, loss = 0.750244, learning_rate = 0.000075, training_accu = 0.609375, bias = 0.00
+client 0, round 7, step 200, loss = 0.917657, learning_rate = 0.000075, training_accu = 0.562500, bias = 0.00
+client 0, round 7, step 400, loss = 0.815823, learning_rate = 0.000075, training_accu = 0.562500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+client 3
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-2-600-0-before.ckpt
+client 3, round 7, step 0, loss = 0.721084, learning_rate = 0.000100, training_accu = 0.500000, bias = 0.00
+client 3, round 7, step 200, loss = 0.711536, learning_rate = 0.000100, training_accu = 0.656250, bias = 0.00
+client 3, round 7, step 400, loss = 0.700326, learning_rate = 0.000100, training_accu = 0.562500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-7-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-6-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-5-600-0-before.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-7-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round7.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-6-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-5-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-7-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:  16%|█▌        | 8/50 [02:51<15:09, 21.64s/it]server round 8
+clients selected: [2 4]
+client 2
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-5-600-0-before.ckpt
+client 2, round 8, step 0, loss = 0.916650, learning_rate = 0.000100, training_accu = 0.406250, bias = 0.00
+client 2, round 8, step 200, loss = 0.964653, learning_rate = 0.000100, training_accu = 0.515625, bias = 0.00
+client 2, round 8, step 400, loss = 0.811654, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+client 4
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-1-600-0-before.ckpt
+client 4, round 8, step 0, loss = 0.682377, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client 4, round 8, step 200, loss = 0.694221, learning_rate = 0.000100, training_accu = 0.593750, bias = 0.00
+client 4, round 8, step 400, loss = 0.636970, learning_rate = 0.000100, training_accu = 0.562500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-8-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-6-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-7-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-8-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round8.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-6-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-7-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-8-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:  18%|█▊        | 9/50 [03:13<14:52, 21.77s/it]server round 9
+clients selected: [1 4]
+client 1
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-6-600-0-before.ckpt
+client 1, round 9, step 0, loss = 0.884472, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client 1, round 9, step 200, loss = 0.652346, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client 1, round 9, step 400, loss = 0.655492, learning_rate = 0.000100, training_accu = 0.515625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-9-600-0-before.ckpt
+client 4
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-8-600-0-before.ckpt
+client 4, round 9, step 0, loss = 0.733553, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client 4, round 9, step 200, loss = 0.714167, learning_rate = 0.000100, training_accu = 0.578125, bias = 0.00
+client 4, round 9, step 400, loss = 0.694473, learning_rate = 0.000100, training_accu = 0.734375, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-9-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-9-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-7-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-9-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round9.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-9-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-7-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-9-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:  20%|██        | 10/50 [03:35<14:34, 21.86s/it]server round 10
+clients selected: [3 4]
+client 3
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-7-600-0-before.ckpt
+client 3, round 10, step 0, loss = 0.685019, learning_rate = 0.000100, training_accu = 0.421875, bias = 0.00
+client 3, round 10, step 200, loss = 0.691647, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client 3, round 10, step 400, loss = 0.712581, learning_rate = 0.000100, training_accu = 0.406250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-10-600-0-before.ckpt
+client 4
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-9-600-0-before.ckpt
+client 4, round 10, step 0, loss = 0.746212, learning_rate = 0.000100, training_accu = 0.578125, bias = 0.00
+client 4, round 10, step 200, loss = 0.850089, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client 4, round 10, step 400, loss = 0.720470, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-10-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-9-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-10-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-10-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round10.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-9-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-10-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-10-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:  22%|██▏       | 11/50 [03:58<14:22, 22.11s/it]server round 11
+clients selected: [0 1]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-7-600-0-before.ckpt
+client 0, round 11, step 0, loss = 0.759693, learning_rate = 0.000075, training_accu = 0.515625, bias = 0.00
+client 0, round 11, step 200, loss = 0.728070, learning_rate = 0.000075, training_accu = 0.562500, bias = 0.00
+client 0, round 11, step 400, loss = 0.786549, learning_rate = 0.000075, training_accu = 0.546875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-11-600-0-before.ckpt
+client 1
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-9-600-0-before.ckpt
+client 1, round 11, step 0, loss = 0.724380, learning_rate = 0.000075, training_accu = 0.609375, bias = 0.00
+client 1, round 11, step 200, loss = 0.704774, learning_rate = 0.000075, training_accu = 0.546875, bias = 0.00
+client 1, round 11, step 400, loss = 0.722691, learning_rate = 0.000075, training_accu = 0.437500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-11-600-0-before.ckpt
+calculate ADMM optimized y & z
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-11-600-0-before.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-11-600-0-before.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-10-600-0-before.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-10-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round11.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-11-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/ADMM/y.ckpt
+check points 1: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/model-11-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_1/ADMM/y.ckpt
+check points 2: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/model-8-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_2/ADMM/y.ckpt
+check points 3: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-10-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/ADMM/y.ckpt
+check points 4: searching /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4
+found /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/model-10-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_4/ADMM/y.ckpt
+server rounds:  24%|██▍       | 12/50 [04:21<14:12, 22.44s/it]server round 12
+clients selected: [0 3]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-11-600-0-before.ckpt
+client 0, round 12, step 0, loss = 0.656161, learning_rate = 0.000075, training_accu = 0.687500, bias = 0.00
+client 0, round 12, step 200, loss = 0.730033, learning_rate = 0.000075, training_accu = 0.562500, bias = 0.00
+client 0, round 12, step 400, loss = 0.701491, learning_rate = 0.000075, training_accu = 0.531250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_0/model-12-600-0-before.ckpt
+client 3
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model-ADMM/client_3/model-10-600-0-before.ckpt
+client 3, round 12, step 0, loss = 0.696894, learning_rate = 0.000100, training_accu = 0.515625, bias = 0.00
+client 3, round 12, step 200, loss = 0.697000, learning_rate = 0.000100, training_accu = 0.484375, bias = 0.00

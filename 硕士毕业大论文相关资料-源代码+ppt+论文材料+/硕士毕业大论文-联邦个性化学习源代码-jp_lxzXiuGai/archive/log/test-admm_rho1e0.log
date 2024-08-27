@@ -1,0 +1,32 @@
+loading test data from: /research/byu2/rchen/proj/wwy/benchmarks/asml1/test/label.csv
+loading data into the main memory...
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round5.ckpt
+using prediction of original version only
+Threshold percentage: 0.600000
+Precision: 0.8434 @ 0.0100, Recall: 0.7354 @ 0.0100
+AUC: 0.764061
+Average Precision (.5:.95) : 0.84338
+Average Recall (.5:.95): 0.73538
+Test Runtime is 81.300814 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round10.ckpt
+using prediction of original version only
+Threshold percentage: 0.600000
+Precision: 0.8992 @ 0.1900, Recall: 0.7843 @ 0.1900
+AUC: 0.838615
+Average Precision (.5:.95) : 0.89916
+Average Recall (.5:.95): 0.78429
+Test Runtime is 79.736348 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM/server/model-aver-round15.ckpt
+using prediction of original version only
+Threshold percentage: 0.600000
+Precision: 0.9117 @ 0.0900, Recall: 0.7954 @ 0.0900
+AUC: 0.859724
+Average Precision (.5:.95) : 0.91168
+Average Recall (.5:.95): 0.79536
+Test Runtime is 78.597232 seconds

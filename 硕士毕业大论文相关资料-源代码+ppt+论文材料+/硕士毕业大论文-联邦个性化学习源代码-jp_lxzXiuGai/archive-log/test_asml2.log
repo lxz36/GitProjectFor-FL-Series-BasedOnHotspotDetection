@@ -1,0 +1,6 @@
+loading test data from: /research/byu2/rchen/proj/wwy/benchmarks/asml2/test/label.csv
+loading data into the main memory...
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-5-.ckpt
+using prediction of original version only

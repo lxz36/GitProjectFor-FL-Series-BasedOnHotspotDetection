@@ -1,0 +1,172 @@
+
+FL
+In gamma0.5_a1i1_sr1.0 :
+TPR on asml1 : 0.0099
+TPR on iccad2012 : 0.1097
+In gamma0.5_a5i5_sr1.0 :
+TPR on asml1 : 0.0164
+TPR on iccad2012 : 0.0896
+In gamma0.5_a5i5_sr0.5 :
+TPR on asml1 : 0.0091
+TPR on iccad2012 : 0.1271
+In gamma0.5_a2i2_sr1.0 :
+TPR on asml1 : 0.0163
+TPR on iccad2012 : 0.1007
+In gamma0.5_a2i2_sr0.5 :
+TPR on asml1 : 0.0063
+TPR on iccad2012 : 0.1183
+
+FedProx
+In fedprox-a1i1-sel1.0-l2fp1e-3-withl2 :
+TPR on asml1 : 0.0137
+TPR on iccad2012 : 0.1343
+In fedprox-a2i2-sel0.5-l2fp1e-3-withl2 :
+TPR on asml1 : 0.0097
+TPR on iccad2012 : 0.1581
+In fedprox-a5i5-sel1.0-l2fp1e-3-withl2 :
+TPR on asml1 : 0.0163
+TPR on iccad2012 : 0.1133
+In fedprox-a2i2-sel1.0-l2fp1e-3-withl2 :
+TPR on asml1 : 0.0165
+TPR on iccad2012 : 0.1212
+In fedprox-a5i5-sel0.5-l2fp1e-3-withl2 :
+TPR on asml1 : 0.0123
+TPR on iccad2012 : 0.1690
+
+FL but fc2
+In a1i1_sel1.0_ch26 :
+Avg TPR on asml1 : 0.9708
+Avg TPR on iccad2012 : 0.9604
+In a2i2_sr1.0 :
+Avg TPR on asml1 : 0.9751
+Avg TPR on iccad2012 : 0.9665
+In a2i2_sr0.5 :
+Avg TPR on asml1 : 0.9735
+Avg TPR on iccad2012 : 0.9608
+In a5i5_sel1.0_ch26 :
+Avg TPR on asml1 : 0.9676
+Avg TPR on iccad2012 : 0.9598
+In a1i1_sr1.0 :
+Avg TPR on asml1 : 0.9661
+Avg TPR on iccad2012 : 0.9600
+In a2i2_sel0.5_ch26 :
+Avg TPR on asml1 : 0.9710
+Avg TPR on iccad2012 : 0.9568
+In a5i5_sr1.0 :
+Avg TPR on asml1 : 0.9713
+Avg TPR on iccad2012 : 0.9671
+In a5i5_sr0.5 :
+Avg TPR on asml1 : 0.9748
+Avg TPR on iccad2012 : 0.9543
+In a2i2_sel1.0_ch26 :
+Avg TPR on asml1 : 0.9693
+Avg TPR on iccad2012 : 0.9653
+In a5i5_sel0.5_ch26 :
+Avg TPR on asml1 : 0.9715
+Avg TPR on iccad2012 : 0.9409
+
+Local
+In a2i2_sr1.0 :
+Avg TPR on asml1 : 0.9633
+Avg TPR on iccad2012 : 0.9463
+In a2i2-50r-800spr :
+Avg TPR on asml1 : 0.9705
+Avg TPR on iccad2012 : 0.9657
+In a1i1_sr1.0 :
+Avg TPR on asml1 : 0.9721
+Avg TPR on iccad2012 : 0.9620
+In a5i5-50r-800spr :
+Avg TPR on asml1 : 0.9536
+Avg TPR on iccad2012 : 0.9254
+In a5i5_sr1.0 :
+Avg TPR on asml1 : 0.9430
+Avg TPR on iccad2012 : 0.8948
+In a1i1-50r-800spr :
+Avg TPR on asml1 : 0.9756
+Avg TPR on iccad2012 : 0.9731
+
+FL
+In gamma0.5_a1i1_sr1.0 :
+FPR on asml1 : 0.0099
+FPR on iccad2012 : 0.1097
+In gamma0.5_a5i5_sr1.0 :
+FPR on asml1 : 0.0164
+FPR on iccad2012 : 0.0896
+In gamma0.5_a5i5_sr0.5 :
+FPR on asml1 : 0.0091
+FPR on iccad2012 : 0.1271
+In gamma0.5_a2i2_sr1.0 :
+FPR on asml1 : 0.0163
+FPR on iccad2012 : 0.1007
+In gamma0.5_a2i2_sr0.5 :
+FPR on asml1 : 0.0063
+FPR on iccad2012 : 0.1183
+
+FedProx
+In fedprox-a1i1-sel1.0-l2fp1e-3-withl2 :
+FPR on asml1 : 0.0137
+FPR on iccad2012 : 0.1343
+In fedprox-a2i2-sel0.5-l2fp1e-3-withl2 :
+FPR on asml1 : 0.0097
+FPR on iccad2012 : 0.1581
+In fedprox-a5i5-sel1.0-l2fp1e-3-withl2 :
+FPR on asml1 : 0.0163
+FPR on iccad2012 : 0.1133
+In fedprox-a2i2-sel1.0-l2fp1e-3-withl2 :
+FPR on asml1 : 0.0165
+FPR on iccad2012 : 0.1212
+In fedprox-a5i5-sel0.5-l2fp1e-3-withl2 :
+FPR on asml1 : 0.0123
+FPR on iccad2012 : 0.1690
+
+FL but fc2
+In a1i1_sel1.0_ch26 :
+Avg FPR on asml1 : 0.0392
+Avg FPR on iccad2012 : 0.0201
+In a2i2_sr1.0 :
+Avg FPR on asml1 : 0.0487
+Avg FPR on iccad2012 : 0.0205
+In a2i2_sr0.5 :
+Avg FPR on asml1 : 0.0475
+Avg FPR on iccad2012 : 0.0221
+In a5i5_sel1.0_ch26 :
+Avg FPR on asml1 : 0.0489
+Avg FPR on iccad2012 : 0.0279
+In a1i1_sr1.0 :
+Avg FPR on asml1 : 0.0403
+Avg FPR on iccad2012 : 0.0194
+In a2i2_sel0.5_ch26 :
+Avg FPR on asml1 : 0.0436
+Avg FPR on iccad2012 : 0.0227
+In a5i5_sr1.0 :
+Avg FPR on asml1 : 0.0503
+Avg FPR on iccad2012 : 0.0301
+In a5i5_sr0.5 :
+Avg FPR on asml1 : 0.0541
+Avg FPR on iccad2012 : 0.0225
+In a2i2_sel1.0_ch26 :
+Avg FPR on asml1 : 0.0533
+Avg FPR on iccad2012 : 0.0225
+In a5i5_sel0.5_ch26 :
+Avg FPR on asml1 : 0.0528
+Avg FPR on iccad2012 : 0.0209
+
+Local
+In a2i2_sr1.0 :
+Avg FPR on asml1 : 0.0659
+Avg FPR on iccad2012 : 0.0187
+In a2i2-50r-800spr :
+Avg FPR on asml1 : 0.0711
+Avg FPR on iccad2012 : 0.0213
+In a1i1_sr1.0 :
+Avg FPR on asml1 : 0.0486
+Avg FPR on iccad2012 : 0.0180
+In a5i5-50r-800spr :
+Avg FPR on asml1 : 0.1225
+Avg FPR on iccad2012 : 0.0240
+In a5i5_sr1.0 :
+Avg FPR on asml1 : 0.1207
+Avg FPR on iccad2012 : 0.0172
+In a1i1-50r-800spr :
+Avg FPR on asml1 : 0.0395
+Avg FPR on iccad2012 : 0.0214

@@ -1,0 +1,553 @@
+client model path: ['/research/byu2/rchen/proj/wwy/jp/model/client_0']
+loading data into the main memory...
+initialize clients
+server round 0/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-init.ckpt
+client 0, round 0, step 0, loss = 2.054081, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client 0, round 0, step 200, loss = 0.658965, learning_rate = 0.000100, training_accu = 0.531250, bias = 0.00
+client 0, round 0, step 400, loss = 0.575944, learning_rate = 0.000100, training_accu = 0.546875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-0-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-0-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-0-.ckpt
+server round 1/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-0-600-0-before.ckpt
+client 0, round 1, step 0, loss = 0.634280, learning_rate = 0.000100, training_accu = 0.656250, bias = 0.00
+client 0, round 1, step 200, loss = 0.523201, learning_rate = 0.000100, training_accu = 0.718750, bias = 0.00
+client 0, round 1, step 400, loss = 0.516509, learning_rate = 0.000100, training_accu = 0.796875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-1-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-1-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-1-.ckpt
+server round 2/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-1-600-0-before.ckpt
+client 0, round 2, step 0, loss = 0.554872, learning_rate = 0.000100, training_accu = 0.750000, bias = 0.00
+client 0, round 2, step 200, loss = 0.485740, learning_rate = 0.000100, training_accu = 0.734375, bias = 0.00
+client 0, round 2, step 400, loss = 0.557840, learning_rate = 0.000100, training_accu = 0.671875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-2-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-2-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-2-.ckpt
+server round 3/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-2-600-0-before.ckpt
+client 0, round 3, step 0, loss = 0.418000, learning_rate = 0.000100, training_accu = 0.812500, bias = 0.00
+client 0, round 3, step 200, loss = 0.460653, learning_rate = 0.000100, training_accu = 0.843750, bias = 0.00
+client 0, round 3, step 400, loss = 0.523476, learning_rate = 0.000100, training_accu = 0.718750, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-3-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-3-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-3-.ckpt
+server round 4/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-3-600-0-before.ckpt
+client 0, round 4, step 0, loss = 0.469661, learning_rate = 0.000100, training_accu = 0.750000, bias = 0.00
+client 0, round 4, step 200, loss = 0.442624, learning_rate = 0.000100, training_accu = 0.796875, bias = 0.00
+client 0, round 4, step 400, loss = 0.408293, learning_rate = 0.000100, training_accu = 0.828125, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-4-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-4-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-4-.ckpt
+server round 5/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-4-600-0-before.ckpt
+client 0, round 5, step 0, loss = 0.503989, learning_rate = 0.000075, training_accu = 0.765625, bias = 0.00
+client 0, round 5, step 200, loss = 0.336229, learning_rate = 0.000075, training_accu = 0.875000, bias = 0.00
+client 0, round 5, step 400, loss = 0.350792, learning_rate = 0.000075, training_accu = 0.859375, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-5-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-5-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-5-.ckpt
+server round 6/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-5-600-0-before.ckpt
+client 0, round 6, step 0, loss = 0.547706, learning_rate = 0.000075, training_accu = 0.734375, bias = 0.00
+client 0, round 6, step 200, loss = 0.419168, learning_rate = 0.000075, training_accu = 0.828125, bias = 0.00
+client 0, round 6, step 400, loss = 0.407054, learning_rate = 0.000075, training_accu = 0.796875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-6-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-6-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-6-.ckpt
+server round 7/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-6-600-0-before.ckpt
+client 0, round 7, step 0, loss = 0.422610, learning_rate = 0.000075, training_accu = 0.828125, bias = 0.00
+client 0, round 7, step 200, loss = 0.415067, learning_rate = 0.000075, training_accu = 0.765625, bias = 0.00
+client 0, round 7, step 400, loss = 0.444579, learning_rate = 0.000075, training_accu = 0.765625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-7-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-7-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-7-.ckpt
+server round 8/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-7-600-0-before.ckpt
+client 0, round 8, step 0, loss = 0.369747, learning_rate = 0.000075, training_accu = 0.828125, bias = 0.00
+client 0, round 8, step 200, loss = 0.370343, learning_rate = 0.000075, training_accu = 0.843750, bias = 0.00
+client 0, round 8, step 400, loss = 0.464899, learning_rate = 0.000075, training_accu = 0.703125, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-8-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-8-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-8-.ckpt
+server round 9/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-8-600-0-before.ckpt
+client 0, round 9, step 0, loss = 0.472071, learning_rate = 0.000075, training_accu = 0.796875, bias = 0.00
+client 0, round 9, step 200, loss = 0.380226, learning_rate = 0.000075, training_accu = 0.796875, bias = 0.00
+client 0, round 9, step 400, loss = 0.333177, learning_rate = 0.000075, training_accu = 0.859375, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-9-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-9-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-9-.ckpt
+server round 10/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-9-600-0-before.ckpt
+client 0, round 10, step 0, loss = 0.411464, learning_rate = 0.000056, training_accu = 0.812500, bias = 0.00
+client 0, round 10, step 200, loss = 0.269449, learning_rate = 0.000056, training_accu = 0.890625, bias = 0.00
+client 0, round 10, step 400, loss = 0.272525, learning_rate = 0.000056, training_accu = 0.890625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-10-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-10-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-10-.ckpt
+server round 11/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-10-600-0-before.ckpt
+client 0, round 11, step 0, loss = 0.419468, learning_rate = 0.000056, training_accu = 0.828125, bias = 0.00
+client 0, round 11, step 200, loss = 0.319292, learning_rate = 0.000056, training_accu = 0.859375, bias = 0.00
+client 0, round 11, step 400, loss = 0.420466, learning_rate = 0.000056, training_accu = 0.781250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-11-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-11-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-11-.ckpt
+server round 12/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-11-600-0-before.ckpt
+client 0, round 12, step 0, loss = 0.375427, learning_rate = 0.000056, training_accu = 0.828125, bias = 0.00
+client 0, round 12, step 200, loss = 0.348952, learning_rate = 0.000056, training_accu = 0.828125, bias = 0.00
+client 0, round 12, step 400, loss = 0.283984, learning_rate = 0.000056, training_accu = 0.843750, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-12-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-12-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-12-.ckpt
+server round 13/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-12-600-0-before.ckpt
+client 0, round 13, step 0, loss = 0.296572, learning_rate = 0.000056, training_accu = 0.890625, bias = 0.00
+client 0, round 13, step 200, loss = 0.373479, learning_rate = 0.000056, training_accu = 0.843750, bias = 0.00
+client 0, round 13, step 400, loss = 0.270092, learning_rate = 0.000056, training_accu = 0.859375, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-13-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-13-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-13-.ckpt
+server round 14/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-13-600-0-before.ckpt
+client 0, round 14, step 0, loss = 0.301772, learning_rate = 0.000056, training_accu = 0.890625, bias = 0.00
+client 0, round 14, step 200, loss = 0.359863, learning_rate = 0.000056, training_accu = 0.812500, bias = 0.00
+client 0, round 14, step 400, loss = 0.245593, learning_rate = 0.000056, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-14-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-14-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-14-.ckpt
+server round 15/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-14-600-0-before.ckpt
+client 0, round 15, step 0, loss = 0.349019, learning_rate = 0.000042, training_accu = 0.843750, bias = 0.00
+client 0, round 15, step 200, loss = 0.399727, learning_rate = 0.000042, training_accu = 0.828125, bias = 0.00
+client 0, round 15, step 400, loss = 0.345660, learning_rate = 0.000042, training_accu = 0.828125, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-15-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-15-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-15-.ckpt
+server round 16/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-15-600-0-before.ckpt
+client 0, round 16, step 0, loss = 0.315610, learning_rate = 0.000042, training_accu = 0.906250, bias = 0.00
+client 0, round 16, step 200, loss = 0.250935, learning_rate = 0.000042, training_accu = 0.875000, bias = 0.00
+client 0, round 16, step 400, loss = 0.403360, learning_rate = 0.000042, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-16-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-16-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-16-.ckpt
+server round 17/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-16-600-0-before.ckpt
+client 0, round 17, step 0, loss = 0.351411, learning_rate = 0.000042, training_accu = 0.859375, bias = 0.00
+client 0, round 17, step 200, loss = 0.316411, learning_rate = 0.000042, training_accu = 0.812500, bias = 0.00
+client 0, round 17, step 400, loss = 0.356789, learning_rate = 0.000042, training_accu = 0.796875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-17-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-17-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-17-.ckpt
+server round 18/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-17-600-0-before.ckpt
+client 0, round 18, step 0, loss = 0.263291, learning_rate = 0.000042, training_accu = 0.921875, bias = 0.00
+client 0, round 18, step 200, loss = 0.210112, learning_rate = 0.000042, training_accu = 0.921875, bias = 0.00
+client 0, round 18, step 400, loss = 0.267436, learning_rate = 0.000042, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-18-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-18-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-18-.ckpt
+server round 19/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-18-600-0-before.ckpt
+client 0, round 19, step 0, loss = 0.441233, learning_rate = 0.000042, training_accu = 0.843750, bias = 0.00
+client 0, round 19, step 200, loss = 0.203467, learning_rate = 0.000042, training_accu = 0.921875, bias = 0.00
+client 0, round 19, step 400, loss = 0.254977, learning_rate = 0.000042, training_accu = 0.937500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-19-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-19-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-19-.ckpt
+server round 20/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-19-600-0-before.ckpt
+client 0, round 20, step 0, loss = 0.423290, learning_rate = 0.000032, training_accu = 0.812500, bias = 0.00
+client 0, round 20, step 200, loss = 0.243409, learning_rate = 0.000032, training_accu = 0.890625, bias = 0.00
+client 0, round 20, step 400, loss = 0.404225, learning_rate = 0.000032, training_accu = 0.828125, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-20-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-20-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-20-.ckpt
+server round 21/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-20-600-0-before.ckpt
+client 0, round 21, step 0, loss = 0.377156, learning_rate = 0.000032, training_accu = 0.859375, bias = 0.00
+client 0, round 21, step 200, loss = 0.268926, learning_rate = 0.000032, training_accu = 0.875000, bias = 0.00
+client 0, round 21, step 400, loss = 0.252895, learning_rate = 0.000032, training_accu = 0.906250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-21-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-21-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-21-.ckpt
+server round 22/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-21-600-0-before.ckpt
+client 0, round 22, step 0, loss = 0.296993, learning_rate = 0.000032, training_accu = 0.875000, bias = 0.00
+client 0, round 22, step 200, loss = 0.204403, learning_rate = 0.000032, training_accu = 0.921875, bias = 0.00
+client 0, round 22, step 400, loss = 0.276828, learning_rate = 0.000032, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-22-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-22-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-22-.ckpt
+server round 23/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-22-600-0-before.ckpt
+client 0, round 23, step 0, loss = 0.321858, learning_rate = 0.000032, training_accu = 0.843750, bias = 0.00
+client 0, round 23, step 200, loss = 0.307141, learning_rate = 0.000032, training_accu = 0.859375, bias = 0.00
+client 0, round 23, step 400, loss = 0.211778, learning_rate = 0.000032, training_accu = 0.906250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-23-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-23-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-23-.ckpt
+server round 24/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-23-600-0-before.ckpt
+client 0, round 24, step 0, loss = 0.286633, learning_rate = 0.000032, training_accu = 0.859375, bias = 0.00
+client 0, round 24, step 200, loss = 0.321875, learning_rate = 0.000032, training_accu = 0.828125, bias = 0.00
+client 0, round 24, step 400, loss = 0.268605, learning_rate = 0.000032, training_accu = 0.890625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-24-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-24-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-24-.ckpt
+server round 25/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-24-600-0-before.ckpt
+client 0, round 25, step 0, loss = 0.406866, learning_rate = 0.000024, training_accu = 0.765625, bias = 0.00
+client 0, round 25, step 200, loss = 0.221945, learning_rate = 0.000024, training_accu = 0.859375, bias = 0.00
+client 0, round 25, step 400, loss = 0.291963, learning_rate = 0.000024, training_accu = 0.906250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-25-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-25-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-25-.ckpt
+server round 26/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-25-600-0-before.ckpt
+client 0, round 26, step 0, loss = 0.293223, learning_rate = 0.000024, training_accu = 0.937500, bias = 0.00
+client 0, round 26, step 200, loss = 0.386226, learning_rate = 0.000024, training_accu = 0.781250, bias = 0.00
+client 0, round 26, step 400, loss = 0.214019, learning_rate = 0.000024, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-26-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-26-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-26-.ckpt
+server round 27/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-26-600-0-before.ckpt
+client 0, round 27, step 0, loss = 0.280731, learning_rate = 0.000024, training_accu = 0.875000, bias = 0.00
+client 0, round 27, step 200, loss = 0.273297, learning_rate = 0.000024, training_accu = 0.921875, bias = 0.00
+client 0, round 27, step 400, loss = 0.215525, learning_rate = 0.000024, training_accu = 0.906250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-27-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-27-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-27-.ckpt
+server round 28/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-27-600-0-before.ckpt
+client 0, round 28, step 0, loss = 0.210706, learning_rate = 0.000024, training_accu = 0.921875, bias = 0.00
+client 0, round 28, step 200, loss = 0.221619, learning_rate = 0.000024, training_accu = 0.906250, bias = 0.00
+client 0, round 28, step 400, loss = 0.264681, learning_rate = 0.000024, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-28-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-28-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-28-.ckpt
+server round 29/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-28-600-0-before.ckpt
+client 0, round 29, step 0, loss = 0.213356, learning_rate = 0.000024, training_accu = 0.890625, bias = 0.00
+client 0, round 29, step 200, loss = 0.300455, learning_rate = 0.000024, training_accu = 0.828125, bias = 0.00
+client 0, round 29, step 400, loss = 0.243110, learning_rate = 0.000024, training_accu = 0.937500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-29-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-29-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-29-.ckpt
+server round 30/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-29-600-0-before.ckpt
+client 0, round 30, step 0, loss = 0.280852, learning_rate = 0.000018, training_accu = 0.859375, bias = 0.00
+client 0, round 30, step 200, loss = 0.179931, learning_rate = 0.000018, training_accu = 0.937500, bias = 0.00
+client 0, round 30, step 400, loss = 0.326306, learning_rate = 0.000018, training_accu = 0.843750, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-30-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-30-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-30-.ckpt
+server round 31/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-30-600-0-before.ckpt
+client 0, round 31, step 0, loss = 0.295885, learning_rate = 0.000018, training_accu = 0.875000, bias = 0.00
+client 0, round 31, step 200, loss = 0.312967, learning_rate = 0.000018, training_accu = 0.859375, bias = 0.00
+client 0, round 31, step 400, loss = 0.270522, learning_rate = 0.000018, training_accu = 0.906250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-31-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-31-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-31-.ckpt
+server round 32/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-31-600-0-before.ckpt
+client 0, round 32, step 0, loss = 0.258655, learning_rate = 0.000018, training_accu = 0.859375, bias = 0.00
+client 0, round 32, step 200, loss = 0.288186, learning_rate = 0.000018, training_accu = 0.859375, bias = 0.00
+client 0, round 32, step 400, loss = 0.137512, learning_rate = 0.000018, training_accu = 0.984375, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-32-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-32-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-32-.ckpt
+server round 33/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-32-600-0-before.ckpt
+client 0, round 33, step 0, loss = 0.382772, learning_rate = 0.000018, training_accu = 0.843750, bias = 0.00
+client 0, round 33, step 200, loss = 0.309942, learning_rate = 0.000018, training_accu = 0.859375, bias = 0.00
+client 0, round 33, step 400, loss = 0.243904, learning_rate = 0.000018, training_accu = 0.890625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-33-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-33-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-33-.ckpt
+server round 34/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-33-600-0-before.ckpt
+client 0, round 34, step 0, loss = 0.155657, learning_rate = 0.000018, training_accu = 0.937500, bias = 0.00
+client 0, round 34, step 200, loss = 0.227855, learning_rate = 0.000018, training_accu = 0.875000, bias = 0.00
+client 0, round 34, step 400, loss = 0.189262, learning_rate = 0.000018, training_accu = 0.968750, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-34-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-34-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-34-.ckpt
+server round 35/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-34-600-0-before.ckpt
+client 0, round 35, step 0, loss = 0.187666, learning_rate = 0.000013, training_accu = 0.921875, bias = 0.00
+client 0, round 35, step 200, loss = 0.216566, learning_rate = 0.000013, training_accu = 0.890625, bias = 0.00
+client 0, round 35, step 400, loss = 0.214997, learning_rate = 0.000013, training_accu = 0.890625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-35-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-35-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-35-.ckpt
+server round 36/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-35-600-0-before.ckpt
+client 0, round 36, step 0, loss = 0.298541, learning_rate = 0.000013, training_accu = 0.828125, bias = 0.00
+client 0, round 36, step 200, loss = 0.389926, learning_rate = 0.000013, training_accu = 0.843750, bias = 0.00
+client 0, round 36, step 400, loss = 0.370247, learning_rate = 0.000013, training_accu = 0.750000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-36-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-36-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-36-.ckpt
+server round 37/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-36-600-0-before.ckpt
+client 0, round 37, step 0, loss = 0.160339, learning_rate = 0.000013, training_accu = 0.906250, bias = 0.00
+client 0, round 37, step 200, loss = 0.235509, learning_rate = 0.000013, training_accu = 0.906250, bias = 0.00
+client 0, round 37, step 400, loss = 0.274405, learning_rate = 0.000013, training_accu = 0.890625, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-37-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-37-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-37-.ckpt
+server round 38/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-37-600-0-before.ckpt
+client 0, round 38, step 0, loss = 0.241657, learning_rate = 0.000013, training_accu = 0.906250, bias = 0.00
+client 0, round 38, step 200, loss = 0.178399, learning_rate = 0.000013, training_accu = 0.906250, bias = 0.00
+client 0, round 38, step 400, loss = 0.314832, learning_rate = 0.000013, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-38-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-38-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-38-.ckpt
+server round 39/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-38-600-0-before.ckpt
+client 0, round 39, step 0, loss = 0.227837, learning_rate = 0.000013, training_accu = 0.906250, bias = 0.00
+client 0, round 39, step 200, loss = 0.143721, learning_rate = 0.000013, training_accu = 0.953125, bias = 0.00
+client 0, round 39, step 400, loss = 0.247222, learning_rate = 0.000013, training_accu = 0.921875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-39-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-39-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-39-.ckpt
+server round 40/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-39-600-0-before.ckpt
+client 0, round 40, step 0, loss = 0.189879, learning_rate = 0.000010, training_accu = 0.921875, bias = 0.00
+client 0, round 40, step 200, loss = 0.241225, learning_rate = 0.000010, training_accu = 0.890625, bias = 0.00
+client 0, round 40, step 400, loss = 0.317031, learning_rate = 0.000010, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-40-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-40-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-40-.ckpt
+server round 41/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-40-600-0-before.ckpt
+client 0, round 41, step 0, loss = 0.400241, learning_rate = 0.000010, training_accu = 0.843750, bias = 0.00
+client 0, round 41, step 200, loss = 0.134590, learning_rate = 0.000010, training_accu = 0.953125, bias = 0.00
+client 0, round 41, step 400, loss = 0.167015, learning_rate = 0.000010, training_accu = 0.921875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-41-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-41-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-41-.ckpt
+server round 42/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-41-600-0-before.ckpt
+client 0, round 42, step 0, loss = 0.279447, learning_rate = 0.000010, training_accu = 0.859375, bias = 0.00
+client 0, round 42, step 200, loss = 0.255586, learning_rate = 0.000010, training_accu = 0.875000, bias = 0.00
+client 0, round 42, step 400, loss = 0.245636, learning_rate = 0.000010, training_accu = 0.937500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-42-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-42-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-42-.ckpt
+server round 43/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-42-600-0-before.ckpt
+client 0, round 43, step 0, loss = 0.175585, learning_rate = 0.000010, training_accu = 0.890625, bias = 0.00
+client 0, round 43, step 200, loss = 0.143094, learning_rate = 0.000010, training_accu = 0.937500, bias = 0.00
+client 0, round 43, step 400, loss = 0.266964, learning_rate = 0.000010, training_accu = 0.906250, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-43-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-43-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-43-.ckpt
+server round 44/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-43-600-0-before.ckpt
+client 0, round 44, step 0, loss = 0.168743, learning_rate = 0.000010, training_accu = 0.906250, bias = 0.00
+client 0, round 44, step 200, loss = 0.230512, learning_rate = 0.000010, training_accu = 0.875000, bias = 0.00
+client 0, round 44, step 400, loss = 0.200350, learning_rate = 0.000010, training_accu = 0.921875, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-44-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-44-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-44-.ckpt
+server round 45/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-44-600-0-before.ckpt
+client 0, round 45, step 0, loss = 0.343568, learning_rate = 0.000008, training_accu = 0.859375, bias = 0.00
+client 0, round 45, step 200, loss = 0.246662, learning_rate = 0.000008, training_accu = 0.921875, bias = 0.00
+client 0, round 45, step 400, loss = 0.172190, learning_rate = 0.000008, training_accu = 0.937500, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-45-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-45-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-45-.ckpt
+server round 46/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-45-600-0-before.ckpt
+client 0, round 46, step 0, loss = 0.254627, learning_rate = 0.000008, training_accu = 0.921875, bias = 0.00
+client 0, round 46, step 200, loss = 0.224510, learning_rate = 0.000008, training_accu = 0.906250, bias = 0.00
+client 0, round 46, step 400, loss = 0.275062, learning_rate = 0.000008, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-46-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-46-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-46-.ckpt
+server round 47/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-46-600-0-before.ckpt
+client 0, round 47, step 0, loss = 0.240177, learning_rate = 0.000008, training_accu = 0.953125, bias = 0.00
+client 0, round 47, step 200, loss = 0.135782, learning_rate = 0.000008, training_accu = 0.984375, bias = 0.00
+client 0, round 47, step 400, loss = 0.180779, learning_rate = 0.000008, training_accu = 1.000000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-47-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-47-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-47-.ckpt
+server round 48/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-47-600-0-before.ckpt
+client 0, round 48, step 0, loss = 0.259835, learning_rate = 0.000008, training_accu = 0.890625, bias = 0.00
+client 0, round 48, step 200, loss = 0.211348, learning_rate = 0.000008, training_accu = 0.875000, bias = 0.00
+client 0, round 48, step 400, loss = 0.176372, learning_rate = 0.000008, training_accu = 0.953125, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-48-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-48-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-48-.ckpt
+server round 49/50
+clients selected: [0]
+client 0
+Restoring client from /research/byu2/rchen/proj/wwy/jp/model/client_0/model-48-600-0-before.ckpt
+client 0, round 49, step 0, loss = 0.243924, learning_rate = 0.000008, training_accu = 0.906250, bias = 0.00
+client 0, round 49, step 200, loss = 0.189694, learning_rate = 0.000008, training_accu = 0.906250, bias = 0.00
+client 0, round 49, step 400, loss = 0.217141, learning_rate = 0.000008, training_accu = 0.875000, bias = 0.00
+client checkpoint saved in /research/byu2/rchen/proj/wwy/jp/model/client_0/model-49-600-0-before.ckpt
+check points 0: searching /research/byu2/rchen/proj/wwy/jp/model/client_0
+found /research/byu2/rchen/proj/wwy/jp/model/client_0/model-49-600-0-before.ckpt
+model saved in /research/byu2/rchen/proj/wwy/jp/model/server/model-49-.ckpt

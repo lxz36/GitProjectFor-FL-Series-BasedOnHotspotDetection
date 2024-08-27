@@ -1,0 +1,333 @@
+loading test data from: /research/byu2/rchen/proj/wwy/benchmarks/asml4/test/label.csv
+loading data into the main memory...
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-5-.ckpt
+using prediction of original version only
+Checked label stats of asml4:
+#all labels: 21000
+#negative 20069, 95.567%
+#positive   931, 4.433%
+Predictions of 20 negative samples:
+[ 3.5879135   1.1131991   3.9294386   0.5262512   6.6429386  -0.94682395
+  0.77900565  3.8713098   1.287014    2.66354     0.27870834  2.2084997
+  3.7762344   2.1299155   0.7580564  -2.9699106  -1.6157054   2.0616593
+ -0.71156836 -4.47558   ]
+Predictions of 20 positive samples:
+[ 4.625882   2.4524448  5.3169804  8.2425785  6.974193   5.3005853
+  8.177681   4.7684264  7.5017834  8.484974   6.412195   7.9574013
+  8.125434   9.177361   4.3944616 12.69076    6.6230183  8.538883
+  8.58734    2.4635804]
+Threshold percentile: 0.950
+Precision: 0.5352 @ 6.5826, Recall:   0.6037 @ 6.5826
+True PR:   0.6037 @ 6.5826, False PR: 0.0243 @ 6.5826
+Threshold percentile: 0.955
+Precision: 0.5598 @ 6.8100, Recall:   0.5682 @ 6.8100
+True PR:   0.5682 @ 6.8100, False PR: 0.0207 @ 6.8100
+Threshold percentile: 0.960
+Precision: 0.5905 @ 7.0533, Recall:   0.5328 @ 7.0533
+True PR:   0.5328 @ 7.0533, False PR: 0.0171 @ 7.0533
+Threshold percentile: 0.965
+Precision: 0.6204 @ 7.3487, Recall:   0.4898 @ 7.3487
+True PR:   0.4898 @ 7.3487, False PR: 0.0139 @ 7.3487
+Threshold percentile: 0.970
+Precision: 0.6603 @ 7.6701, Recall:   0.4468 @ 7.6701
+True PR:   0.4468 @ 7.6701, False PR: 0.0107 @ 7.6701
+Threshold percentile: 0.975
+Precision: 0.7048 @ 8.0359, Recall:   0.3974 @ 8.0359
+True PR:   0.3974 @ 8.0359, False PR: 0.0077 @ 8.0359
+Threshold percentile: 0.980
+Precision: 0.7595 @ 8.4280, Recall:   0.3426 @ 8.4280
+True PR:   0.3426 @ 8.4280, False PR: 0.0050 @ 8.4280
+Threshold percentile: 0.985
+Precision: 0.8063 @ 8.9515, Recall:   0.2728 @ 8.9515
+True PR:   0.2728 @ 8.9515, False PR: 0.0030 @ 8.9515
+Threshold percentile: 0.990
+Precision: 0.8714 @ 9.7296, Recall:   0.1966 @ 9.7296
+True PR:   0.1966 @ 9.7296, False PR: 0.0013 @ 9.7296
+Threshold percentile: 0.995
+Precision: 0.9048 @ 10.8062, Recall:   0.1020 @ 10.8062
+True PR:   0.1020 @ 10.8062, False PR: 0.0005 @ 10.8062
+AUC: 0.928900
+
+With zero bias: -0.0008024926334621346
+Threshold 0 at prediction percentile: 0.2295
+Precision: 0.0569 @ 0.0, Recall:   0.9882 @ 0.0
+True PR:   0.9882 @ 0.0, False PR: 0.7604 @ 0.0
+Test Runtime is 299.860340 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-15-.ckpt
+using prediction of original version only
+Checked label stats of asml4:
+#all labels: 21000
+#negative 20080, 95.619%
+#positive   920, 4.381%
+Predictions of 20 negative samples:
+[-2.620098    0.67243546 -1.0479529  -1.3432214  -0.05405825 -0.11011457
+ -2.592784   -1.0749855   4.3243885   0.4951627  -0.12435305 -0.25888473
+  4.1303654   5.4502954   1.3131888   7.482957    3.4310772  -0.58276105
+  0.7555062  -5.438451  ]
+Predictions of 20 positive samples:
+[ 9.789576   8.930064   7.2344294  7.9165263  5.8072743  8.662188
+  3.6433804 13.363604   8.8562975 10.852519   7.6290326  5.1588736
+  3.4173393  8.650701   8.641404   5.9287744  4.4079843  9.366853
+  3.5443707  7.4429264]
+Threshold percentile: 0.950
+Precision: 0.5181 @ 7.4459, Recall:   0.5913 @ 7.4459
+True PR:   0.5913 @ 7.4459, False PR: 0.0252 @ 7.4459
+Threshold percentile: 0.955
+Precision: 0.5534 @ 7.6618, Recall:   0.5685 @ 7.6618
+True PR:   0.5685 @ 7.6618, False PR: 0.0210 @ 7.6618
+Threshold percentile: 0.960
+Precision: 0.5869 @ 7.9593, Recall:   0.5359 @ 7.9593
+True PR:   0.5359 @ 7.9593, False PR: 0.0173 @ 7.9593
+Threshold percentile: 0.965
+Precision: 0.6231 @ 8.2752, Recall:   0.4978 @ 8.2752
+True PR:   0.4978 @ 8.2752, False PR: 0.0138 @ 8.2752
+Threshold percentile: 0.970
+Precision: 0.6587 @ 8.5854, Recall:   0.4511 @ 8.5854
+True PR:   0.4511 @ 8.5854, False PR: 0.0107 @ 8.5854
+Threshold percentile: 0.975
+Precision: 0.7029 @ 8.9803, Recall:   0.4011 @ 8.9803
+True PR:   0.4011 @ 8.9803, False PR: 0.0078 @ 8.9803
+Threshold percentile: 0.980
+Precision: 0.7690 @ 9.4550, Recall:   0.3511 @ 9.4550
+True PR:   0.3511 @ 9.4550, False PR: 0.0048 @ 9.4550
+Threshold percentile: 0.985
+Precision: 0.7937 @ 10.2205, Recall:   0.2717 @ 10.2205
+True PR:   0.2717 @ 10.2205, False PR: 0.0032 @ 10.2205
+Threshold percentile: 0.990
+Precision: 0.8381 @ 11.2292, Recall:   0.1913 @ 11.2292
+True PR:   0.1913 @ 11.2292, False PR: 0.0017 @ 11.2292
+Threshold percentile: 0.995
+Precision: 0.8762 @ 12.8438, Recall:   0.1000 @ 12.8438
+True PR:   0.1000 @ 12.8438, False PR: 0.0006 @ 12.8438
+AUC: 0.925494
+
+With zero bias: -0.0002033933103085084
+Threshold 0 at prediction percentile: 0.3635
+Precision: 0.0671 @ 0.0, Recall:   0.9750 @ 0.0
+True PR:   0.9750 @ 0.0, False PR: 0.6210 @ 0.0
+Test Runtime is 294.510598 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-25-.ckpt
+using prediction of original version only
+Checked label stats of asml4:
+#all labels: 21000
+#negative 20069, 95.567%
+#positive   931, 4.433%
+Predictions of 20 negative samples:
+[ 3.2839177   4.651931   -1.110501    1.1500568   1.2017305   2.1141088
+ -3.9982657   3.7932675   1.761942    4.363614    3.0174592   2.0850947
+ -3.3734784   0.6006193   5.9521284   6.0178347  -0.17571065  4.0209465
+  3.143874    0.8013042 ]
+Predictions of 20 positive samples:
+[16.483944   7.979109  10.754597  10.287003  16.08033   10.021325
+  4.594638  16.881792   2.788505   4.241127  10.170717   8.875742
+ 13.934646  12.465473   8.67171    3.0180082 16.570332   6.889489
+  9.375315  10.930495 ]
+Threshold percentile: 0.950
+Precision: 0.5562 @ 8.6746, Recall:   0.6273 @ 8.6746
+True PR:   0.6273 @ 8.6746, False PR: 0.0232 @ 8.6746
+Threshold percentile: 0.955
+Precision: 0.5873 @ 8.9819, Recall:   0.5961 @ 8.9819
+True PR:   0.5961 @ 8.9819, False PR: 0.0194 @ 8.9819
+Threshold percentile: 0.960
+Precision: 0.6214 @ 9.3265, Recall:   0.5607 @ 9.3265
+True PR:   0.5607 @ 9.3265, False PR: 0.0158 @ 9.3265
+Threshold percentile: 0.965
+Precision: 0.6653 @ 9.5946, Recall:   0.5252 @ 9.5946
+True PR:   0.5252 @ 9.5946, False PR: 0.0123 @ 9.5946
+Threshold percentile: 0.970
+Precision: 0.6968 @ 9.9964, Recall:   0.4715 @ 9.9964
+True PR:   0.4715 @ 9.9964, False PR: 0.0095 @ 9.9964
+Threshold percentile: 0.975
+Precision: 0.7352 @ 10.3660, Recall:   0.4146 @ 10.3660
+True PR:   0.4146 @ 10.3660, False PR: 0.0069 @ 10.3660
+Threshold percentile: 0.980
+Precision: 0.7714 @ 10.9956, Recall:   0.3480 @ 10.9956
+True PR:   0.3480 @ 10.9956, False PR: 0.0048 @ 10.9956
+Threshold percentile: 0.985
+Precision: 0.8159 @ 11.7604, Recall:   0.2760 @ 11.7604
+True PR:   0.2760 @ 11.7604, False PR: 0.0029 @ 11.7604
+Threshold percentile: 0.990
+Precision: 0.8619 @ 12.9116, Recall:   0.1944 @ 12.9116
+True PR:   0.1944 @ 12.9116, False PR: 0.0014 @ 12.9116
+Threshold percentile: 0.995
+Precision: 0.9143 @ 14.5495, Recall:   0.1031 @ 14.5495
+True PR:   0.1031 @ 14.5495, False PR: 0.0004 @ 14.5495
+AUC: 0.930190
+
+With zero bias: -0.0008491050004962766
+Threshold 0 at prediction percentile: 0.3005
+Precision: 0.0621 @ 0.0, Recall:   0.9796 @ 0.0
+True PR:   0.9796 @ 0.0, False PR: 0.6865 @ 0.0
+Test Runtime is 278.770816 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-35-.ckpt
+using prediction of original version only
+Checked label stats of asml4:
+#all labels: 21000
+#negative 20074, 95.590%
+#positive   926, 4.410%
+Predictions of 20 negative samples:
+[-5.391403  -1.4591292  4.6499023  6.3014956  3.8492618  8.486804
+  2.0985188 -0.4226882  8.439447   2.366687   4.0498924  2.395045
+  2.6906042  5.0913215 -0.5359009 -2.8028824  6.678344   1.0608516
+  0.0914619  9.702307 ]
+Predictions of 20 positive samples:
+[18.497665   5.829541   7.9322457 14.78566   12.1457615 18.460638
+  6.0772133 18.533619  13.705855   6.7950773  6.9214907 18.11836
+  9.264756  12.658382  11.353617  16.216337  10.904985   5.1644077
+ 16.659014   3.0958474]
+Threshold percentile: 0.950
+Precision: 0.5762 @ 9.1125, Recall:   0.6533 @ 9.1125
+True PR:   0.6533 @ 9.1125, False PR: 0.0222 @ 9.1125
+Threshold percentile: 0.955
+Precision: 0.6000 @ 9.4239, Recall:   0.6123 @ 9.4239
+True PR:   0.6123 @ 9.4239, False PR: 0.0188 @ 9.4239
+Threshold percentile: 0.960
+Precision: 0.6238 @ 9.7890, Recall:   0.5659 @ 9.7890
+True PR:   0.5659 @ 9.7890, False PR: 0.0157 @ 9.7890
+Threshold percentile: 0.965
+Precision: 0.6735 @ 10.1578, Recall:   0.5346 @ 10.1578
+True PR:   0.5346 @ 10.1578, False PR: 0.0120 @ 10.1578
+Threshold percentile: 0.970
+Precision: 0.7238 @ 10.6146, Recall:   0.4924 @ 10.6146
+True PR:   0.4924 @ 10.6146, False PR: 0.0087 @ 10.6146
+Threshold percentile: 0.975
+Precision: 0.7714 @ 11.1017, Recall:   0.4374 @ 11.1017
+True PR:   0.4374 @ 11.1017, False PR: 0.0060 @ 11.1017
+Threshold percentile: 0.980
+Precision: 0.7905 @ 11.6226, Recall:   0.3585 @ 11.6226
+True PR:   0.3585 @ 11.6226, False PR: 0.0044 @ 11.6226
+Threshold percentile: 0.985
+Precision: 0.8349 @ 12.5657, Recall:   0.2840 @ 12.5657
+True PR:   0.2840 @ 12.5657, False PR: 0.0026 @ 12.5657
+Threshold percentile: 0.990
+Precision: 0.8714 @ 13.6960, Recall:   0.1976 @ 13.6960
+True PR:   0.1976 @ 13.6960, False PR: 0.0013 @ 13.6960
+Threshold percentile: 0.995
+Precision: 0.9143 @ 15.4903, Recall:   0.1037 @ 15.4903
+True PR:   0.1037 @ 15.4903, False PR: 0.0004 @ 15.4903
+AUC: 0.936541
+
+With zero bias: 0.0021894615590572156
+Threshold 0 at prediction percentile: 0.3085
+Precision: 0.0628 @ 0.0, Recall:   0.9849 @ 0.0
+True PR:   0.9849 @ 0.0, False PR: 0.6779 @ 0.0
+Test Runtime is 280.293023 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-45-.ckpt
+using prediction of original version only
+Checked label stats of asml4:
+#all labels: 21000
+#negative 20073, 95.586%
+#positive   927, 4.414%
+Predictions of 20 negative samples:
+[ 1.8400621   1.2598608   2.4199877   7.0292835   2.0758455   7.7211657
+  1.9540383   3.3979378   4.087109    0.97003216  5.4074674  -1.3346342
+  2.6876512   0.44148678  3.278345    3.9981155   2.2967088   0.85430515
+ -2.2281094  -5.649303  ]
+Predictions of 20 positive samples:
+[ 8.0692005 16.45691   14.664768  18.878075  19.893324  10.733977
+  9.605848  10.105129  16.096884  10.163918  13.327627   9.811642
+ 16.819025  12.014208   7.697444   7.6640687 19.240004   6.0901275
+  8.578493  16.167936 ]
+Threshold percentile: 0.950
+Precision: 0.5714 @ 9.8287, Recall:   0.6472 @ 9.8287
+True PR:   0.6472 @ 9.8287, False PR: 0.0224 @ 9.8287
+Threshold percentile: 0.955
+Precision: 0.5989 @ 10.1873, Recall:   0.6106 @ 10.1873
+True PR:   0.6106 @ 10.1873, False PR: 0.0189 @ 10.1873
+Threshold percentile: 0.960
+Precision: 0.6345 @ 10.5144, Recall:   0.5750 @ 10.5144
+True PR:   0.5750 @ 10.5144, False PR: 0.0153 @ 10.5144
+Threshold percentile: 0.965
+Precision: 0.6776 @ 10.9007, Recall:   0.5372 @ 10.9007
+True PR:   0.5372 @ 10.9007, False PR: 0.0118 @ 10.9007
+Threshold percentile: 0.970
+Precision: 0.7222 @ 11.3461, Recall:   0.4908 @ 11.3461
+True PR:   0.4908 @ 11.3461, False PR: 0.0087 @ 11.3461
+Threshold percentile: 0.975
+Precision: 0.7638 @ 11.8711, Recall:   0.4326 @ 11.8711
+True PR:   0.4326 @ 11.8711, False PR: 0.0062 @ 11.8711
+Threshold percentile: 0.980
+Precision: 0.7952 @ 12.5130, Recall:   0.3603 @ 12.5130
+True PR:   0.3603 @ 12.5130, False PR: 0.0043 @ 12.5130
+Threshold percentile: 0.985
+Precision: 0.8254 @ 13.3973, Recall:   0.2805 @ 13.3973
+True PR:   0.2805 @ 13.3973, False PR: 0.0027 @ 13.3973
+Threshold percentile: 0.990
+Precision: 0.8667 @ 14.6406, Recall:   0.1963 @ 14.6406
+True PR:   0.1963 @ 14.6406, False PR: 0.0014 @ 14.6406
+Threshold percentile: 0.995
+Precision: 0.9048 @ 16.4123, Recall:   0.1025 @ 16.4123
+True PR:   0.1025 @ 16.4123, False PR: 0.0005 @ 16.4123
+AUC: 0.938078
+
+With zero bias: 0.002882645698264757
+Threshold 0 at prediction percentile: 0.2775
+Precision: 0.0604 @ 0.0, Recall:   0.9881 @ 0.0
+True PR:   0.9881 @ 0.0, False PR: 0.7102 @ 0.0
+Test Runtime is 281.989820 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model/server/model-49-.ckpt
+using prediction of original version only
+Checked label stats of asml4:
+#all labels: 21000
+#negative 20078, 95.610%
+#positive   922, 4.390%
+Predictions of 20 negative samples:
+[ 1.4817832   7.857113    3.3003302   4.4412127   5.8787374   4.0463924
+  1.5065665   0.62604487  2.6197522  -0.9585691   8.988935    1.7511582
+  2.5425594   4.2592907   4.0650234   4.2333345   3.4966931  12.183647
+  3.8505554  -3.054349  ]
+Predictions of 20 positive samples:
+[ 5.75023508e+00  1.48227005e+01  1.70960255e+01  5.88288593e+00
+  1.36188822e+01  1.12189445e+01  1.72118034e+01  1.44807730e+01
+  6.56218386e+00  5.77086496e+00  1.19094887e+01 -1.23595595e-02
+  1.53125296e+01  9.02017021e+00  1.86252251e+01  7.99675083e+00
+  1.65645332e+01  1.48429441e+01  1.90596352e+01  2.01764259e+01]
+Threshold percentile: 0.950
+Precision: 0.5676 @ 9.8875, Recall:   0.6464 @ 9.8875
+True PR:   0.6464 @ 9.8875, False PR: 0.0226 @ 9.8875
+Threshold percentile: 0.955
+Precision: 0.5937 @ 10.2537, Recall:   0.6085 @ 10.2537
+True PR:   0.6085 @ 10.2537, False PR: 0.0191 @ 10.2537
+Threshold percentile: 0.960
+Precision: 0.6274 @ 10.5945, Recall:   0.5716 @ 10.5945
+True PR:   0.5716 @ 10.5945, False PR: 0.0156 @ 10.5945
+Threshold percentile: 0.965
+Precision: 0.6707 @ 10.9783, Recall:   0.5347 @ 10.9783
+True PR:   0.5347 @ 10.9783, False PR: 0.0121 @ 10.9783
+Threshold percentile: 0.970
+Precision: 0.7143 @ 11.4064, Recall:   0.4881 @ 11.4064
+True PR:   0.4881 @ 11.4064, False PR: 0.0090 @ 11.4064
+Threshold percentile: 0.975
+Precision: 0.7562 @ 11.9559, Recall:   0.4306 @ 11.9559
+True PR:   0.4306 @ 11.9559, False PR: 0.0064 @ 11.9559
+Threshold percentile: 0.980
+Precision: 0.7976 @ 12.5992, Recall:   0.3633 @ 12.5992
+True PR:   0.3633 @ 12.5992, False PR: 0.0042 @ 12.5992
+Threshold percentile: 0.985
+Precision: 0.8349 @ 13.4858, Recall:   0.2852 @ 13.4858
+True PR:   0.2852 @ 13.4858, False PR: 0.0026 @ 13.4858
+Threshold percentile: 0.990
+Precision: 0.8667 @ 14.7277, Recall:   0.1974 @ 14.7277
+True PR:   0.1974 @ 14.7277, False PR: 0.0014 @ 14.7277
+Threshold percentile: 0.995
+Precision: 0.9143 @ 16.6755, Recall:   0.1041 @ 16.6755
+True PR:   0.1041 @ 16.6755, False PR: 0.0004 @ 16.6755
+AUC: 0.936505
+
+With zero bias: 0.0038208829760566494
+Threshold 0 at prediction percentile: 0.2780
+Precision: 0.0600 @ 0.0, Recall:   0.9870 @ 0.0
+True PR:   0.9870 @ 0.0, False PR: 0.7098 @ 0.0
+Test Runtime is 284.647167 seconds

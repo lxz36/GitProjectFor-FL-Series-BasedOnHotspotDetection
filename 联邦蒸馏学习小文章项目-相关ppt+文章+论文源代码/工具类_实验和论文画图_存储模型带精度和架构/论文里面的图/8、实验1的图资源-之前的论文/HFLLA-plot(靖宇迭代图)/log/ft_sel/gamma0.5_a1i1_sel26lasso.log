@@ -1,0 +1,17 @@
+Testing server on asml1
+[Step=  50] | Loss=0.17128 | acc=0.9134 | tpr=0.8791 | fpr=0.0121 | 4692.9 samples/s | 18.3 steps/s
+Avg test loss: 0.18056, Avg test acc: 0.91085, Avg tpr: 0.87667, Avg fpr: 0.01397, total FA: 109
+
+Testing server on iccad2012
+[Step=  50] | Loss=0.43728 | acc=0.9070 | tpr=0.9602 | fpr=0.0939 | 4608.3 samples/s | 18.0 steps/s
+[Step= 100] | Loss=0.44494 | acc=0.9066 | tpr=0.9723 | fpr=0.0947 | 8156.1 samples/s | 31.9 steps/s
+[Step= 150] | Loss=0.45478 | acc=0.9070 | tpr=0.9784 | fpr=0.0944 | 8469.5 samples/s | 33.1 steps/s
+[Step= 200] | Loss=0.45914 | acc=0.9069 | tpr=0.9781 | fpr=0.0944 | 8418.4 samples/s | 32.9 steps/s
+[Step= 250] | Loss=0.45756 | acc=0.9069 | tpr=0.9729 | fpr=0.0943 | 5216.0 samples/s | 20.4 steps/s
+[Step= 300] | Loss=0.46020 | acc=0.9065 | tpr=0.9731 | fpr=0.0947 | 8396.5 samples/s | 32.8 steps/s
+[Step= 350] | Loss=0.46277 | acc=0.9061 | tpr=0.9737 | fpr=0.0951 | 8000.4 samples/s | 31.3 steps/s
+[Step= 400] | Loss=0.46729 | acc=0.9054 | tpr=0.9726 | fpr=0.0958 | 8570.3 samples/s | 33.5 steps/s
+[Step= 450] | Loss=0.47077 | acc=0.9051 | tpr=0.9718 | fpr=0.0961 | 8688.8 samples/s | 33.9 steps/s
+[Step= 500] | Loss=0.47133 | acc=0.9050 | tpr=0.9718 | fpr=0.0962 | 7948.6 samples/s | 31.0 steps/s
+[Step= 550] | Loss=0.46870 | acc=0.9055 | tpr=0.9725 | fpr=0.0957 | 16078.5 samples/s | 62.8 steps/s
+Avg test loss: 0.46803, Avg test acc: 0.90552, Avg tpr: 0.97266, Avg fpr: 0.09570, total FA: 13288

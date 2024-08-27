@@ -1,0 +1,42 @@
+loading test data from: /research/byu2/rchen/proj/wwy/benchmarks/asml1/test/label.csv
+loading data into the main memory...
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM-rho1e-1/server/model-aver-round5.ckpt
+using prediction of original version only
+Threshold percentage: 0.600000
+Precision: 0.7893 @ 0.5400, Recall: 0.6976 @ 0.5400
+Threshold percentage: 0.650000
+Precision: 0.7780 @ 0.5200, Recall: 0.7346 @ 0.5200
+Threshold percentage: 0.700000
+Precision: 0.7622 @ 0.4900, Recall: 0.7850 @ 0.4900
+Threshold percentage: 0.800000
+Precision: 0.7388 @ 0.4400, Recall: 0.8556 @ 0.4400
+Threshold percentage: 0.850000
+Precision: 0.7232 @ 0.4000, Recall: 0.8992 @ 0.4000
+Threshold percentage: 0.950000
+Precision: 0.7010 @ 0.3100, Recall: 0.9664 @ 0.3100
+AUC: 0.698587
+Average Precision (.5:.95) : 0.74876
+Average Recall (.5:.95): 0.82307
+Test Runtime is 79.842899 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM-rho1e-1/server/model-aver-round10.ckpt
+using prediction of original version only
+Threshold percentage: 0.600000
+Precision: 0.9118 @ 0.5900, Recall: 0.7958 @ 0.5900
+Threshold percentage: 0.650000
+Precision: 0.8936 @ 0.3400, Recall: 0.8443 @ 0.3400
+AUC: 0.861994
+Average Precision (.5:.95) : 0.90271
+Average Recall (.5:.95): 0.82004
+Test Runtime is 79.236698 seconds
+
+
+using model /research/byu2/rchen/proj/wwy/jp/model-ADMM-rho1e-1/server/model-aver-round15.ckpt
+using prediction of original version only
+AUC: 0.746960
+Average Precision (.5:.95) : nan
+Average Recall (.5:.95): nan
+Test Runtime is 75.395041 seconds

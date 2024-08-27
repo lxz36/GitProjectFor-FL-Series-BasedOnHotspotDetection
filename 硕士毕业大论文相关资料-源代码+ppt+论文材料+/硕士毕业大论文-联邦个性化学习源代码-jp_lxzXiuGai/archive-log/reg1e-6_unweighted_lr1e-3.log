@@ -1,0 +1,243 @@
+Total num clients: 4
+client model path: ['/research/byu2/rchen/proj/wwy/jp/model/client_asml1_0', '/research/byu2/rchen/proj/wwy/jp/model/client_asml1_1', '/research/byu2/rchen/proj/wwy/jp/model/client_iccad2012_0', '/research/byu2/rchen/proj/wwy/jp/model/client_iccad2012_1']
+client benchmark path: {'asml1': '/research/byu2/rchen/proj/wwy/jp/benchmarks/asml1_train', 'asml2': '/research/byu2/rchen/proj/wwy/jp/benchmarks/asml2_train', 'asml3': '/research/byu2/rchen/proj/wwy/jp/benchmarks/asml3_train', 'asml4': '/research/byu2/rchen/proj/wwy/jp/benchmarks/asml4_train', 'iccad2012': '/research/byu2/rchen/proj/wwy/jp/benchmarks/iccad2012_train'}
+loading data into the main memory...
+Allocated dataset with size (24958, 144, 32)
+Resampled dataset to size (32814, 144, 32)
+Using transform option: train
+Allocated dataset with size (24958, 144, 32)
+Resampled dataset to size (32737, 144, 32)
+Using transform option: train
+loading data into the main memory...
+Allocated dataset with size (9150, 144, 32)
+Resampled dataset to size (16703, 144, 32)
+Using transform option: train
+Allocated dataset with size (9150, 144, 32)
+Resampled dataset to size (16626, 144, 32)
+Using transform option: train
+loading data into the main memory...
+Allocated dataset with size (24958, 144, 32)
+Using transform option: test
+loading data into the main memory...
+Allocated dataset with size (141372, 144, 32)
+Using transform option: test
+Using device: cuda
+
+server round 0/20
+
+clients selected: [1 3]
+
+Train client 1: client_asml1_1
+Restoring client from server.
+[Step=  50 Epoch= 0.1] | Loss=0.29943 | L2_reg=0.00010 | acc=0.6681 | 1161.0 samples/s | 18.1 steps/s
+[Step= 100 Epoch= 0.2] | Loss=0.26273 | L2_reg=0.00010 | acc=0.7278 | 2878.7 samples/s | 45.0 steps/s
+[Step= 150 Epoch= 0.3] | Loss=0.24252 | L2_reg=0.00010 | acc=0.7582 | 2682.2 samples/s | 41.9 steps/s
+[Step= 200 Epoch= 0.4] | Loss=0.22646 | L2_reg=0.00010 | acc=0.7794 | 2811.1 samples/s | 43.9 steps/s
+[Step= 250 Epoch= 0.5] | Loss=0.21672 | L2_reg=0.00010 | acc=0.7917 | 2850.1 samples/s | 44.5 steps/s
+[Step= 300 Epoch= 0.6] | Loss=0.20776 | L2_reg=0.00011 | acc=0.8030 | 2909.0 samples/s | 45.5 steps/s
+[Step= 350 Epoch= 0.7] | Loss=0.20054 | L2_reg=0.00011 | acc=0.8113 | 2908.0 samples/s | 45.4 steps/s
+[Step= 400 Epoch= 0.8] | Loss=0.19488 | L2_reg=0.00011 | acc=0.8180 | 2779.6 samples/s | 43.4 steps/s
+[Step= 450 Epoch= 0.9] | Loss=0.18973 | L2_reg=0.00011 | acc=0.8241 | 2840.9 samples/s | 44.4 steps/s
+[Step= 500 Epoch= 1.0] | Loss=0.18486 | L2_reg=0.00011 | acc=0.8299 | 3693.0 samples/s | 57.7 steps/s
+[Step= 550 Epoch= 1.1] | Loss=0.18043 | L2_reg=0.00011 | acc=0.8348 | 1301.2 samples/s | 20.3 steps/s
+[Step= 600 Epoch= 1.2] | Loss=0.17677 | L2_reg=0.00011 | acc=0.8388 | 2787.3 samples/s | 43.6 steps/s
+[Step= 650 Epoch= 1.3] | Loss=0.17314 | L2_reg=0.00011 | acc=0.8427 | 2807.5 samples/s | 43.9 steps/s
+[Step= 700 Epoch= 1.4] | Loss=0.17027 | L2_reg=0.00011 | acc=0.8462 | 2817.7 samples/s | 44.0 steps/s
+[Step= 750 Epoch= 1.5] | Loss=0.16766 | L2_reg=0.00011 | acc=0.8494 | 2831.1 samples/s | 44.2 steps/s
+[Step= 800 Epoch= 1.6] | Loss=0.16505 | L2_reg=0.00012 | acc=0.8520 | 2882.2 samples/s | 45.0 steps/s
+[Step= 850 Epoch= 1.7] | Loss=0.16244 | L2_reg=0.00012 | acc=0.8544 | 2894.9 samples/s | 45.2 steps/s
+[Step= 900 Epoch= 1.8] | Loss=0.15976 | L2_reg=0.00012 | acc=0.8572 | 2865.6 samples/s | 44.8 steps/s
+[Step= 950 Epoch= 1.9] | Loss=0.15769 | L2_reg=0.00012 | acc=0.8596 | 2850.0 samples/s | 44.5 steps/s
+[Step=1000 Epoch= 2.0] | Loss=0.15589 | L2_reg=0.00012 | acc=0.8614 | 3107.1 samples/s | 48.5 steps/s
+
+Train client 3: client_iccad2012_1
+Restoring client from server.
+[Step=  50 Epoch= 0.2] | Loss=0.17327 | L2_reg=0.00011 | acc=0.8259 | 2101.6 samples/s | 32.8 steps/s
+[Step= 100 Epoch= 0.4] | Loss=0.10405 | L2_reg=0.00011 | acc=0.9034 | 4784.4 samples/s | 74.8 steps/s
+[Step= 150 Epoch= 0.6] | Loss=0.07576 | L2_reg=0.00011 | acc=0.9310 | 4678.5 samples/s | 73.1 steps/s
+[Step= 200 Epoch= 0.8] | Loss=0.06084 | L2_reg=0.00011 | acc=0.9455 | 4699.2 samples/s | 73.4 steps/s
+[Step= 250 Epoch= 1.0] | Loss=0.05055 | L2_reg=0.00011 | acc=0.9549 | 5537.0 samples/s | 86.5 steps/s
+[Step= 300 Epoch= 1.2] | Loss=0.04353 | L2_reg=0.00011 | acc=0.9614 | 1518.2 samples/s | 23.7 steps/s
+[Step= 350 Epoch= 1.3] | Loss=0.03828 | L2_reg=0.00011 | acc=0.9662 | 4743.2 samples/s | 74.1 steps/s
+[Step= 400 Epoch= 1.5] | Loss=0.03428 | L2_reg=0.00011 | acc=0.9699 | 4788.6 samples/s | 74.8 steps/s
+[Step= 450 Epoch= 1.7] | Loss=0.03079 | L2_reg=0.00011 | acc=0.9731 | 4759.4 samples/s | 74.4 steps/s
+[Step= 500 Epoch= 1.9] | Loss=0.02846 | L2_reg=0.00012 | acc=0.9753 | 5090.0 samples/s | 79.5 steps/s
+[Step= 550 Epoch= 2.1] | Loss=0.02640 | L2_reg=0.00012 | acc=0.9772 | 1529.9 samples/s | 23.9 steps/s
+[Step= 600 Epoch= 2.3] | Loss=0.02436 | L2_reg=0.00012 | acc=0.9790 | 4765.9 samples/s | 74.5 steps/s
+[Step= 650 Epoch= 2.5] | Loss=0.02252 | L2_reg=0.00012 | acc=0.9807 | 4645.8 samples/s | 72.6 steps/s
+[Step= 700 Epoch= 2.7] | Loss=0.02103 | L2_reg=0.00012 | acc=0.9820 | 4563.6 samples/s | 71.3 steps/s
+[Step= 750 Epoch= 2.9] | Loss=0.01991 | L2_reg=0.00012 | acc=0.9830 | 4677.6 samples/s | 73.1 steps/s
+[Step= 800 Epoch= 3.1] | Loss=0.01890 | L2_reg=0.00012 | acc=0.9839 | 1653.6 samples/s | 25.8 steps/s
+[Step= 850 Epoch= 3.3] | Loss=0.01806 | L2_reg=0.00012 | acc=0.9847 | 4357.5 samples/s | 68.1 steps/s
+[Step= 900 Epoch= 3.5] | Loss=0.01712 | L2_reg=0.00012 | acc=0.9855 | 4482.7 samples/s | 70.0 steps/s
+[Step= 950 Epoch= 3.7] | Loss=0.01624 | L2_reg=0.00012 | acc=0.9862 | 4524.1 samples/s | 70.7 steps/s
+[Step=1000 Epoch= 3.8] | Loss=0.01547 | L2_reg=0.00012 | acc=0.9869 | 4759.6 samples/s | 74.4 steps/s
+
+Start Fed Avg...
+Merging layer: conv1_1.0
+Merging layer: conv1_2.0
+Merging layer: conv2_1.0
+Merging layer: conv2_2.0
+Merging layer: fc1.0
+Merging layer: final_fc
+
+Testing server on asml1
+[Step=  50] | Loss=0.18411 | acc=0.8688 | tpr=0.8925 | fpr=0.1829 | 4758.9 samples/s | 18.6 steps/s
+Avg test loss: 0.18337, Avg test acc: 0.87054, Avg tpr: 0.89106, Avg fpr: 0.17459, total FA: 1362
+
+Testing server on iccad2012
+[Step=  50] | Loss=0.71811 | acc=0.1309 | tpr=0.6018 | fpr=0.8776 | 4693.4 samples/s | 18.3 steps/s
+[Step= 100] | Loss=0.71445 | acc=0.1327 | tpr=0.5672 | fpr=0.8755 | 9791.3 samples/s | 38.2 steps/s
+[Step= 150] | Loss=0.71447 | acc=0.1327 | tpr=0.5749 | fpr=0.8755 | 9446.5 samples/s | 36.9 steps/s
+[Step= 200] | Loss=0.71450 | acc=0.1330 | tpr=0.5770 | fpr=0.8751 | 9910.5 samples/s | 38.7 steps/s
+[Step= 250] | Loss=0.71409 | acc=0.1332 | tpr=0.5799 | fpr=0.8750 | 9081.5 samples/s | 35.5 steps/s
+[Step= 300] | Loss=0.71415 | acc=0.1330 | tpr=0.5789 | fpr=0.8752 | 10101.8 samples/s | 39.5 steps/s
+[Step= 350] | Loss=0.71439 | acc=0.1326 | tpr=0.5704 | fpr=0.8753 | 9403.4 samples/s | 36.7 steps/s
+[Step= 400] | Loss=0.71408 | acc=0.1333 | tpr=0.5711 | fpr=0.8747 | 9694.9 samples/s | 37.9 steps/s
+[Step= 450] | Loss=0.71414 | acc=0.1331 | tpr=0.5721 | fpr=0.8749 | 9186.3 samples/s | 35.9 steps/s
+[Step= 500] | Loss=0.71424 | acc=0.1327 | tpr=0.5744 | fpr=0.8753 | 9335.7 samples/s | 36.5 steps/s
+[Step= 550] | Loss=0.71432 | acc=0.1327 | tpr=0.5758 | fpr=0.8753 | 17709.0 samples/s | 69.2 steps/s
+Avg test loss: 0.71440, Avg test acc: 0.13265, Avg tpr: 0.57647, Avg fpr: 0.87542, total FA: 121550
+
+server round 1/20
+
+clients selected: [1 2]
+
+Train client 1: client_asml1_1
+Restoring client from server.
+[Step=1050 Epoch= 2.1] | Loss=0.15063 | L2_reg=0.00012 | acc=0.8734 | 1408.0 samples/s | 22.0 steps/s
+[Step=1100 Epoch= 2.2] | Loss=0.14122 | L2_reg=0.00012 | acc=0.8811 | 2913.8 samples/s | 45.5 steps/s
+[Step=1150 Epoch= 2.2] | Loss=0.13577 | L2_reg=0.00012 | acc=0.8858 | 2792.3 samples/s | 43.6 steps/s
+[Step=1200 Epoch= 2.3] | Loss=0.13199 | L2_reg=0.00012 | acc=0.8893 | 2909.7 samples/s | 45.5 steps/s
+[Step=1250 Epoch= 2.4] | Loss=0.13011 | L2_reg=0.00012 | acc=0.8915 | 2855.7 samples/s | 44.6 steps/s
+[Step=1300 Epoch= 2.5] | Loss=0.12744 | L2_reg=0.00013 | acc=0.8936 | 2856.2 samples/s | 44.6 steps/s
+[Step=1350 Epoch= 2.6] | Loss=0.12523 | L2_reg=0.00013 | acc=0.8958 | 2807.3 samples/s | 43.9 steps/s
+[Step=1400 Epoch= 2.7] | Loss=0.12301 | L2_reg=0.00013 | acc=0.8973 | 2902.7 samples/s | 45.4 steps/s
+[Step=1450 Epoch= 2.8] | Loss=0.12096 | L2_reg=0.00013 | acc=0.8994 | 2831.1 samples/s | 44.2 steps/s
+[Step=1500 Epoch= 2.9] | Loss=0.11927 | L2_reg=0.00013 | acc=0.9010 | 3802.6 samples/s | 59.4 steps/s
+[Step=1550 Epoch= 3.0] | Loss=0.11761 | L2_reg=0.00013 | acc=0.9030 | 1352.4 samples/s | 21.1 steps/s
+[Step=1600 Epoch= 3.1] | Loss=0.11701 | L2_reg=0.00013 | acc=0.9036 | 2723.0 samples/s | 42.5 steps/s
+[Step=1650 Epoch= 3.2] | Loss=0.11497 | L2_reg=0.00014 | acc=0.9052 | 2809.1 samples/s | 43.9 steps/s
+[Step=1700 Epoch= 3.3] | Loss=0.11480 | L2_reg=0.00014 | acc=0.9057 | 2877.9 samples/s | 45.0 steps/s
+[Step=1750 Epoch= 3.4] | Loss=0.11410 | L2_reg=0.00014 | acc=0.9063 | 2945.2 samples/s | 46.0 steps/s
+[Step=1800 Epoch= 3.5] | Loss=0.11310 | L2_reg=0.00014 | acc=0.9071 | 2545.0 samples/s | 39.8 steps/s
+[Step=1850 Epoch= 3.6] | Loss=0.11238 | L2_reg=0.00014 | acc=0.9077 | 2668.2 samples/s | 41.7 steps/s
+[Step=1900 Epoch= 3.7] | Loss=0.11195 | L2_reg=0.00014 | acc=0.9083 | 2703.2 samples/s | 42.2 steps/s
+[Step=1950 Epoch= 3.8] | Loss=0.11102 | L2_reg=0.00014 | acc=0.9093 | 2546.1 samples/s | 39.8 steps/s
+[Step=2000 Epoch= 3.9] | Loss=0.11018 | L2_reg=0.00014 | acc=0.9100 | 3038.1 samples/s | 47.5 steps/s
+
+Train client 2: client_iccad2012_0
+Restoring client from server.
+[Step=  50 Epoch= 0.2] | Loss=0.13494 | L2_reg=0.00011 | acc=0.8847 | 1259.0 samples/s | 19.7 steps/s
+[Step= 100 Epoch= 0.4] | Loss=0.08998 | L2_reg=0.00011 | acc=0.9280 | 2774.8 samples/s | 43.4 steps/s
+[Step= 150 Epoch= 0.6] | Loss=0.06726 | L2_reg=0.00011 | acc=0.9469 | 2844.9 samples/s | 44.5 steps/s
+[Step= 200 Epoch= 0.8] | Loss=0.05657 | L2_reg=0.00011 | acc=0.9558 | 2746.8 samples/s | 42.9 steps/s
+[Step= 250 Epoch= 1.0] | Loss=0.04945 | L2_reg=0.00011 | acc=0.9617 | 3652.4 samples/s | 57.1 steps/s
+[Step= 300 Epoch= 1.1] | Loss=0.04310 | L2_reg=0.00012 | acc=0.9672 | 1308.1 samples/s | 20.4 steps/s
+[Step= 350 Epoch= 1.3] | Loss=0.03860 | L2_reg=0.00012 | acc=0.9706 | 2734.8 samples/s | 42.7 steps/s
+[Step= 400 Epoch= 1.5] | Loss=0.03516 | L2_reg=0.00012 | acc=0.9734 | 2706.0 samples/s | 42.3 steps/s
+[Step= 450 Epoch= 1.7] | Loss=0.03293 | L2_reg=0.00012 | acc=0.9752 | 2807.2 samples/s | 43.9 steps/s
+[Step= 500 Epoch= 1.9] | Loss=0.03032 | L2_reg=0.00012 | acc=0.9773 | 3106.5 samples/s | 48.5 steps/s
+[Step= 550 Epoch= 2.1] | Loss=0.02860 | L2_reg=0.00012 | acc=0.9786 | 1351.5 samples/s | 21.1 steps/s
+[Step= 600 Epoch= 2.3] | Loss=0.02691 | L2_reg=0.00012 | acc=0.9800 | 2841.0 samples/s | 44.4 steps/s
+[Step= 650 Epoch= 2.5] | Loss=0.02534 | L2_reg=0.00012 | acc=0.9812 | 2759.0 samples/s | 43.1 steps/s
+[Step= 700 Epoch= 2.7] | Loss=0.02407 | L2_reg=0.00012 | acc=0.9822 | 2795.7 samples/s | 43.7 steps/s
+[Step= 750 Epoch= 2.9] | Loss=0.02308 | L2_reg=0.00012 | acc=0.9829 | 2779.9 samples/s | 43.4 steps/s
+[Step= 800 Epoch= 3.1] | Loss=0.02256 | L2_reg=0.00012 | acc=0.9834 | 1438.7 samples/s | 22.5 steps/s
+[Step= 850 Epoch= 3.3] | Loss=0.02161 | L2_reg=0.00012 | acc=0.9842 | 2839.0 samples/s | 44.4 steps/s
+[Step= 900 Epoch= 3.4] | Loss=0.02072 | L2_reg=0.00012 | acc=0.9849 | 2712.9 samples/s | 42.4 steps/s
+[Step= 950 Epoch= 3.6] | Loss=0.01994 | L2_reg=0.00012 | acc=0.9854 | 2920.0 samples/s | 45.6 steps/s
+[Step=1000 Epoch= 3.8] | Loss=0.01913 | L2_reg=0.00012 | acc=0.9860 | 2661.3 samples/s | 41.6 steps/s
+
+Start Fed Avg...
+Merging layer: conv1_1.0
+Merging layer: conv1_2.0
+Merging layer: conv2_1.0
+Merging layer: conv2_2.0
+Merging layer: fc1.0
+Merging layer: final_fc
+
+Testing server on asml1
+[Step=  50] | Loss=0.33072 | acc=0.5638 | tpr=0.3849 | fpr=0.0476 | 4652.7 samples/s | 18.2 steps/s
+Avg test loss: 0.33073, Avg test acc: 0.56291, Avg tpr: 0.38340, Avg fpr: 0.04230, total FA: 330
+
+Testing server on iccad2012
+[Step=  50] | Loss=0.25446 | acc=0.7795 | tpr=0.8496 | fpr=0.2218 | 4693.5 samples/s | 18.3 steps/s
+[Step= 100] | Loss=0.25357 | acc=0.7801 | tpr=0.8614 | fpr=0.2214 | 9454.7 samples/s | 36.9 steps/s
+[Step= 150] | Loss=0.25419 | acc=0.7798 | tpr=0.8602 | fpr=0.2217 | 9518.7 samples/s | 37.2 steps/s
+[Step= 200] | Loss=0.25400 | acc=0.7806 | tpr=0.8579 | fpr=0.2208 | 9649.7 samples/s | 37.7 steps/s
+[Step= 250] | Loss=0.25382 | acc=0.7813 | tpr=0.8594 | fpr=0.2201 | 9669.8 samples/s | 37.8 steps/s
+[Step= 300] | Loss=0.25403 | acc=0.7812 | tpr=0.8575 | fpr=0.2201 | 9182.0 samples/s | 35.9 steps/s
+[Step= 350] | Loss=0.25433 | acc=0.7803 | tpr=0.8541 | fpr=0.2210 | 9701.6 samples/s | 37.9 steps/s
+[Step= 400] | Loss=0.25440 | acc=0.7806 | tpr=0.8528 | fpr=0.2207 | 9487.8 samples/s | 37.1 steps/s
+[Step= 450] | Loss=0.25449 | acc=0.7807 | tpr=0.8549 | fpr=0.2206 | 9719.9 samples/s | 38.0 steps/s
+[Step= 500] | Loss=0.25454 | acc=0.7806 | tpr=0.8612 | fpr=0.2209 | 9140.1 samples/s | 35.7 steps/s
+[Step= 550] | Loss=0.25452 | acc=0.7806 | tpr=0.8623 | fpr=0.2208 | 18000.0 samples/s | 70.3 steps/s
+Avg test loss: 0.25447, Avg test acc: 0.78083, Avg tpr: 0.86252, Avg fpr: 0.22065, total FA: 30637
+
+server round 2/20
+
+clients selected: [1 2]
+
+Train client 1: client_asml1_1
+Restoring client from server.
+[Step=2050 Epoch= 4.0] | Loss=0.14593 | L2_reg=0.00013 | acc=0.8750 | 1406.6 samples/s | 22.0 steps/s
+[Step=2100 Epoch= 4.1] | Loss=0.13018 | L2_reg=0.00013 | acc=0.8894 | 2878.6 samples/s | 45.0 steps/s
+[Step=2150 Epoch= 4.2] | Loss=0.12426 | L2_reg=0.00013 | acc=0.8949 | 3063.9 samples/s | 47.9 steps/s
+[Step=2200 Epoch= 4.3] | Loss=0.12060 | L2_reg=0.00013 | acc=0.8984 | 2599.9 samples/s | 40.6 steps/s
+[Step=2250 Epoch= 4.4] | Loss=0.11935 | L2_reg=0.00013 | acc=0.9005 | 3021.5 samples/s | 47.2 steps/s
+[Step=2300 Epoch= 4.5] | Loss=0.11657 | L2_reg=0.00014 | acc=0.9029 | 2755.5 samples/s | 43.1 steps/s
+[Step=2350 Epoch= 4.6] | Loss=0.11546 | L2_reg=0.00014 | acc=0.9037 | 2875.0 samples/s | 44.9 steps/s
+[Step=2400 Epoch= 4.7] | Loss=0.11375 | L2_reg=0.00014 | acc=0.9051 | 2871.1 samples/s | 44.9 steps/s
+[Step=2450 Epoch= 4.8] | Loss=0.11190 | L2_reg=0.00014 | acc=0.9063 | 2798.2 samples/s | 43.7 steps/s
+[Step=2500 Epoch= 4.9] | Loss=0.11044 | L2_reg=0.00014 | acc=0.9083 | 3689.9 samples/s | 57.7 steps/s
+[Step=2550 Epoch= 5.0] | Loss=0.10935 | L2_reg=0.00014 | acc=0.9096 | 1308.7 samples/s | 20.4 steps/s
+[Step=2600 Epoch= 5.1] | Loss=0.10770 | L2_reg=0.00014 | acc=0.9110 | 2914.9 samples/s | 45.5 steps/s
+[Step=2650 Epoch= 5.2] | Loss=0.10699 | L2_reg=0.00014 | acc=0.9118 | 2694.6 samples/s | 42.1 steps/s
+[Step=2700 Epoch= 5.3] | Loss=0.10602 | L2_reg=0.00014 | acc=0.9127 | 2846.0 samples/s | 44.5 steps/s
+[Step=2750 Epoch= 5.4] | Loss=0.10505 | L2_reg=0.00015 | acc=0.9132 | 2837.5 samples/s | 44.3 steps/s
+[Step=2800 Epoch= 5.5] | Loss=0.10359 | L2_reg=0.00015 | acc=0.9146 | 2846.3 samples/s | 44.5 steps/s
+[Step=2850 Epoch= 5.6] | Loss=0.10250 | L2_reg=0.00015 | acc=0.9156 | 2935.7 samples/s | 45.9 steps/s
+[Step=2900 Epoch= 5.7] | Loss=0.10151 | L2_reg=0.00015 | acc=0.9166 | 2825.7 samples/s | 44.2 steps/s
+[Step=2950 Epoch= 5.8] | Loss=0.10054 | L2_reg=0.00015 | acc=0.9175 | 2867.6 samples/s | 44.8 steps/s
+[Step=3000 Epoch= 5.9] | Loss=0.10021 | L2_reg=0.00015 | acc=0.9180 | 3103.9 samples/s | 48.5 steps/s
+
+Train client 2: client_iccad2012_0
+Restoring client from server.
+[Step=1050 Epoch= 4.0] | Loss=0.04644 | L2_reg=0.00013 | acc=0.9694 | 1384.1 samples/s | 21.6 steps/s
+[Step=1100 Epoch= 4.2] | Loss=0.03419 | L2_reg=0.00013 | acc=0.9766 | 2771.6 samples/s | 43.3 steps/s
+[Step=1150 Epoch= 4.4] | Loss=0.03025 | L2_reg=0.00013 | acc=0.9786 | 2775.2 samples/s | 43.4 steps/s
+[Step=1200 Epoch= 4.6] | Loss=0.02458 | L2_reg=0.00013 | acc=0.9829 | 2823.2 samples/s | 44.1 steps/s
+[Step=1250 Epoch= 4.8] | Loss=0.02183 | L2_reg=0.00013 | acc=0.9851 | 3617.0 samples/s | 56.5 steps/s
+[Step=1300 Epoch= 5.0] | Loss=0.01962 | L2_reg=0.00013 | acc=0.9866 | 1281.9 samples/s | 20.0 steps/s
+[Step=1350 Epoch= 5.2] | Loss=0.01809 | L2_reg=0.00014 | acc=0.9875 | 2829.9 samples/s | 44.2 steps/s
+[Step=1400 Epoch= 5.4] | Loss=0.01658 | L2_reg=0.00014 | acc=0.9886 | 2880.9 samples/s | 45.0 steps/s
+[Step=1450 Epoch= 5.6] | Loss=0.01525 | L2_reg=0.00014 | acc=0.9893 | 2842.7 samples/s | 44.4 steps/s
+[Step=1500 Epoch= 5.7] | Loss=0.01419 | L2_reg=0.00014 | acc=0.9900 | 2993.9 samples/s | 46.8 steps/s
+[Step=1550 Epoch= 5.9] | Loss=0.01359 | L2_reg=0.00014 | acc=0.9906 | 1375.4 samples/s | 21.5 steps/s
+[Step=1600 Epoch= 6.1] | Loss=0.01264 | L2_reg=0.00014 | acc=0.9913 | 2779.5 samples/s | 43.4 steps/s
+[Step=1650 Epoch= 6.3] | Loss=0.01186 | L2_reg=0.00014 | acc=0.9918 | 2763.8 samples/s | 43.2 steps/s
+[Step=1700 Epoch= 6.5] | Loss=0.01155 | L2_reg=0.00014 | acc=0.9921 | 2916.4 samples/s | 45.6 steps/s
+[Step=1750 Epoch= 6.7] | Loss=0.01099 | L2_reg=0.00014 | acc=0.9925 | 2749.0 samples/s | 43.0 steps/s
+[Step=1800 Epoch= 6.9] | Loss=0.01058 | L2_reg=0.00014 | acc=0.9928 | 1467.4 samples/s | 22.9 steps/s
+[Step=1850 Epoch= 7.1] | Loss=0.01011 | L2_reg=0.00014 | acc=0.9931 | 2694.4 samples/s | 42.1 steps/s
+[Step=1900 Epoch= 7.3] | Loss=0.00968 | L2_reg=0.00014 | acc=0.9934 | 2740.6 samples/s | 42.8 steps/s
+[Step=1950 Epoch= 7.5] | Loss=0.00950 | L2_reg=0.00014 | acc=0.9935 | 2787.6 samples/s | 43.6 steps/s
+[Step=2000 Epoch= 7.7] | Loss=0.00929 | L2_reg=0.00014 | acc=0.9936 | 2810.5 samples/s | 43.9 steps/s
+
+Start Fed Avg...
+Merging layer: conv1_1.0
+Merging layer: conv1_2.0
+Merging layer: conv2_1.0
+Merging layer: conv2_2.0
+Merging layer: fc1.0
+Merging layer: final_fc
+
+Testing server on asml1
+[Step=  50] | Loss=0.45454 | acc=0.4882 | tpr=0.2683 | fpr=0.0342 | 4718.8 samples/s | 18.4 steps/s
+Avg test loss: 0.45519, Avg test acc: 0.48622, Avg tpr: 0.26700, Avg fpr: 0.03166, total FA: 247
+
+Testing server on iccad2012
+[Step=  50] | Loss=0.17439 | acc=0.8711 | tpr=0.8982 | fpr=0.1294 | 4762.0 samples/s | 18.6 steps/s
+[Step= 100] | Loss=0.17403 | acc=0.8722 | tpr=0.9041 | fpr=0.1284 | 9244.2 samples/s | 36.1 steps/s
+[Step= 150] | Loss=0.17477 | acc=0.8712 | tpr=0.9063 | fpr=0.1294 | 9711.2 samples/s | 37.9 steps/s

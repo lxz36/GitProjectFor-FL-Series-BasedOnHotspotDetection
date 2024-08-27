@@ -1,0 +1,217 @@
+FileNotFoundError: [Errno 2] No such file or directory: '/research/byu2/rchen/proj/wwy/benchmarks/asml1/test\\label.csv'
+
+2个全连接层的CNN神经网络参数配置：
+Using device: cuda
+conv1_1.0.weight torch.Size([16, 26, 3, 3])
+conv1_1.0.bias torch.Size([16])
+conv1_2.0.weight torch.Size([16, 16, 3, 3])
+conv1_2.0.bias torch.Size([16])
+conv2_1.0.weight torch.Size([32, 16, 3, 3])
+conv2_1.0.bias torch.Size([32])
+conv2_2.0.weight torch.Size([32, 32, 3, 3])
+conv2_2.0.bias torch.Size([32])
+fc1.0.weight torch.Size([250, 288])
+fc1.0.bias torch.Size([250])
+final_fc.weight torch.Size([2, 250])
+final_fc.bias torch.Size([2])
+
+3个全连接层的CNN神经网络参数配置：
+Using device: cuda
+conv1_1.0.weight torch.Size([16, 26, 3, 3])
+conv1_1.0.bias torch.Size([16])
+conv1_2.0.weight torch.Size([16, 16, 3, 3])
+conv1_2.0.bias torch.Size([16])
+conv2_1.0.weight torch.Size([32, 16, 3, 3])
+conv2_1.0.bias torch.Size([32])
+conv2_2.0.weight torch.Size([32, 32, 3, 3])
+conv2_2.0.bias torch.Size([32])
+fc1.0.weight torch.Size([250, 288])
+fc1.0.bias torch.Size([250])
+fc2.0.weight torch.Size([250, 250])
+fc2.0.bias torch.Size([250])
+final_fc.weight torch.Size([2, 250])
+final_fc.bias torch.Size([2])
+
+avg_name_sum=['conv1_1.0.weight', 'conv1_1.0.bias', 'conv1_2.0.weight', 'conv1_2.0.bias', 'conv2_1.0.weight', 'conv2_1.0.bias', 'conv2_2.0.weight', 'conv2_2.0.bias', 'fc1.0.weight', 'fc1.0.bias']
+
+
+selected_client_num    =10
+args.n_asml1   =5
+client_selected         =[0 1 2 3 4 5 6 7 8 9]
+
+clients_num   总的节点数量
+
+client_idx in client_selected:
+
+模型异构时，2个节点同步的情况：
+Testing model\client_asml1_0 on asml1
+[Step=  50] | Loss=0.06235 | acc=0.9633 | tpr=0.9691 | fpr=0.0493 | 11050.3 samples/s | 43.2 steps/s
+Avg test loss: 0.06540, Avg test acc: 0.96242, Avg tpr: 0.96899, Avg fpr: 0.05204, total FA: 406Testing model\client_asml1_0 on asml1
+[Step=  50] | Loss=0.06235 | acc=0.9633 | tpr=0.9691 | fpr=0.0493 | 11050.3 samples/s | 43.2 steps/s
+Avg test loss: 0.06540, Avg test acc: 0.96242, Avg tpr: 0.96899, Avg fpr: 0.05204, total FA: 406
+
+Testing model\client_iccad2012_0 on iccad2012
+Avg test loss: 0.08262, Avg test acc: 0.97812, Avg tpr: 0.97029, Avg fpr: 0.02174, total FA: 3018
+
+模型异构时，4个节点同步的情况：
+
+Testing model\client_asml1_0 on asml1
+[Step=  50] | Loss=0.06394 | acc=0.9649 | tpr=0.9734 | fpr=0.0535 | 10894.3 samples/s | 42.6 steps/s
+Avg test loss: 0.06729, Avg test acc: 0.96366, Avg tpr: 0.97226, Avg fpr: 0.05525, total FA: 431
+
+Testing model\client_asml1_1 on asml1
+[Step=  50] | Loss=0.06607 | acc=0.9661 | tpr=0.9744 | fpr=0.0520 | 11009.6 samples/s | 43.0 steps/s
+Avg test loss: 0.06887, Avg test acc: 0.96402, Avg tpr: 0.97231, Avg fpr: 0.05422, total FA: 423
+
+Testing model\client_iccad2012_0 on iccad2012
+Avg test loss: 0.09040, Avg test acc: 0.98245, Avg tpr: 0.95880, Avg fpr: 0.01712, total FA: 2377
+
+Testing model\client_iccad2012_1 on iccad2012
+Avg test loss: 0.09321, Avg test acc: 0.98135, Avg tpr: 0.96395, Avg fpr: 0.01834, total FA: 2546
+
+模型异构时，10个节点同步的情况：
+Testing model\client_iccad2012_0 on iccad2012
+[Step=  50] | Loss=0.13769 | acc=0.9725 | tpr=0.9558 | fpr=0.0272 | 10747.3 samples/s | 42.0 steps/s
+[Step= 100] | Loss=0.14331 | acc=0.9715 | tpr=0.9680 | fpr=0.0285 | 10741.9 samples/s | 42.0 steps/s
+[Step= 150] | Loss=0.14867 | acc=0.9706 | tpr=0.9683 | fpr=0.0294 | 11186.6 samples/s | 43.7 steps/s
+[Step= 200] | Loss=0.15157 | acc=0.9709 | tpr=0.9727 | fpr=0.0291 | 10867.6 samples/s | 42.5 steps/s
+[Step= 250] | Loss=0.15127 | acc=0.9705 | tpr=0.9703 | fpr=0.0295 | 11136.7 samples/s | 43.5 steps/s
+[Step= 300] | Loss=0.15370 | acc=0.9701 | tpr=0.9709 | fpr=0.0299 | 10965.9 samples/s | 42.8 steps/s
+[Step= 350] | Loss=0.15407 | acc=0.9699 | tpr=0.9706 | fpr=0.0301 | 11048.6 samples/s | 43.2 steps/s
+[Step= 400] | Loss=0.15493 | acc=0.9696 | tpr=0.9677 | fpr=0.0303 | 10915.0 samples/s | 42.6 steps/s
+[Step= 450] | Loss=0.15679 | acc=0.9695 | tpr=0.9669 | fpr=0.0305 | 10854.0 samples/s | 42.4 steps/s
+[Step= 500] | Loss=0.15687 | acc=0.9695 | tpr=0.9678 | fpr=0.0305 | 11111.3 samples/s | 43.4 steps/s
+[Step= 550] | Loss=0.15592 | acc=0.9698 | tpr=0.9666 | fpr=0.0301 | 11031.9 samples/s | 43.1 steps/s
+Avg test loss: 0.15584, Avg test acc: 0.96982, Avg tpr: 0.96632, Avg fpr: 0.03012, total FA: 4182
+
+Testing model\client_iccad2012_1 on iccad2012
+[Step=  50] | Loss=0.11490 | acc=0.9733 | tpr=0.9381 | fpr=0.0261 | 10818.7 samples/s | 42.3 steps/s
+[Step= 100] | Loss=0.11953 | acc=0.9727 | tpr=0.9531 | fpr=0.0269 | 11053.6 samples/s | 43.2 steps/s
+[Step= 150] | Loss=0.12380 | acc=0.9718 | tpr=0.9568 | fpr=0.0279 | 10968.2 samples/s | 42.8 steps/s
+[Step= 200] | Loss=0.12639 | acc=0.9723 | tpr=0.9596 | fpr=0.0275 | 11060.2 samples/s | 43.2 steps/s
+[Step= 250] | Loss=0.12602 | acc=0.9722 | tpr=0.9581 | fpr=0.0275 | 10829.7 samples/s | 42.3 steps/s
+[Step= 300] | Loss=0.12801 | acc=0.9719 | tpr=0.9578 | fpr=0.0279 | 10828.5 samples/s | 42.3 steps/s
+[Step= 350] | Loss=0.12819 | acc=0.9716 | tpr=0.9593 | fpr=0.0281 | 10916.0 samples/s | 42.6 steps/s
+[Step= 400] | Loss=0.12883 | acc=0.9714 | tpr=0.9562 | fpr=0.0283 | 10947.3 samples/s | 42.8 steps/s
+[Step= 450] | Loss=0.13029 | acc=0.9712 | tpr=0.9562 | fpr=0.0285 | 11096.9 samples/s | 43.3 steps/s
+[Step= 500] | Loss=0.13050 | acc=0.9712 | tpr=0.9564 | fpr=0.0285 | 11250.8 samples/s | 43.9 steps/s
+[Step= 550] | Loss=0.12976 | acc=0.9715 | tpr=0.9550 | fpr=0.0282 | 10786.3 samples/s | 42.1 steps/s
+Avg test loss: 0.12970, Avg test acc: 0.97151, Avg tpr: 0.95483, Avg fpr: 0.02819, total FA: 3914
+
+Testing model\client_iccad2012_2 on iccad2012
+[Step=  50] | Loss=0.13462 | acc=0.9744 | tpr=0.9425 | fpr=0.0251 | 11005.4 samples/s | 43.0 steps/s
+[Step= 100] | Loss=0.13996 | acc=0.9739 | tpr=0.9574 | fpr=0.0257 | 11095.8 samples/s | 43.3 steps/s
+[Step= 150] | Loss=0.14517 | acc=0.9732 | tpr=0.9582 | fpr=0.0266 | 10995.8 samples/s | 43.0 steps/s
+[Step= 200] | Loss=0.14831 | acc=0.9734 | tpr=0.9617 | fpr=0.0264 | 10792.0 samples/s | 42.2 steps/s
+[Step= 250] | Loss=0.14791 | acc=0.9732 | tpr=0.9607 | fpr=0.0265 | 10907.5 samples/s | 42.6 steps/s
+[Step= 300] | Loss=0.15027 | acc=0.9728 | tpr=0.9607 | fpr=0.0270 | 10985.0 samples/s | 42.9 steps/s
+[Step= 350] | Loss=0.15061 | acc=0.9726 | tpr=0.9618 | fpr=0.0272 | 10906.5 samples/s | 42.6 steps/s
+[Step= 400] | Loss=0.15147 | acc=0.9723 | tpr=0.9590 | fpr=0.0274 | 11150.9 samples/s | 43.6 steps/s
+[Step= 450] | Loss=0.15328 | acc=0.9722 | tpr=0.9586 | fpr=0.0275 | 11044.4 samples/s | 43.1 steps/s
+[Step= 500] | Loss=0.15347 | acc=0.9722 | tpr=0.9599 | fpr=0.0276 | 10447.1 samples/s | 40.8 steps/s
+[Step= 550] | Loss=0.15262 | acc=0.9725 | tpr=0.9586 | fpr=0.0272 | 10994.2 samples/s | 42.9 steps/s
+Avg test loss: 0.15254, Avg test acc: 0.97252, Avg tpr: 0.95840, Avg fpr: 0.02722, total FA: 3780
+
+Testing model\client_iccad2012_3 on iccad2012
+[Step=  50] | Loss=0.12881 | acc=0.9768 | tpr=0.9469 | fpr=0.0227 | 10987.0 samples/s | 42.9 steps/s
+[Step= 100] | Loss=0.13371 | acc=0.9754 | tpr=0.9574 | fpr=0.0242 | 10855.1 samples/s | 42.4 steps/s
+[Step= 150] | Loss=0.13872 | acc=0.9748 | tpr=0.9582 | fpr=0.0249 | 10936.8 samples/s | 42.7 steps/s
+[Step= 200] | Loss=0.14190 | acc=0.9750 | tpr=0.9650 | fpr=0.0248 | 10984.4 samples/s | 42.9 steps/s
+[Step= 250] | Loss=0.14156 | acc=0.9749 | tpr=0.9633 | fpr=0.0249 | 11111.2 samples/s | 43.4 steps/s
+[Step= 300] | Loss=0.14386 | acc=0.9744 | tpr=0.9644 | fpr=0.0254 | 10939.3 samples/s | 42.7 steps/s
+[Step= 350] | Loss=0.14418 | acc=0.9742 | tpr=0.9649 | fpr=0.0257 | 10880.5 samples/s | 42.5 steps/s
+[Step= 400] | Loss=0.14504 | acc=0.9740 | tpr=0.9623 | fpr=0.0258 | 10811.4 samples/s | 42.2 steps/s
+[Step= 450] | Loss=0.14691 | acc=0.9739 | tpr=0.9615 | fpr=0.0259 | 10872.0 samples/s | 42.5 steps/s
+[Step= 500] | Loss=0.14696 | acc=0.9739 | tpr=0.9626 | fpr=0.0259 | 11075.0 samples/s | 43.3 steps/s
+[Step= 550] | Loss=0.14620 | acc=0.9741 | tpr=0.9614 | fpr=0.0257 | 10982.7 samples/s | 42.9 steps/s
+Avg test loss: 0.14614, Avg test acc: 0.97408, Avg tpr: 0.96117, Avg fpr: 0.02569, total FA: 3567
+
+Testing model\client_iccad2012_4 on iccad2012
+[Step=  50] | Loss=0.16380 | acc=0.9675 | tpr=0.9558 | fpr=0.0323 | 11056.8 samples/s | 43.2 steps/s
+[Step= 100] | Loss=0.17084 | acc=0.9661 | tpr=0.9701 | fpr=0.0340 | 11092.5 samples/s | 43.3 steps/s
+[Step= 150] | Loss=0.17701 | acc=0.9651 | tpr=0.9712 | fpr=0.0350 | 11012.6 samples/s | 43.0 steps/s
+[Step= 200] | Loss=0.17983 | acc=0.9657 | tpr=0.9749 | fpr=0.0345 | 10997.7 samples/s | 43.0 steps/s
+[Step= 250] | Loss=0.17952 | acc=0.9655 | tpr=0.9729 | fpr=0.0346 | 10706.5 samples/s | 41.8 steps/s
+[Step= 300] | Loss=0.18237 | acc=0.9649 | tpr=0.9731 | fpr=0.0353 | 10783.2 samples/s | 42.1 steps/s
+[Step= 350] | Loss=0.18291 | acc=0.9647 | tpr=0.9724 | fpr=0.0354 | 10846.9 samples/s | 42.4 steps/s
+[Step= 400] | Loss=0.18391 | acc=0.9645 | tpr=0.9699 | fpr=0.0356 | 11003.9 samples/s | 43.0 steps/s
+[Step= 450] | Loss=0.18590 | acc=0.9643 | tpr=0.9698 | fpr=0.0358 | 10896.4 samples/s | 42.6 steps/s
+[Step= 500] | Loss=0.18611 | acc=0.9644 | tpr=0.9700 | fpr=0.0357 | 11032.0 samples/s | 43.1 steps/s
+[Step= 550] | Loss=0.18489 | acc=0.9647 | tpr=0.9686 | fpr=0.0353 | 11014.1 samples/s | 43.0 steps/s
+Avg test loss: 0.18481, Avg test acc: 0.96474, Avg tpr: 0.96830, Avg fpr: 0.03533, total FA: 4905
+
+Process finished with exit code 0
+Testing model\client_asml1_0 on asml1
+[Step=  50] | Loss=0.06891 | acc=0.9603 | tpr=0.9615 | fpr=0.0424 | 10982.1 samples/s | 42.9 steps/s
+Avg test loss: 0.07352, Avg test acc: 0.95845, Avg tpr: 0.96107, Avg fpr: 0.04730, total FA: 369
+
+Testing model\client_asml1_1 on asml1
+[Step=  50] | Loss=0.06729 | acc=0.9630 | tpr=0.9712 | fpr=0.0548 | 10756.6 samples/s | 42.0 steps/s
+Avg test loss: 0.07193, Avg test acc: 0.96186, Avg tpr: 0.97097, Avg fpr: 0.05820, total FA: 454
+
+Testing model\client_asml1_2 on asml1
+[Step=  50] | Loss=0.06585 | acc=0.9623 | tpr=0.9679 | fpr=0.0498 | 11183.0 samples/s | 43.7 steps/s
+Avg test loss: 0.06985, Avg test acc: 0.96069, Avg tpr: 0.96707, Avg fpr: 0.05333, total FA: 416
+
+Testing model\client_asml1_3 on asml1
+[Step=  50] | Loss=0.06430 | acc=0.9630 | tpr=0.9711 | fpr=0.0548 | 10803.0 samples/s | 42.2 steps/s
+Avg test loss: 0.06819, Avg test acc: 0.96198, Avg tpr: 0.97097, Avg fpr: 0.05781, total FA: 451
+
+Testing model\client_asml1_4 on asml1
+[Step=  50] | Loss=0.06735 | acc=0.9604 | tpr=0.9623 | fpr=0.0439 | 10918.3 samples/s | 42.6 steps/s
+Avg test loss: 0.07140, Avg test acc: 0.95885, Avg tpr: 0.96165, Avg fpr: 0.04730, total FA: 369
+
+模型异构时，4个节点异步的情况：
+Testing model\client_asml1_0 on asml1
+[Step=  50] | Loss=0.08517 | acc=0.9664 | tpr=0.9742 | fpr=0.0505 | 10915.5 samples/s | 42.6 steps/s
+Avg test loss: 0.08572, Avg test acc: 0.96614, Avg tpr: 0.97383, Avg fpr: 0.05076, total FA: 396
+
+Testing model\client_asml1_1 on asml1
+[Step=  50] | Loss=0.08098 | acc=0.9666 | tpr=0.9734 | fpr=0.0483 | 10890.5 samples/s | 42.5 steps/s
+Avg test loss: 0.08166, Avg test acc: 0.96622, Avg tpr: 0.97313, Avg fpr: 0.04897, total FA: 382
+
+Testing model\client_iccad2012_0 on iccad2012
+Avg test loss: 0.14057, Avg test acc: 0.97754, Avg tpr: 0.96553, Avg fpr: 0.02224, total FA: 3088
+
+Testing model\client_iccad2012_1 on iccad2012
+Avg test loss: 0.14708, Avg test acc: 0.97722, Avg tpr: 0.96197, Avg fpr: 0.02251, total FA: 3125
+
+#不知道是什么
+asml1_10clients_sy_avg=0.9603660000000002
+iccad_10clients_sy_avg=0.970534
+
+模型异构时，10个节点异步的情况：
+Testing model\client_asml1_0 on asml1
+[Step=  50] | Loss=0.07044 | acc=0.9637 | tpr=0.9690 | fpr=0.0478 | 10851.0 samples/s | 42.4 steps/s
+Avg test loss: 0.07373, Avg test acc: 0.96230, Avg tpr: 0.96806, Avg fpr: 0.05038, total FA: 393
+
+Testing model\client_asml1_1 on asml1
+[Step=  50] | Loss=0.09583 | acc=0.9634 | tpr=0.9767 | fpr=0.0654 | 10829.5 samples/s | 42.3 steps/s
+Avg test loss: 0.09993, Avg test acc: 0.96242, Avg tpr: 0.97587, Avg fpr: 0.06717, total FA: 524
+
+Testing model\client_asml1_2 on asml1
+[Step=  50] | Loss=0.07968 | acc=0.9633 | tpr=0.9700 | fpr=0.0513 | 11049.6 samples/s | 43.2 steps/s
+Avg test loss: 0.08371, Avg test acc: 0.96226, Avg tpr: 0.96888, Avg fpr: 0.05230, total FA: 408
+
+Testing model\client_asml1_3 on asml1
+[Step=  50] | Loss=0.09790 | acc=0.9641 | tpr=0.9764 | fpr=0.0624 | 10741.8 samples/s | 42.0 steps/s
+Avg test loss: 0.10107, Avg test acc: 0.96386, Avg tpr: 0.97599, Avg fpr: 0.06281, total FA: 490
+
+Testing model\client_asml1_4 on asml1
+[Step=  50] | Loss=0.11407 | acc=0.9636 | tpr=0.9702 | fpr=0.0508 | 10199.8 samples/s | 39.8 steps/s
+Avg test loss: 0.11658, Avg test acc: 0.96246, Avg tpr: 0.97004, Avg fpr: 0.05422, total FA: 423
+
+Testing model\client_iccad2012_0 on iccad2012
+Avg test loss: 0.10727, Avg test acc: 0.97456, Avg tpr: 0.95800, Avg fpr: 0.02514, total FA: 3491
+
+Testing model\client_iccad2012_1 on iccad2012
+Avg test loss: 0.11224, Avg test acc: 0.97921, Avg tpr: 0.94453, Avg fpr: 0.02016, total FA: 2799
+
+Testing model\client_iccad2012_2 on iccad2012
+Avg test loss: 0.13392, Avg test acc: 0.97143, Avg tpr: 0.96355, Avg fpr: 0.02843, total FA: 3947
+
+Testing model\client_iccad2012_3 on iccad2012
+Avg test loss: 0.12524, Avg test acc: 0.97735, Avg tpr: 0.95166, Avg fpr: 0.02218, total FA: 3080
+
+Testing model\client_iccad2012_4 on iccad2012
+Avg test loss: 0.11379, Avg test acc: 0.96727, Avg tpr: 0.96870, Avg fpr: 0.03276, total FA: 4548
