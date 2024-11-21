@@ -1,4 +1,4 @@
-# 在源代码上面改动，改为数字和字母的二分类 数字和字母二分类，在iccad数据集和asml数据集上，各自5个节点进行联邦蒸馏学习训练，
+# 在源代码上面改动，改为数字和字母的二分类 数字和字母二分类，在iccad数据集和asml数据集上，各自5个节点进行联邦学习训练，
 import os
 import errno
 import argparse
@@ -7,17 +7,16 @@ import pickle
 
 import numpy as np
 from tensorflow.keras.models import load_model
-
 from data_utils import load_MNIST_data, load_ConvConsistFedMD_data, generate_bal_private_data, \
     generate_partial_data
-from FedMD import FedMD
 
+from FLPER  import  FLPER
 
 def parseArg():
-    parser = argparse.ArgumentParser(description='FedMD, a federated learning framework. \
-    Participants are training collaboratively. ')  # FedMD，一个联邦学习框架。参与者正在合作培训。
+    parser = argparse.ArgumentParser(description='FLPER, a federated learning framework. \
+    Participants are training collaboratively. ')  # FLPER，一个联邦学习框架。参与者正在合作培训。
     parser.add_argument('-conf', metavar='conf_file', nargs=1,
-                        help='the config file for FedMD.'
+                        help='the config file for FLPER.'
                         )  # 用于训练的配置文件，默认的 conf_file 是 ./conf/ConvConsistFedMD_balance_conf.json, \
 
     conf_file = os.path.abspath("conf/ConvConsistFedMD_balance_conf.json")
@@ -49,7 +48,6 @@ if __name__ == "__main__":
         dataSet_reduct_para = conf_dict["dataSet_reduct_para"] #数据集缩小参数 目前为2
         print("系统配置信息为：",conf_dict["configuration_description"])
     del conf_dict, conf_file
-
 
 
     # MNIST数据集加载
@@ -190,7 +188,7 @@ if __name__ == "__main__":
                 parties.append(tmp)
 
 
-        fedmd = FedMD(parties,
+        FLPER = FLPER(parties,
                       public_dataset=public_dataset,
                       private_data=private_data,
                       total_private_data=total_private_data,
@@ -204,10 +202,10 @@ if __name__ == "__main__":
                       private_training_batchsize=private_training_batchsize,
                       asynchronousRate=asynchronousRate)
 
-        initialization_result = fedmd.init_result
-        pooled_train_result = fedmd.pooled_train_result
+        initialization_result = FLPER.init_result
+        pooled_train_result = FLPER.pooled_train_result
 
-        collaboration_performance = fedmd.collaborative_training()
+        collaboration_performance = FLPER.collaborative_training()
 
         # result_save_dir 保存目录的路径
         if result_save_dir is not None:
